@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoanMate - BombayDC Product Builder Challenge Presentation</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: #131b2e;
+      --bg-card-hover: #1c2742;
+      --border-color: #23314d;
+      --primary: #ea580c;
+      --primary-hover: #c2410c;
+      --primary-light: rgba(234, 88, 12, 0.15);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-green: #10b981;
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --accent-amber: #f59e0b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Nav Bar */
+    .header {
+      height: 54px;
+      background: rgba(19, 27, 46, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .brand span {
+      color: var(--primary);
+    }
+
+    .brand-badge {
+      font-size: 10px;
+      font-weight: 600;
+      background: rgba(234, 88, 12, 0.2);
+      color: var(--primary);
+      padding: 2px 8px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .slide-counter {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-nav {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-nav:hover:not(:disabled) {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-nav:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .btn-action {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-action.active {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Presentation Deck Viewport */
+    .deck-container {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      max-width: 1160px;
+      height: 100%;
+      max-height: 640px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 40px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.97) translateY(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1) translateY(0);
+      z-index: 10;
+    }
+
+    /* Slide Content Typography */
+    .slide-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .slide-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .slide-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+    }
+
+    .slide-subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .slide-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      height: 100%;
+      align-items: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    /* Custom Cards & Visual Elements */
+    .card-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.3s;
+    }
+
+    .card-box:hover {
+      border-color: rgba(234, 88, 12, 0.4);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .icon-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .badge-orange { background: rgba(234, 88, 12, 0.2); color: var(--primary); }
+    .badge-green { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+    .badge-blue { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); }
+    .badge-purple { background: rgba(139, 92, 246, 0.2); color: var(--accent-purple); }
+    .badge-amber { background: rgba(245, 158, 11, 0.2); color: var(--accent-amber); }
+
+    .stat-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 38px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* Comparison Table Styling */
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .comp-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-secondary);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .comp-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+    }
+
+    /* Speaker Notes Drawer */
+    .speaker-notes-panel {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 160px;
+      background: #0f172a;
+      border-top: 2px solid var(--primary);
+      padding: 16px 32px;
+      z-index: 200;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+    }
+
+    .speaker-notes-panel.open {
+      transform: translateY(0);
+    }
+
+    .notes-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .notes-content {
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: #cbd5e1;
+      overflow-y: auto;
+    }
+
+    /* Progress bar */
+    .progress-bar {
+      height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--primary);
+      width: 6.66%;
+      transition: width 0.3s ease;
+    }
+
+    /* Title Slide Specifics */
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #ea580c, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 680px;
+      margin-bottom: 24px;
+    }
+
+    .pill-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <div class="header">
+    <div class="brand">
+      LoanMate <span>NBFC</span>
+      <span class="brand-badge">BOMBAYDC Challenge</span>
+    </div>
+
+    <div class="nav-controls">
+      <button class="btn-action" id="btn-notes-toggle" onclick="toggleNotes()">
+        <i data-feather="message-square" width="14" height="14"></i>
+        Talk Track (N)
+      </button>
+
+      <div class="slide-counter" id="slide-counter">Slide 1 of 15</div>
+
+      <button class="btn-nav" id="btn-prev" onclick="prevSlide()" disabled>
+        <i data-feather="chevron-left" width="18" height="18"></i>
+      </button>
+      <button class="btn-nav" id="btn-next" onclick="nextSlide()">
+        <i data-feather="chevron-right" width="18" height="18"></i>
+      </button>
+
+      <button class="btn-action" onclick="toggleFullscreen()">
+        <i data-feather="maximize-2" width="14" height="14"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+
+  <!-- Slide Deck Container -->
+  <div class="deck-container">
+
+    <!-- SLIDE 1: Title Slide -->
+    <div class="slide active" id="slide-1">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Product Pitch Presentation</div>
+          <div class="slide-title">BOMBAYDC Product Builder Challenge</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 12px; color: var(--text-muted);">Duration: 15 Mins</div>
+          <div style="font-size: 13px; font-weight: 700; color: var(--accent-green);">Self-Employed Loan Acquisition</div>
+        </div>
+      </div>
+
+      <div class="slide-body">
+        <div class="hero-title">
+          LoanMate: Turning Loan Application Friction into <span>Confidence &amp; Conversion</span>
+        </div>
+        <div class="hero-desc">
+          Rethinking digital loan acquisition for self-employed Indian entrepreneurs by replacing daunting form barriers with instant eligibility clarity, transparent document guidance, and seamless auto-fill.
+        </div>
+        <div class="pill-list">
+          <div class="pill"><i data-feather="check" width="12" height="12" style="color:var(--accent-green);"></i> 0-Friction Upfront Range</div>
+          <div class="pill"><i data-feather="check" width="12" height="12" style="color:var(--accent-green);"></i> Tailored Document Hub</div>
+          <div class="pill"><i data-feather="check" width="12" height="12" style="color:var(--accent-green);"></i> Silent Smart Auto-Fill</div>
+          <div class="pill"><i data-feather="check" width="12" height="12" style="color:var(--accent-green);"></i> Pre-Approved Sanction</div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Presented by: Product Builder Candidate</div>
+        <div>Use Left / Right Arrows to Navigate</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: Problem & User Context -->
+    <div class="slide" id="slide-2">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">1. Understanding The Problem</div>
+          <div class="slide-title">Who is the User &amp; What is Their Real Friction?</div>
+        </div>
+        <div style="font-size: 13px; font-weight: 600; color: var(--primary);">Target: Self-Employed Business Owners</div>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card-box" style="border-left: 3px solid var(--primary);">
+            <div class="icon-badge badge-orange"><i data-feather="user" width="22" height="22"></i></div>
+            <h3 style="font-size: 18px; margin-bottom: 8px;">User Persona: Rajesh (Hardware Store Owner)</h3>
+            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;">
+              Annual Turnover: ₹45 Lakhs. Non-salaried, irregular cash inflow. Needs ₹5 Lakhs working capital for inventory purchase before festive season.
+            </p>
+            <div style="font-size: 12.5px; color: var(--accent-amber); font-weight: 600;">
+              Real Job-to-be-Done: "Help me evaluate my borrowing power quickly without hurting my credit score or wasting 3 days compiling wrong documents."
+            </div>
+          </div>
+
+          <div class="grid-2" style="gap: 14px;">
+            <div class="card-box">
+              <div class="icon-badge badge-amber"><i data-feather="alert-triangle" width="20" height="20"></i></div>
+              <h4 style="font-size: 14px; margin-bottom: 4px;">Fear of Credit Rejection</h4>
+              <p style="font-size: 12px; color: var(--text-muted);">Self-employed users fear formal rejections damaging their CIBIL score.</p>
+            </div>
+            <div class="card-box">
+              <div class="icon-badge badge-purple"><i data-feather="file-text" width="20" height="20"></i></div>
+              <h4 style="font-size: 14px; margin-bottom: 4px;">Document Confusion</h4>
+              <p style="font-size: 12px; color: var(--text-muted);">Unsure whether 1-year or 3-year ITR or GST certificates are mandatory.</p>
+            </div>
+            <div class="card-box" style="grid-column: span 2;">
+              <div class="icon-badge badge-blue"><i data-feather="lock" width="20" height="20"></i></div>
+              <h4 style="font-size: 14px; margin-bottom: 4px;">Premature Data Demands</h4>
+              <p style="font-size: 12px; color: var(--text-muted);">Being forced to enter PAN, Aadhaar, and Mobile OTP before seeing any loan amount range causes 70%+ bounce rate.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Problem Audit: BombayDC Challenge</div>
+        <div>Slide 2 / 15</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: Current Acquisition Flaws -->
+    <div class="slide" id="slide-3">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">1. Current Funnel Audit</div>
+          <div class="slide-title">Why Traditional NBFC Loan Funnels Fail</div>
+        </div>
+        <div style="font-size: 13px; color: #ef4444; font-weight: 700;">70%+ Drop-off Rate Analysis</div>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="card-box" style="border-top: 3px solid #ef4444;">
+            <div class="icon-badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;"><i data-feather="eye-off" width="20" height="20"></i></div>
+            <h3 style="font-size: 16px; margin-bottom: 8px;">1. The Blind Gatekeeper</h3>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+              Users are demanded to give up private financial details and OTPs without knowing if they qualify for even ₹10,000.
+            </p>
+          </div>
+
+          <div class="card-box" style="border-top: 3px solid #f59e0b;">
+            <div class="icon-badge badge-amber"><i data-feather="help-circle" width="20" height="20"></i></div>
+            <h3 style="font-size: 16px; margin-bottom: 8px;">2. The Document Surprise</h3>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+              Requirements are revealed piecemeal on step 5 of a form. Users drop off because they do not have PDF statements ready on mobile.
+            </p>
+          </div>
+
+          <div class="card-box" style="border-top: 3px solid #8b5cf6;">
+            <div class="icon-badge badge-purple"><i data-feather="box" width="20" height="20"></i></div>
+            <h3 style="font-size: 16px; margin-bottom: 8px;">3. The Black Hole Effect</h3>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+              After submitting, users receive a generic "We will call you in 48 hours" message, triggering anxiety and immediate competitor search.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Acquisition Funnel Bottlenecks</div>
+        <div>Slide 3 / 15</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: Business Goal & Core Proposition -->
+    <div class="slide" id="slide-4">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">1. Strategy &amp; Proposition</div>
+          <div class="slide-title">Business Goal &amp; The Core Proposition</div>
+        </div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--accent-green);">Goal: Qualified Lead Velocity</div>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div style="display: flex; flex-direction: column; justify-content: center;">
+            <div style="font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 8px;">THE CORE PROPOSITION</div>
+            <h2 style="font-family: 'Outfit', sans-serif; font-size: 26px; line-height: 1.3; color: #fff; margin-bottom: 16px;">
+              From "Fill Out This Form" To "Instant Clarity &amp; Guided Sanction"
+            </h2>
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">
+              We eliminate anxiety by showing borrowers their exact eligible range and document checklist <strong>before</strong> asking them to commit to an application.
+            </p>
+          </div>
+
+          <div class="card-box" style="background: rgba(19, 27, 46, 0.9); border: 1px solid var(--primary-hover);">
+            <h3 style="font-size: 16px; color: var(--primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+              <i data-feather="target" width="18" height="18"></i> Target Business Outcomes
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px;">
+                <span style="font-size: 13px; color: var(--text-secondary);">Qualified Application Rate</span>
+                <span style="font-size: 16px; font-weight: 800; color: var(--accent-green);">+45%</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px;">
+                <span style="font-size: 13px; color: var(--text-secondary);">Application Time to Sanction</span>
+                <span style="font-size: 16px; font-weight: 800; color: var(--accent-blue);">&lt; 4 Mins</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 13px; color: var(--text-secondary);">Document Verification Drops</span>
+                <span style="font-size: 16px; font-weight: 800; color: var(--primary);">-65%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Business Impact Mapping</div>
+        <div>Slide 4 / 15</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: The 4-Step Customer Journey -->
+    <div class="slide" id="slide-5">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">2. User Experience Design</div>
+          <div class="slide-title">The 4-Step Customer Acquisition Journey</div>
+        </div>
+        <div style="font-size: 13px; color: var(--text-secondary);">Friction-Free Progressive Disclosure</div>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-4" style="margin-top: 20px;">
+          <div class="card-box" style="text-align: center; border-top: 3px solid var(--primary);">
+            <div class="icon-badge badge-orange" style="margin: 0 auto 12px;"><i data-feather="sliders" width="20" height="20"></i></div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--primary);">STEP 1</div>
+            <h4 style="font-size: 15px; margin: 6px 0;">Instant Range</h4>
+            <p style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">Sliders for turnover &amp; vintage yield instant eligible loan range without asking for PAN/KYC.</p>
+          </div>
+
+          <div class="card-box" style="text-align: center; border-top: 3px solid var(--accent-blue);">
+            <div class="icon-badge badge-blue" style="margin: 0 auto 12px;"><i data-feather="check-square" width="20" height="20"></i></div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--accent-blue);">STEP 2</div>
+            <h4 style="font-size: 15px; margin: 6px 0;">Document Hub</h4>
+            <p style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">Entity-tailored checklist (PAN, GST, 6-12M Statements, ITR) shown right next to eligible amount.</p>
+          </div>
+
+          <div class="card-box" style="text-align: center; border-top: 3px solid var(--accent-purple);">
+            <div class="icon-badge badge-purple" style="margin: 0 auto 12px;"><i data-feather="zap" width="20" height="20"></i></div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--accent-purple);">STEP 3</div>
+            <h4 style="font-size: 15px; margin: 6px 0;">Silent Auto-Fill</h4>
+            <p style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">Uploading documents triggers silent extraction animation and auto-populates editable fields.</p>
+          </div>
+
+          <div class="card-box" style="text-align: center; border-top: 3px solid var(--accent-green);">
+            <div class="icon-badge badge-green" style="margin: 0 auto 12px;"><i data-feather="award" width="20" height="20"></i></div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--accent-green);">STEP 4</div>
+            <h4 style="font-size: 15px; margin: 6px 0;">Instant Sanction</h4>
+            <p style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">Pre-approval confirmation with exact interest rate, EMI calculator, and disbursement SLA.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>End-to-End User Journey Architecture</div>
+        <div>Slide 5 / 15</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: Step 1 Demo - Upfront Eligibility -->
+    <div class="slide" id="slide-6">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">3. Prototype Walkthrough</div>
+          <div class="slide-title">Step 1: Upfront Eligibility Range (Zero-Friction)</div>
+        </div>
+        <div class="pill" style="background: rgba(234, 88, 12, 0.2); color: var(--primary);">Live Prototype Feature</div>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div>
+            <h3 style="font-size: 20px; color: #fff; margin-bottom: 12px;">What The User Experiences:</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--text-secondary);">
+              <li style="display: flex; align-items: flex-start; gap: 10px;">
+                <i data-feather="check-circle" width="18" height="18" style="color: var(--accent-green); flex-shrink: 0; margin-top: 2px;"></i>
+                <span><strong>No Gatekeeping:</strong> Borrower picks monthly turnover slider and business vintage without filling long forms.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 10px;">
+                <i data-feather="check-circle" width="18" height="18" style="color: var(--accent-green); flex-shrink: 0; margin-top: 2px;"></i>
+                <span><strong>Instant Range Calculation:</strong> Loan amount dynamically adjusts (e.g. ₹3 Lakhs – ₹6 Lakhs) with sample monthly payment preview.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 10px;">
+                <i data-feather="check-circle" width="18" height="18" style="color: var(--accent-green); flex-shrink: 0; margin-top: 2px;"></i>
+                <span><strong>Zero Credit Score Impact:</strong> Builds trust by explicitly stating "Checking range does not impact CIBIL score."</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-box" style="background: #0f172a; border: 1px solid var(--border-color); padding: 24px; text-align: center;">
+            <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Eligible Loan Range</div>
+            <div style="font-family: 'Outfit', sans-serif; font-size: 40px; font-weight: 800; color: #fff; margin: 8px 0;">₹3 Lakh - ₹6 Lakh</div>
+            <div style="display: flex; justify-content: space-around; margin-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
+              <div>
+                <div style="font-size: 11px; color: var(--text-muted);">Est. Interest</div>
+                <div style="font-size: 15px; font-weight: 700; color: var(--primary);">1.25% / month</div>
+              </div>
+              <div>
+                <div style="font-size: 11px; color: var(--text-muted);">Sample EMI</div>
+                <div style="font-size: 15px; font-weight: 700; color: var(--accent-green);">₹9,800 / mo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Interactive Prototype: Step 1</div>
+        <div>Slide 6 / 15</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: Step 2 Demo - Tailored Document Hub -->
+    <div class="slide" id="slide-7">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">3. Prototype Walkthrough</div>
+          <div class="slide-title">Step 2: Entity-Tailored Document Checklist</div>
+        </div>
+        <div class="pill" style="background: rgba(59, 130, 246, 0.2); color: var(--accent-blue);">Upfront Preparation</div>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-4" style="gap: 14px;">
+          <div class="card-box" style="text-align: center;">
+            <div class="icon-badge badge-orange" style="margin: 0 auto 10px;"><i data-feather="user" width="18" height="18"></i></div>
+            <h4 style="font-size: 13.5px; margin-bottom: 4px;">1. PAN Card</h4>
+            <div style="font-size: 11.5px; color: var(--text-muted);">Personal &amp; Business KYC verification</div>
+          </div>
+
+          <div class="card-box" style="text-align: center;">
+            <div class="icon-badge badge-green" style="margin: 0 auto 10px;"><i data-feather="award" width="18" height="18"></i></div>
+            <h4 style="font-size: 13.5px; margin-bottom: 4px;">2. GST Certificate</h4>
+            <div style="font-size: 11.5px; color: var(--text-muted);">Proof of active business entity</div>
+          </div>
+
+          <div class="card-box" style="text-align: center;">
+            <div class="icon-badge badge-blue" style="margin: 0 auto 10px;"><i data-feather="credit-card" width="18" height="18"></i></div>
+            <h4 style="font-size: 13.5px; margin-bottom: 4px;">3. 6-12M Bank Statement</h4>
+            <div style="font-size: 11.5px; color: var(--text-muted);">Cash flow &amp; turnover check</div>
+          </div>
+
+          <div class="card-box" style="text-align: center;">
+            <div class="icon-badge badge-amber" style="margin: 0 auto 10px;"><i data-feather="file-text" width="18" height="18"></i></div>
+            <h4 style="font-size: 13.5px; margin-bottom: 4px;">4. 1-3Y ITR / Financials</h4>
+            <div style="font-size: 11.5px; color: var(--text-muted);">Tax &amp; income declaration</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px; background: rgba(255,255,255,0.03); padding: 14px 20px; border-radius: 10px; border: 1px solid var(--border-color); font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 12px;">
+          <i data-feather="info" width="18" height="18" style="color: var(--accent-blue); flex-shrink: 0;"></i>
+          <span><strong>Design Insight:</strong> Placing the document hub directly on the eligibility result screen allows borrowers to gather their documents before clicking "Apply Now", eliminating drop-offs caused by unexpected document requirements mid-form.</span>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Interactive Prototype: Step 2</div>
+        <div>Slide 7 / 15</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: Step 3 Demo - Smart Upload & Extraction -->
+    <div class="slide" id="slide-8">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">3. Prototype Walkthrough</div>
+          <div class="slide-title">Step 3: Seamless Auto-Fill &amp; Extraction</div>
+        </div>
+        <div class="pill" style="background: rgba(139, 92, 246, 0.2); color: var(--accent-purple);">Silent Processing</div>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card-box" style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--accent-purple);">
+            <div style="font-size: 12px; font-weight: 700; color: var(--accent-purple); text-transform: uppercase; margin-bottom: 8px;">Upload &amp; Extract Interaction</div>
+            <h4 style="font-size: 16px; margin-bottom: 12px;">1-Click Demo Trigger for Prototype Testing</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;">
+              Clicking the upload dropzone triggers a 1.2-second pulse animation. The system parses structured data and auto-fills fields across sections smoothly.
+            </p>
+            <div style="display: flex; gap: 10px;">
+              <div class="pill" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-green);"><i data-feather="check" width="12" height="12"></i> Name: Rajesh Kumar</div>
+              <div class="pill" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-green);"><i data-feather="check" width="12" height="12"></i> PAN: ABCDE1234F</div>
+            </div>
+          </div>
+
+          <div>
+            <h3 style="font-size: 18px; color: #fff; margin-bottom: 12px;">Core Principles Implemented:</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color);">
+                <div style="font-size: 13.5px; font-weight: 700; color: #fff;">1. No "AI Gimmick" Branding</div>
+                <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">We do not advertise "AI Smart Scanner". It functions like standard fast document upload.</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color);">
+                <div style="font-size: 13.5px; font-weight: 700; color: #fff;">2. 100% User Editable</div>
+                <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Extracted fields remain fully editable text inputs so borrowers can instantly fix typos.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Interactive Prototype: Step 3</div>
+        <div>Slide 8 / 15</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: Step 4 Demo - Instant Pre-Approval -->
+    <div class="slide" id="slide-9">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">3. Prototype Walkthrough</div>
+          <div class="slide-title">Step 4: Instant Pre-Approval &amp; Sanction</div>
+        </div>
+        <div class="pill" style="background: rgba(16, 185, 129, 0.2); color: var(--accent-green);">Confidence &amp; Trust</div>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div>
+            <div class="icon-badge badge-green"><i data-feather="check-circle" width="24" height="24"></i></div>
+            <h2 style="font-family: 'Outfit', sans-serif; font-size: 26px; color: #fff; margin-bottom: 12px;">
+              Pre-Approved Sanction Generated
+            </h2>
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;">
+              Instead of an uncertain waiting screen, the applicant receives a formal pre-approval summary with loan ID, clear next steps, and dedicated relationship manager contact.
+            </p>
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--accent-green); font-weight: 600;">
+              <i data-feather="shield" width="16" height="16"></i> 100% Encrypted &amp; RBI Compliant Data Protection
+            </div>
+          </div>
+
+          <div class="card-box" style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.3); padding: 24px;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--accent-green); text-transform: uppercase;">SANCTION SUMMARY</div>
+            <div style="font-size: 28px; font-weight: 800; color: #fff; margin: 8px 0;">₹4,50,000</div>
+            <div style="font-size: 12.5px; color: var(--text-secondary); margin-bottom: 16px;">Sanctioned Loan Amount</div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12.5px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px;">
+              <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Tenure:</span> <span>24 Months</span></div>
+              <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Interest Rate:</span> <span>1.2% / month</span></div>
+              <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Disbursement SLA:</span> <span style="color: var(--accent-green); font-weight: 700;">Within 24 Hours</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Interactive Prototype: Step 4</div>
+        <div>Slide 9 / 15</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: Key Decisions & Trade-offs -->
+    <div class="slide" id="slide-10">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">4. Decisions &amp; Trade-offs</div>
+          <div class="slide-title">What We Built vs. What We Deliberately Excluded</div>
+        </div>
+        <div style="font-size: 13px; color: var(--text-secondary);">Product Judgment Matrix</div>
+      </div>
+
+      <div class="slide-body">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th style="width: 50%;">What We Deliberately Built</th>
+              <th style="width: 50%;">What We Explicitly Omitted</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Upfront Range Calculator:</strong> Gives immediate borrowing range before asking for sensitive KYC.</td>
+              <td><strong>Mandatory OTP Login Wall:</strong> Replaced upfront OTP wall with frictionless eligibility exploration.</td>
+            </tr>
+            <tr>
+              <td><strong>Entity-Tailored Document Hub:</strong> Shows exact checklist upfront on the result screen.</td>
+              <td><strong>Generic One-Size-Fits-All Forms:</strong> Excluded uniform checklists that confuse sole proprietors vs Pvt Ltds.</td>
+            </tr>
+            <tr>
+              <td><strong>Silent Processing &amp; Auto-Fill:</strong> Extract document data silently into standard text fields.</td>
+              <td><strong>Flashy "AI Assistant" Overlays:</strong> Omitted chat bots and AI badges that increase user skepticism.</td>
+            </tr>
+            <tr>
+              <td><strong>Single-Page Progressive Flow:</strong> Keeps context intact without confusing multi-page redirects.</td>
+              <td><strong>Deep Multi-Step Wizard:</strong> Removed multi-page step bars that cause cognitive fatigue.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="slide-footer">
+        <div>Product Design Trade-offs</div>
+        <div>Slide 10 / 15</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: Where AI Genuinely Helps -->
+    <div class="slide" id="slide-11">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">4. Role of Artificial Intelligence</div>
+          <div class="slide-title">Where AI Genuinely Helps (and Where It Doesn't)</div>
+        </div>
+        <div style="font-size: 13px; color: var(--accent-purple); font-weight: 700;">Pragmatic AI Utility</div>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card-box" style="border-left: 3px solid var(--accent-purple);">
+            <div class="icon-badge badge-purple"><i data-feather="cpu" width="22" height="22"></i></div>
+            <h3 style="font-size: 17px; margin-bottom: 8px;">Where AI Adds Real Value</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: var(--text-secondary);">
+              <li>• <strong>Document Parsing (OCR &amp; NLP):</strong> Instantly extracting name, GSTIN, and line items from bank statement PDFs.</li>
+              <li>• <strong>Fraud Detection:</strong> Cross-referencing name spellings between PAN and Bank Statements.</li>
+              <li>• <strong>Unstructured Document Formatting:</strong> Converting diverse bank PDF templates into standard JSON schema.</li>
+            </ul>
+          </div>
+
+          <div class="card-box" style="border-left: 3px solid #ef4444;">
+            <div class="icon-badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;"><i data-feather="x-circle" width="22" height="22"></i></div>
+            <h3 style="font-size: 17px; margin-bottom: 8px;">Where AI Is NOT Used (Rule Engine)</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: var(--text-secondary);">
+              <li>• <strong>Credit Score &amp; Loan Eligibility:</strong> Uses deterministic NBFC financial formulas (not LLM halluctionation).</li>
+              <li>• <strong>Form UI Navigation:</strong> Standard predictable UI controls instead of conversational chat bots.</li>
+              <li>• <strong>Regulatory Compliance:</strong> Hardcoded RBI consent text and explicit check boxes.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>AI Strategy Breakdown</div>
+        <div>Slide 11 / 15</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: UX Edge Cases & Resilience -->
+    <div class="slide" id="slide-12">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">4. Product Details &amp; Edge Cases</div>
+          <div class="slide-title">Handling Real-World UX Edge Cases</div>
+        </div>
+        <div style="font-size: 13px; color: var(--accent-amber); font-weight: 700;">System Resilience</div>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="card-box">
+            <div class="icon-badge badge-amber"><i data-feather="alert-triangle" width="20" height="20"></i></div>
+            <h4 style="font-size: 14.5px; margin-bottom: 6px;">1. Blurry / Low Quality PDF</h4>
+            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 10px;">
+              System fails to read document text clearly during extraction.
+            </p>
+            <div style="font-size: 12px; color: var(--accent-green); font-weight: 600;">
+              Fallback: Gentle alert with option to manually fill fields or re-upload clear image.
+            </div>
+          </div>
+
+          <div class="card-box">
+            <div class="icon-badge badge-purple"><i data-feather="user-x" width="20" height="20"></i></div>
+            <h4 style="font-size: 14.5px; margin-bottom: 6px;">2. Name Mismatch Across Docs</h4>
+            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 10px;">
+              PAN card lists "Rajesh Kumar", Bank Statement lists "Rajesh K."
+            </p>
+            <div style="font-size: 12px; color: var(--accent-green); font-weight: 600;">
+              Fallback: Fuzzy matching flags record for background underwriter review without blocking application.
+            </div>
+          </div>
+
+          <div class="card-box">
+            <div class="icon-badge badge-blue"><i data-feather="file-minus" width="20" height="20"></i></div>
+            <h4 style="font-size: 14.5px; margin-bottom: 6px;">3. Missing ITR Returns</h4>
+            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 10px;">
+              Small proprietor does not file formal ITR income returns.
+            </p>
+            <div style="font-size: 12px; color: var(--accent-green); font-weight: 600;">
+              Fallback: Alternate surrogate path evaluating 12-month bank cash inflows.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Edge Case Architecture</div>
+        <div>Slide 12 / 15</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 13: How We Built It -->
+    <div class="slide" id="slide-13">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">5. Build Story &amp; Workflow</div>
+          <div class="slide-title">How We Built It: Human Judgment + AI Tools</div>
+        </div>
+        <div style="font-size: 13px; color: var(--text-secondary);">Execution Breakdown</div>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card-box">
+            <h3 style="font-size: 16px; color: var(--primary); margin-bottom: 12px;">Tools &amp; AI Stack Used</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--text-secondary);">
+              <li>• <strong>Frontend Stack:</strong> HTML5, Vanilla CSS3 (Design Tokens), ES6 JavaScript.</li>
+              <li>• <strong>AI Development Partner:</strong> Antigravity AI Agent for code generation &amp; layout iteration.</li>
+              <li>• <strong>Design System:</strong> Custom BombayDC-inspired glassmorphism design system.</li>
+            </ul>
+          </div>
+
+          <div class="card-box">
+            <h3 style="font-size: 16px; color: var(--accent-green); margin-bottom: 12px;">Division of Labor</h3>
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12.5px;">
+              <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px;">
+                <strong>What Human Did:</strong> Problem analysis, user journey mapping, UX copy, conversion trade-off decisions.
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px;">
+                <strong>What AI Did:</strong> Rapid HTML/CSS component generation, zero-scroll layout math, DOM interaction scripts.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Build Methodology</div>
+        <div>Slide 13 / 15</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 14: Measuring Success -->
+    <div class="slide" id="slide-14">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">6. Success Metrics</div>
+          <div class="slide-title">How We Measure Product Success (4 Key Metrics)</div>
+        </div>
+        <div style="font-size: 13px; color: var(--accent-green); font-weight: 700;">Quantifiable KPIs</div>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-4">
+          <div class="card-box" style="text-align: center; border-top: 3px solid var(--accent-green);">
+            <div class="stat-number" style="color: var(--accent-green);">+45%</div>
+            <div class="stat-label">Qualified Lead Conversion</div>
+            <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 6px;">Percentage of visitors who complete pre-approval.</p>
+          </div>
+
+          <div class="card-box" style="text-align: center; border-top: 3px solid var(--accent-blue);">
+            <div class="stat-number" style="color: var(--accent-blue);">&lt;4m</div>
+            <div class="stat-label">Time to Submit</div>
+            <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 6px;">Reduced from industry average of 14 minutes.</p>
+          </div>
+
+          <div class="card-box" style="text-align: center; border-top: 3px solid var(--primary);">
+            <div class="stat-number" style="color: var(--primary);">-65%</div>
+            <div class="stat-label">Document Error Rate</div>
+            <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 6px;">Fewer rejected or incorrect document uploads.</p>
+          </div>
+
+          <div class="card-box" style="text-align: center; border-top: 3px solid var(--accent-purple);">
+            <div class="stat-number" style="color: var(--accent-purple);">4.8/5</div>
+            <div class="stat-label">Applicant Trust Score</div>
+            <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 6px;">Measured via post-sanction CSAT survey.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Product Performance Framework</div>
+        <div>Slide 14 / 15</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 15: What's Next & Roadmap -->
+    <div class="slide" id="slide-15">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">6. Roadmap &amp; Future Scale</div>
+          <div class="slide-title">What We Would Build Next (3-Phase Expansion)</div>
+        </div>
+        <div style="font-size: 13px; color: var(--primary); font-weight: 700;">Scale Strategy</div>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="card-box" style="border-left: 3px solid var(--primary);">
+            <div class="icon-badge badge-orange"><i data-feather="database" width="20" height="20"></i></div>
+            <h4 style="font-size: 15px; margin-bottom: 6px;">Phase 1: Account Aggregator (AA)</h4>
+            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4;">
+              Integrate RBI Account Aggregator framework for instant OTP-based bank statement fetch, eliminating PDF uploads entirely.
+            </p>
+          </div>
+
+          <div class="card-box" style="border-left: 3px solid var(--accent-blue);">
+            <div class="icon-badge badge-blue"><i data-feather="video" width="20" height="20"></i></div>
+            <h4 style="font-size: 15px; margin-bottom: 6px;">Phase 2: Instant Video KYC</h4>
+            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4;">
+              Add 2-minute automated Video KYC and digital Aadhaar e-Sign for instant agreement execution.
+            </p>
+          </div>
+
+          <div class="card-box" style="border-left: 3px solid var(--accent-green);">
+            <div class="icon-badge badge-green"><i data-feather="link" width="20" height="20"></i></div>
+            <h4 style="font-size: 15px; margin-bottom: 6px;">Phase 3: Co-Lending API Integration</h4>
+            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4;">
+              Connect directly to bank co-lending partners to route pre-approved leads automatically for multi-lender sanction offers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>BombayDC Product Builder Challenge</div>
+        <div>Slide 15 / 15</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Speaker Notes Drawer Panel -->
+  <div class="speaker-notes-panel" id="speaker-notes">
+    <div class="notes-title">
+      <i data-feather="mic" width="14" height="14"></i> Talk Track / Pitch Script
+    </div>
+    <div class="notes-content" id="notes-content">
+      Loading speaker notes...
+    </div>
+  </div>
+
+  <script>
+    // Initialize Feather Icons
+    feather.replace();
+
+    let currentSlide = 1;
+    const totalSlides = 15;
+
+    const talkTracks = {
+      1: "Welcome! Today I am presenting LoanMate—a digital loan acquisition platform built for BombayDC's challenge to solve the high drop-off rate among self-employed borrowers at mid-sized NBFCs.",
+      2: "Let's start with the user. Meet Rajesh, a hardware store owner with ₹45 Lakhs turnover. He needs ₹5 Lakhs working capital before the festive season. His real problem isn't filling forms—it's anxiety about credit score impact and document confusion.",
+      3: "Current NBFC funnels fail because of three friction points: 1) Asking for sensitive details upfront, 2) Surprise document demands mid-form, and 3) A 'black box' process after submission.",
+      4: "Our core business goal is qualified lead velocity. We shift from a daunting form to a transparent confidence engine, targeting a 45% boost in qualified submissions.",
+      5: "Here is our 4-step progressive disclosure journey: 1) Upfront range calculator without KYC, 2) Entity-tailored document hub, 3) Silent smart auto-fill, and 4) Instant pre-approval sanction.",
+      6: "In Step 1 of our prototype, users adjust turnover sliders to instantly preview borrowing ranges (₹3L-₹6L) and sample EMIs without entering PAN or phone numbers.",
+      7: "In Step 2, the document hub is shown directly on the eligibility screen. Borrowers know exactly what they need—PAN, GST, Bank Statements, ITR—before clicking Apply Now.",
+      8: "In Step 3, uploading documents triggers a silent, fast extraction animation. We avoid flashy AI gimmicks—instead, extracted fields auto-fill into standard editable text boxes.",
+      9: "In Step 4, applicants receive an instant pre-approved sanction letter with clear loan terms, 24-hour disbursement SLA, and RBI compliance badges.",
+      10: "Here are our deliberate trade-offs: We built an upfront range calculator and single-page flow, while explicitly omitting mandatory login walls and artificial AI chat bots.",
+      11: "Where does AI genuinely help? It excels at silent OCR document parsing and structured data extraction. Where don't we use it? Credit eligibility logic uses hardcoded financial rules.",
+      12: "We built system resilience for real-world edge cases: low-quality scans prompt manual override, name mismatches trigger fuzzy underwriter matching, and missing ITRs route to bank cash flow analysis.",
+      13: "How we built it: Using HTML5, CSS tokens, and JavaScript alongside Antigravity AI for rapid layout scaffolding while human judgment drove UX copy and conversion trade-offs.",
+      14: "If live, we would track 4 key metrics: +45% qualified lead conversion, under 4-minute submission time, 65% drop in document resubmissions, and a 4.8/5 applicant trust score.",
+      15: "Looking ahead, our 3-phase roadmap includes RBI Account Aggregator API integration for zero-upload bank statement fetch, Video KYC, and direct co-lending partner API routing."
+    };
+
+    function updateSlide() {
+      // Hide all slides
+      document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+      
+      // Show active slide
+      const activeEl = document.getElementById(`slide-${currentSlide}`);
+      if (activeEl) {
+        activeEl.classList.add('active');
+      }
+
+      // Update counter and progress bar
+      document.getElementById('slide-counter').innerText = `Slide ${currentSlide} of ${totalSlides}`;
+      document.getElementById('progress-fill').style.width = `${(currentSlide / totalSlides) * 100}%`;
+
+      // Update button state
+      document.getElementById('btn-prev').disabled = currentSlide === 1;
+      document.getElementById('btn-next').disabled = currentSlide === totalSlides;
+
+      // Update talk track notes
+      document.getElementById('notes-content').innerText = talkTracks[currentSlide] || "No notes for this slide.";
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function toggleNotes() {
+      const panel = document.getElementById('speaker-notes');
+      const btn = document.getElementById('btn-notes-toggle');
+      panel.classList.toggle('open');
+      btn.classList.toggle('active');
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (e.key === 'n' || e.key === 'N') {
+        toggleNotes();
+      }
+    });
+
+    // Initialize first slide
+    updateSlide();
+  </script>
+</body>
+</html>
