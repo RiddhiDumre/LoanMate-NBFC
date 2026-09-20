@@ -2266,6 +2266,9 @@
   <!-- ═══════════════════════════════════════════════════════════════
      SCREEN 4: EXTENDED APPLICATION FORM (Personal, Business, Upload)
 ═══════════════════════════════════════════════════════════════════ -->
+  <!-- ═══════════════════════════════════════════════════════════════
+     SCREEN 4: EXTENDED APPLICATION FORM (Master Self-Employed Checklist)
+═══════════════════════════════════════════════════════════════════ -->
   <div id="screen-form" class="screen">
     <div class="page-wrap">
 
@@ -2278,10 +2281,10 @@
               <i data-feather="briefcase" width="20" height="20"></i>
               <span>LoanMate</span>
             </div>
-            <div class="app-sidebar-title">Loan Application</div>
+            <div class="app-sidebar-title">Self-Employed Loan</div>
             <div class="app-time-estimate">
               <i data-feather="clock" width="14" height="14"></i>
-              Estimated time: 2 mins
+              Estimated time: 3 mins
             </div>
 
             <ul class="v-stepper">
@@ -2293,37 +2296,74 @@
                 <div class="v-step-num">2</div>
                 <div class="v-step-label">Business Details</div>
               </li>
-              <li class="v-step" id="app-step-3" style="cursor:pointer;" onclick="advanceToReview(event)">
+              <li class="v-step" id="app-step-3" style="cursor:pointer;" onclick="document.getElementById('section-financial').scrollIntoView({behavior:'smooth'})">
                 <div class="v-step-num">3</div>
+                <div class="v-step-label">Banking &amp; Financials</div>
+              </li>
+              <li class="v-step" id="app-step-4" style="cursor:pointer;" onclick="document.getElementById('section-purpose').scrollIntoView({behavior:'smooth'})">
+                <div class="v-step-num">4</div>
+                <div class="v-step-label">Purpose &amp; Liabilities</div>
+              </li>
+              <li class="v-step" id="app-step-5" style="cursor:pointer;" onclick="advanceToReview(event)">
+                <div class="v-step-num">5</div>
                 <div class="v-step-label">Summary &amp; Review</div>
               </li>
             </ul>
           </div>
 
-          <div style="font-size:12px; color:var(--text-muted); line-height:1.5;">
-            <i data-feather="shield" width="14" height="14" style="vertical-align:middle; margin-right:4px;"></i>
-            256-bit SSL Encrypted &amp; Confidential
+          <div style="font-size:11.5px; color:var(--text-muted); line-height:1.5;">
+            <i data-feather="shield" width="13" height="13" style="vertical-align:middle; margin-right:4px; color:var(--success);"></i>
+            RBI Digital Lending Compliant &bull; Need-based explicit consent data collection
           </div>
         </div>
 
         <!-- Right Extended Main Panel -->
         <div class="app-card-main">
           <div>
-            <h2 class="h2 mb-4">Complete Your Application</h2>
-            <p class="body-sm mb-28">Upload your documents below to auto-populate your details into the form. All fields remain fully editable.</p>
+            <h2 class="h2 mb-4">Master Business Loan Application</h2>
+            <p class="body-sm mb-20">Tailored specifically for your self-employed business profile. All extracted fields remain 100% editable.</p>
+
+            <!-- Tailored Document Checklist Box -->
+            <div style="background:#fff7ed; border:1px solid #fed7aa; border-radius:14px; padding:18px 20px; margin-bottom:28px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+                <div>
+                  <div style="font-size:15px; font-weight:800; color:#c2410c;">Your Document Checklist — Tailored to You</div>
+                  <div style="font-size:12px; color:#9a3412;">We don't ask for documents that don't apply to your business structure</div>
+                </div>
+                <span style="font-size:11.5px; font-weight:700; color:#c2410c; background:#ffedd5; padding:5px 12px; border-radius:100px;">4 Required &bull; 2 Auto-Found</span>
+              </div>
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px; margin-top:10px;">
+                <div style="background:#ffffff; border:1px solid #ffedd5; border-radius:8px; padding:8px 12px; display:flex; align-items:center; justify-content:space-between;">
+                  <span style="font-size:12.5px; font-weight:600; color:var(--text-primary);">PAN / Identity</span>
+                  <span style="font-size:10.5px; font-weight:700; color:#15803d; background:#dcfce7; padding:2px 8px; border-radius:100px;">✓ Auto-Found</span>
+                </div>
+                <div style="background:#ffffff; border:1px solid #ffedd5; border-radius:8px; padding:8px 12px; display:flex; align-items:center; justify-content:space-between;">
+                  <span style="font-size:12.5px; font-weight:600; color:var(--text-primary);">GST Certificate</span>
+                  <span style="font-size:10.5px; font-weight:700; color:#15803d; background:#dcfce7; padding:2px 8px; border-radius:100px;">✓ Verified</span>
+                </div>
+                <div style="background:#ffffff; border:1px solid #ffedd5; border-radius:8px; padding:8px 12px; display:flex; align-items:center; justify-content:space-between;">
+                  <span style="font-size:12.5px; font-weight:600; color:var(--text-primary);">6-12M Bank Statement</span>
+                  <span style="font-size:10.5px; font-weight:700; color:#c2410c; background:#ffedd5; padding:2px 8px; border-radius:100px;">Upload &amp; Extract</span>
+                </div>
+                <div style="background:#ffffff; border:1px solid #ffedd5; border-radius:8px; padding:8px 12px; display:flex; align-items:center; justify-content:space-between;">
+                  <span style="font-size:12.5px; font-weight:600; color:var(--text-primary);">1-3Y ITR / Financials</span>
+                  <span style="font-size:10.5px; font-weight:700; color:#c2410c; background:#ffedd5; padding:2px 8px; border-radius:100px;">Upload &amp; Extract</span>
+                </div>
+              </div>
+            </div>
 
             <form id="application-form" novalidate onsubmit="advanceToReview(event); return false;">
 
               <!-- SECTION 1: PERSONAL & IDENTITY DETAILS -->
               <div id="section-personal">
                 <div class="section-group-header">
-                  <span class="group-title">1. PERSONAL &amp; IDENTITY DETAILS</span>
+                  <span class="group-title">1. PERSONAL &amp; IDENTITY DETAILS (KYC)</span>
                 </div>
 
                 <!-- Document Upload for Section 1 -->
-                <div class="mb-28">
-                  <label style="font-weight:700; font-size:14px; display:block; margin-bottom:8px; color:var(--text-primary);">
-                    Upload PAN Card Document
+                <div class="mb-24">
+                  <label style="font-weight:700; font-size:13.5px; display:block; margin-bottom:8px; color:var(--text-primary);">
+                    Upload Identity / PAN Card Document
                   </label>
                   <div class="upload-zone" id="upload-zone-pan" onclick="triggerSimulatedUpload('pan')" ondragover="handleDragOver(event,'pan')"
                     ondragleave="handleDragLeave(event,'pan')" ondrop="handleDrop(event,'pan')">
@@ -2335,141 +2375,137 @@
                   <div id="upload-file-pan"></div>
                 </div>
 
-                <!-- Text Boxes for Personal Details (Auto-filled & Editable) -->
+                <!-- Text Fields for Personal Details -->
                 <div class="floating-field" id="field-name">
-                  <label for="inp-name">Full Name</label>
+                  <label for="inp-name">Legal Full Name</label>
                   <input type="text" id="inp-name" placeholder="Priya Sharma" autocomplete="name" />
-                  <div class="field-help">As it appears on your PAN card</div>
-                  <div class="field-error">Name must be at least 3 characters</div>
+                  <div class="field-help">As it appears on your official PAN card</div>
                 </div>
 
                 <div class="form-grid-2">
                   <div class="floating-field" id="field-dob">
                     <label for="inp-dob">Date of Birth</label>
-                    <input type="date" id="inp-dob" />
-                    <div class="field-error">Date of birth is required</div>
+                    <input type="date" id="inp-dob" value="1992-05-14" />
                   </div>
 
+                  <div class="floating-field" id="field-gender">
+                    <label for="inp-gender">Gender</label>
+                    <select id="inp-gender">
+                      <option>Female</option>
+                      <option>Male</option>
+                      <option>Other / Prefer not to say</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-grid-2">
                   <div class="floating-field" id="field-pan">
                     <label for="inp-pan">PAN Number</label>
-                    <input type="text" id="inp-pan" placeholder="ABCPR1992M" maxlength="10"
-                      style="text-transform:uppercase;" />
-                    <div class="field-error">Format: ABCDE1234F</div>
+                    <input type="text" id="inp-pan" placeholder="ABCPR1992M" maxlength="10" style="text-transform:uppercase;" />
+                  </div>
+
+                  <div class="floating-field" id="field-aadhaar">
+                    <label for="inp-aadhaar">Aadhaar / OVD Number</label>
+                    <input type="text" id="inp-aadhaar" placeholder="9876 5432 1098" maxlength="14" />
                   </div>
                 </div>
 
                 <div class="floating-field" id="field-address">
-                  <label for="inp-address">Residential Address</label>
+                  <label for="inp-address">Current Residential Address</label>
                   <input type="text" id="inp-address" placeholder="123 Business Street, Sector 5" />
-                  <div class="field-error">Address is required</div>
                 </div>
 
                 <div class="form-grid-2">
+                  <div class="floating-field" id="field-res-type">
+                    <label for="inp-res-type">Residence Ownership</label>
+                    <select id="inp-res-type">
+                      <option>Owned by Self/Spouse</option>
+                      <option>Rented</option>
+                      <option>Family Owned</option>
+                      <option>Company Provided</option>
+                    </select>
+                  </div>
+
                   <div class="floating-field" id="field-city">
                     <label for="inp-city">City</label>
                     <select id="inp-city">
-                      <option value="">Select City</option>
-                      <option>Ahmedabad</option>
                       <option selected>Mumbai</option>
+                      <option>Ahmedabad</option>
                       <option>Bangalore</option>
-                      <option>Delhi</option>
+                      <option>Delhi NCR</option>
                       <option>Pune</option>
                       <option>Other</option>
                     </select>
-                    <div class="field-error">Please select city</div>
                   </div>
-
-                  <div class="floating-field" id="field-phone">
-                    <label for="inp-phone">Mobile Number</label>
-                    <input type="tel" id="inp-phone" placeholder="9876543210" maxlength="10" />
-                    <div class="field-error">10 digit mobile number required</div>
-                  </div>
-                </div>
-
-                <div class="floating-field" id="field-email">
-                  <label for="inp-email">Email Address</label>
-                  <input type="email" id="inp-email" placeholder="priya.sharma@email.com" />
-                  <div class="field-error">Valid email address required</div>
-                </div>
-              </div>
-
-              <!-- SECTION 2: BUSINESS & FINANCIAL DETAILS -->
-              <div id="section-business" class="mt-36">
-                <div class="section-group-header">
-                  <span class="group-title">2. BUSINESS &amp; FINANCIAL DETAILS</span>
-                </div>
-
-                <!-- Document Upload for Section 2 -->
-                <div class="mb-28">
-                  <label style="font-weight:700; font-size:14px; display:block; margin-bottom:8px; color:var(--text-primary);">
-                    Upload Bank Statement (6 Months)
-                  </label>
-                  <div class="upload-zone" id="upload-zone-bank" onclick="triggerSimulatedUpload('bank')" ondragover="handleDragOver(event,'bank')"
-                    ondragleave="handleDragLeave(event,'bank')" ondrop="handleDrop(event,'bank')">
-                    <input type="file" id="file-bank" accept=".pdf,.jpg,.jpeg,.png" style="pointer-events:none;" onchange="handleFileSelect(event,'bank')" />
-                    <div class="upload-zone-icon"><i data-feather="upload-cloud" width="24" height="24"></i></div>
-                    <div style="font-size:14px; font-weight:700; color:var(--text-primary);">Click to upload 6 Months Bank Statement PDF</div>
-                    <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Accepted: PDF, JPG, PNG (Max 5MB) &bull; Auto-extracts business details below</div>
-                  </div>
-                  <div id="upload-file-bank"></div>
-                </div>
-
-                <!-- Text Boxes for Business Details (Auto-filled & Editable) -->
-                <div class="floating-field" id="field-biz-name">
-                  <label for="inp-biz-name">Business Name</label>
-                  <input type="text" id="inp-biz-name" placeholder="ABC Textiles Private Limited" />
-                  <div class="field-error">Business name is required</div>
                 </div>
 
                 <div class="form-grid-2">
-                  <div class="floating-field" id="field-biz-type">
-                    <label for="inp-biz-type">Type of Business</label>
-                    <select id="inp-biz-type">
-                      <option value="">Select Category</option>
-                      <option>Retail Store</option>
-                      <option>Wholesale Trading</option>
-                      <option>Manufacturing</option>
-                      <option>Service Provider</option>
-                      <option>E-commerce/Online</option>
-                      <option>Food and Beverage</option>
-                      <option>Other</option>
+                  <div class="floating-field" id="field-phone">
+                    <label for="inp-phone">Mobile Number</label>
+                    <input type="tel" id="inp-phone" placeholder="9876543210" maxlength="10" />
+                  </div>
+
+                  <div class="floating-field" id="field-email">
+                    <label for="inp-email">Email Address</label>
+                    <input type="email" id="inp-email" placeholder="priya.sharma@email.com" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- SECTION 2: BUSINESS & REGISTRATION DETAILS -->
+              <div id="section-business" class="mt-36">
+                <div class="section-group-header">
+                  <span class="group-title">2. BUSINESS &amp; REGISTRATION DETAILS</span>
+                </div>
+
+                <div class="floating-field" id="field-biz-name">
+                  <label for="inp-biz-name">Business Legal Name</label>
+                  <input type="text" id="inp-biz-name" placeholder="ABC Textiles Private Limited" />
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="floating-field" id="field-biz-structure">
+                    <label for="inp-biz-structure">Business Structure / Entity</label>
+                    <select id="inp-biz-structure">
+                      <option selected>Sole Proprietorship</option>
+                      <option>Partnership Firm</option>
+                      <option>Limited Liability Partnership (LLP)</option>
+                      <option>Private Limited Company</option>
+                      <option>Other Entity</option>
                     </select>
                   </div>
 
-                  <div class="floating-field" id="field-industry">
-                    <label for="inp-industry">Industry Sector</label>
-                    <select id="inp-industry">
-                      <option value="">Select Industry</option>
-                      <option>Textiles</option>
-                      <option>Electronics</option>
-                      <option>Food and Beverages</option>
-                      <option>Pharmaceuticals</option>
-                      <option>Apparel</option>
-                      <option>Others</option>
+                  <div class="floating-field" id="field-biz-type">
+                    <label for="inp-biz-type">Category of Operation</label>
+                    <select id="inp-biz-type">
+                      <option selected>Retail Store</option>
+                      <option>Wholesale Trading</option>
+                      <option>Manufacturing</option>
+                      <option>Services</option>
+                      <option>Professional Practice</option>
+                      <option>E-commerce / Online</option>
                     </select>
                   </div>
                 </div>
 
                 <div class="form-grid-2">
                   <div class="floating-field" id="field-biz-age">
-                    <label for="inp-biz-age">Years in Operation</label>
+                    <label for="inp-biz-age">Business Vintage (Years)</label>
                     <select id="inp-biz-age">
-                      <option value="">Select Duration</option>
+                      <option>3 to 5 years</option>
                       <option>Less than 1 year</option>
                       <option>1 to 3 years</option>
-                      <option>3 to 5 years</option>
                       <option>5 or more years</option>
                     </select>
                   </div>
 
-                  <div class="floating-field" id="field-revenue">
-                    <label for="inp-revenue">Monthly Revenue</label>
-                    <select id="inp-revenue">
-                      <option value="">Select Monthly Income</option>
-                      <option>INR 25,000 to 50,000</option>
-                      <option>INR 50,000 to 1 lakh</option>
-                      <option>INR 1 lakh to 3 lakh</option>
-                      <option>INR 3 lakh or more</option>
+                  <div class="floating-field" id="field-premises">
+                    <label for="inp-premises">Premises Type</label>
+                    <select id="inp-premises">
+                      <option>Rented Commercial</option>
+                      <option>Owned Commercial</option>
+                      <option>Leased</option>
+                      <option>Home Based</option>
                     </select>
                   </div>
                 </div>
@@ -2478,17 +2514,215 @@
                   <div class="floating-field" id="field-gst-status">
                     <label for="inp-gst-status">GST Registration</label>
                     <select id="inp-gst-status">
-                      <option value="">Select Status</option>
-                      <option>Yes, registered</option>
+                      <option selected>Yes, registered</option>
                       <option>No, not registered</option>
-                      <option>Unsure</option>
+                      <option>Exempted category</option>
                     </select>
                   </div>
 
                   <div class="floating-field" id="field-gst">
                     <label for="inp-gst">GSTIN</label>
-                    <input type="text" id="inp-gst" placeholder="27ABCPR1992M1Z0" maxlength="15"
-                      style="text-transform:uppercase;" />
+                    <input type="text" id="inp-gst" placeholder="27ABCPR1992M1Z0" maxlength="15" style="text-transform:uppercase;" />
+                  </div>
+                </div>
+
+                <div class="floating-field" id="field-udyam">
+                  <label for="inp-udyam">Udyam / MSME Registration Number</label>
+                  <input type="text" id="inp-udyam" placeholder="UDYAM-MH-01-0012345" />
+                </div>
+              </div>
+
+              <!-- SECTION 3: BANKING & FINANCIAL INCOME -->
+              <div id="section-financial" class="mt-36">
+                <div class="section-group-header">
+                  <span class="group-title">3. BANKING &amp; FINANCIAL INCOME</span>
+                </div>
+
+                <!-- Document Upload for Section 3 -->
+                <div class="mb-24">
+                  <label style="font-weight:700; font-size:13.5px; display:block; margin-bottom:8px; color:var(--text-primary);">
+                    Upload Bank Statement (6-12 Months)
+                  </label>
+                  <div class="upload-zone" id="upload-zone-bank" onclick="triggerSimulatedUpload('bank')" ondragover="handleDragOver(event,'bank')"
+                    ondragleave="handleDragLeave(event,'bank')" ondrop="handleDrop(event,'bank')">
+                    <input type="file" id="file-bank" accept=".pdf,.jpg,.jpeg,.png" style="pointer-events:none;" onchange="handleFileSelect(event,'bank')" />
+                    <div class="upload-zone-icon"><i data-feather="upload-cloud" width="24" height="24"></i></div>
+                    <div style="font-size:14px; font-weight:700; color:var(--text-primary);">Click to upload 6-12 Months Bank Statement PDF</div>
+                    <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Accepted: PDF, JPG, PNG (Max 5MB) &bull; Auto-extracts monthly cash flow &amp; turnover</div>
+                  </div>
+                  <div id="upload-file-bank"></div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="floating-field" id="field-revenue">
+                    <label for="inp-revenue">Monthly Revenue</label>
+                    <select id="inp-revenue">
+                      <option selected>INR 1 lakh to 3 lakh</option>
+                      <option>INR 25,000 to 50,000</option>
+                      <option>INR 50,000 to 1 lakh</option>
+                      <option>INR 3 lakh or more</option>
+                    </select>
+                  </div>
+
+                  <div class="floating-field" id="field-turnover">
+                    <label for="inp-turnover">Annual Turnover</label>
+                    <select id="inp-turnover">
+                      <option selected>INR 25 Lakh to 50 Lakh</option>
+                      <option>Less than INR 10 Lakh</option>
+                      <option>INR 10 Lakh to 25 Lakh</option>
+                      <option>INR 50 Lakh to 1 Crore</option>
+                      <option>INR 1 Crore+</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="floating-field" id="field-bank-name">
+                    <label for="inp-bank-name">Primary Bank</label>
+                    <select id="inp-bank-name">
+                      <option selected>HDFC Bank</option>
+                      <option>ICICI Bank</option>
+                      <option>State Bank of India</option>
+                      <option>Axis Bank</option>
+                      <option>Kotak Mahindra Bank</option>
+                      <option>Bank of Baroda</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+
+                  <div class="floating-field" id="field-acc-type">
+                    <label for="inp-acc-type">Account Type</label>
+                    <select id="inp-acc-type">
+                      <option selected>Current Account</option>
+                      <option>Savings Account</option>
+                      <option>Overdraft Account</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="floating-field" id="field-acc-num">
+                    <label for="inp-acc-num">Account Number</label>
+                    <input type="text" id="inp-acc-num" placeholder="50100234567891" />
+                  </div>
+
+                  <div class="floating-field" id="field-ifsc">
+                    <label for="inp-ifsc">Bank IFSC Code</label>
+                    <input type="text" id="inp-ifsc" placeholder="HDFC0001234" style="text-transform:uppercase;" />
+                  </div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="floating-field" id="field-itr-status">
+                    <label for="inp-itr-status">ITR Filed?</label>
+                    <select id="inp-itr-status">
+                      <option selected>Yes, 2 Years Filed</option>
+                      <option>Yes, 3 Years Filed</option>
+                      <option>Yes, 1 Year Filed</option>
+                      <option>No ITR Filed</option>
+                    </select>
+                  </div>
+
+                  <div class="floating-field" id="field-net-profit">
+                    <label for="inp-net-profit">Approx Annual Net Profit</label>
+                    <input type="text" id="inp-net-profit" placeholder="INR 3.5 Lakh" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- SECTION 4: EXISTING BORROWINGS & CREDIT CONSENT -->
+              <div id="section-liabilities" class="mt-36">
+                <div class="section-group-header">
+                  <span class="group-title">4. EXISTING BORROWINGS &amp; CREDIT CONSENT</span>
+                </div>
+
+                <div style="background:#ffffff; border:1px solid var(--border); border-radius:12px; padding:18px; margin-bottom:20px;">
+                  <label style="font-size:14px; font-weight:700; color:var(--text-primary); display:block; margin-bottom:10px;">
+                    Do you currently have any active business or personal loans?
+                  </label>
+                  <div style="display:flex; gap:16px;">
+                    <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-weight:600; font-size:13.5px;">
+                      <input type="radio" name="has-loans" value="no" checked onchange="toggleLoansContainer(false)" style="accent-color:var(--accent);" /> No active loans
+                    </label>
+                    <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-weight:600; font-size:13.5px;">
+                      <input type="radio" name="has-loans" value="yes" onchange="toggleLoansContainer(true)" style="accent-color:var(--accent);" /> Yes, I have existing loans
+                    </label>
+                  </div>
+
+                  <!-- Dynamic Existing Loans Input Container -->
+                  <div id="existing-loans-details" style="display:none; margin-top:16px; padding-top:16px; border-top:1px dashed var(--border);">
+                    <div class="form-grid-2">
+                      <div class="floating-field" id="field-exist-lender">
+                        <label for="inp-exist-lender">Lender / Bank Name</label>
+                        <input type="text" id="inp-exist-lender" placeholder="e.g. Bajaj Finance" />
+                      </div>
+                      <div class="floating-field" id="field-exist-emi">
+                        <label for="inp-exist-emi">Total Monthly EMI (INR)</label>
+                        <input type="text" id="inp-exist-emi" placeholder="12,500" />
+                      </div>
+                    </div>
+                    <div class="form-grid-2">
+                      <div class="floating-field" id="field-exist-out">
+                        <label for="inp-exist-out">Outstanding Balance (INR)</label>
+                        <input type="text" id="inp-exist-out" placeholder="1,50,000" />
+                      </div>
+                      <div class="floating-field" id="field-exist-tenure">
+                        <label for="inp-exist-tenure">Remaining Tenure (Months)</label>
+                        <input type="text" id="inp-exist-tenure" placeholder="14" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Credit Bureau Consent (No manual CIBIL score asking) -->
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px; display:flex; align-items:flex-start; gap:12px;">
+                  <i data-feather="check-square" width="20" height="20" style="color:var(--accent); margin-top:2px; flex-shrink:0;"></i>
+                  <div style="font-size:12.5px; color:var(--text-secondary); line-height:1.5;">
+                    <strong style="color:var(--text-primary);">Automated Credit Bureau Check Consent:</strong> We retrieve your credit history directly from CIBIL/Experian with your permission — you never need to manually enter your credit score.
+                  </div>
+                </div>
+              </div>
+
+              <!-- SECTION 5: PURPOSE-SPECIFIC REQUIREMENTS (Progressive Disclosure) -->
+              <div id="section-purpose" class="mt-36">
+                <div class="section-group-header">
+                  <span class="group-title">5. PURPOSE-SPECIFIC LOAN REQUIREMENTS</span>
+                </div>
+
+                <div style="background:#fff7ed; border:1px solid #fed7aa; border-radius:12px; padding:16px; margin-bottom:20px;">
+                  <div style="font-size:13.5px; font-weight:700; color:#c2410c;" id="purpose-dynamic-title">
+                    Loan Purpose: Working Capital &amp; Inventory Expansion
+                  </div>
+                  <div style="font-size:12px; color:#9a3412; margin-top:2px;">
+                    Progressive Questioning: These details are customized specifically for your selected loan purpose.
+                  </div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="floating-field" id="field-purp-target">
+                    <label for="inp-purp-target">Specific Requirement Focus</label>
+                    <input type="text" id="inp-purp-target" placeholder="Raw materials &amp; seasonal stock buildup" />
+                  </div>
+
+                  <div class="floating-field" id="field-purp-supplier">
+                    <label for="inp-purp-supplier">Key Supplier / Vendor Name</label>
+                    <input type="text" id="inp-purp-supplier" placeholder="Surat Weaving Mills Co." />
+                  </div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="floating-field" id="field-purp-cost">
+                    <label for="inp-purp-cost">Estimated Project / Stock Cost (INR)</label>
+                    <input type="text" id="inp-purp-cost" placeholder="5,00,000" />
+                  </div>
+
+                  <div class="floating-field" id="field-purp-turnaround">
+                    <label for="inp-purp-turnaround">Expected Disbursement Timeline</label>
+                    <select id="inp-purp-turnaround">
+                      <option selected>Immediate (Within 24 Hours)</option>
+                      <option>Within 7 Days</option>
+                      <option>Within 15 Days</option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -2528,73 +2762,84 @@
               <i data-feather="briefcase" width="20" height="20"></i>
               <span>LoanMate</span>
             </div>
-            <div class="app-sidebar-title">Application Summary</div>
+            <div class="app-sidebar-title">Application Review</div>
 
             <ul class="v-stepper">
               <li class="v-step done">
                 <div class="v-step-num"><i data-feather="check" width="16" height="16"></i></div>
-                <div class="v-step-label">Personal Details</div>
+                <div class="v-step-label">KYC &amp; Identity</div>
               </li>
               <li class="v-step done">
                 <div class="v-step-num"><i data-feather="check" width="16" height="16"></i></div>
-                <div class="v-step-label">Business Details</div>
+                <div class="v-step-label">Business Registration</div>
               </li>
               <li class="v-step done">
                 <div class="v-step-num"><i data-feather="check" width="16" height="16"></i></div>
-                <div class="v-step-label">Document Upload</div>
+                <div class="v-step-label">Banking &amp; Financials</div>
+              </li>
+              <li class="v-step done">
+                <div class="v-step-num"><i data-feather="check" width="16" height="16"></i></div>
+                <div class="v-step-label">Purpose Details</div>
               </li>
               <li class="v-step active">
-                <div class="v-step-num">4</div>
-                <div class="v-step-label">Summary & Review</div>
+                <div class="v-step-num">5</div>
+                <div class="v-step-label">Summary &amp; Review</div>
               </li>
             </ul>
           </div>
 
           <div style="font-size:12px; color:var(--text-muted);">
-            Step 4 of 4
+            Final Step 5 of 5
           </div>
         </div>
 
         <!-- Right Content Area -->
         <div class="app-card-main">
           <div>
-            <h2 class="h2 mb-4">Summary & Review</h2>
-            <p class="body-sm mb-28">Verify your application details before submitting.</p>
+            <h2 class="h2 mb-4">Summary &amp; Final Review</h2>
+            <p class="body-sm mb-24">Verify your application details below before final submission to the underwriting engine.</p>
 
             <div class="section-group-header">
-              <span class="group-title">PERSONAL DETAILS</span>
+              <span class="group-title">1. PERSONAL &amp; IDENTITY DETAILS</span>
             </div>
-            <div class="review-row"><span class="review-row-label">Full Name</span><span class="review-row-value"
-                id="rv-name">Priya Sharma</span></div>
-            <div class="review-row"><span class="review-row-label">PAN Number</span><span class="review-row-value"
-                id="rv-pan">ABCPR1992M</span></div>
-            <div class="review-row"><span class="review-row-label">Contact Phone</span><span class="review-row-value"
-                id="rv-phone">+91 98765 43210</span></div>
+            <div class="review-row"><span class="review-row-label">Full Name</span><span class="review-row-value" id="rv-name">Priya Sharma</span></div>
+            <div class="review-row"><span class="review-row-label">Date of Birth &amp; Gender</span><span class="review-row-value" id="rv-dob-gender">14 May 1992 &bull; Female</span></div>
+            <div class="review-row"><span class="review-row-label">PAN Number</span><span class="review-row-value" id="rv-pan">ABCPR1992M</span></div>
+            <div class="review-row"><span class="review-row-label">Residential Address</span><span class="review-row-value" id="rv-address">123 Business Street, Sector 5, Mumbai</span></div>
+            <div class="review-row"><span class="review-row-label">Contact Phone &amp; Email</span><span class="review-row-value" id="rv-phone-email">+91 98765 43210 &bull; priya.sharma@email.com</span></div>
 
             <div class="section-group-header mt-24">
-              <span class="group-title">BUSINESS DETAILS</span>
+              <span class="group-title">2. BUSINESS &amp; REGISTRATION</span>
             </div>
-            <div class="review-row"><span class="review-row-label">Business Name</span><span class="review-row-value"
-                id="rv-biz-name">ABC Textiles Private Limited</span></div>
-            <div class="review-row"><span class="review-row-label">Business Type</span><span class="review-row-value"
-                id="rv-biz-type">Retail Store</span></div>
-            <div class="review-row"><span class="review-row-label">Monthly Revenue</span><span class="review-row-value"
-                id="rv-revenue">INR 1 lakh to 3 lakh</span></div>
+            <div class="review-row"><span class="review-row-label">Business Name</span><span class="review-row-value" id="rv-biz-name">ABC Textiles Private Limited</span></div>
+            <div class="review-row"><span class="review-row-label">Structure &amp; Category</span><span class="review-row-value" id="rv-biz-type">Sole Proprietorship &bull; Retail Store</span></div>
+            <div class="review-row"><span class="review-row-label">GSTIN &amp; Udyam</span><span class="review-row-value" id="rv-gst-udyam">27ABCPR1992M1Z0 &bull; Verified</span></div>
 
             <div class="section-group-header mt-24">
-              <span class="group-title">TERMS & CONSENT</span>
+              <span class="group-title">3. BANKING &amp; FINANCIAL INCOME</span>
             </div>
-            <label
-              style="display:flex; align-items:flex-start; gap:12px; cursor:pointer; font-size:14px; font-weight:600; color:var(--text-primary); margin-top:16px;">
-              <input type="checkbox" id="terms-checkbox" checked
-                style="width:18px; height:18px; accent-color:var(--accent); margin-top:2px;" />
-              <span>I have read and agree to all terms, credit check consent, and privacy policy.</span>
+            <div class="review-row"><span class="review-row-label">Primary Bank Account</span><span class="review-row-value" id="rv-bank">HDFC Bank (Current Acc)</span></div>
+            <div class="review-row"><span class="review-row-label">Monthly Revenue &amp; Turnover</span><span class="review-row-value" id="rv-revenue">INR 1L to 3L Monthly &bull; INR 25L-50L Annual</span></div>
+            <div class="review-row"><span class="review-row-label">ITR Filing Status</span><span class="review-row-value" id="rv-itr">Yes, 2 Years Filed</span></div>
+
+            <div class="section-group-header mt-24">
+              <span class="group-title">4. PURPOSE &amp; BORROWING SPECIFICS</span>
+            </div>
+            <div class="review-row"><span class="review-row-label">Loan Requirement Focus</span><span class="review-row-value" id="rv-purpose-spec">Working Capital &bull; Raw materials &amp; stock buildup</span></div>
+            <div class="review-row"><span class="review-row-label">Existing Borrowings</span><span class="review-row-value" id="rv-existing-loans">No active external loan obligations</span></div>
+
+            <div class="section-group-header mt-24">
+              <span class="group-title">RBI REGULATORY CONSENT &amp; DECLARATION</span>
+            </div>
+            <label style="display:flex; align-items:flex-start; gap:12px; cursor:pointer; font-size:13.5px; font-weight:600; color:var(--text-primary); margin-top:16px;">
+              <input type="checkbox" id="terms-checkbox" checked style="width:18px; height:18px; accent-color:var(--accent); margin-top:2px;" />
+              <span>I hereby authorize LoanMate NBFC to query credit bureaus (CIBIL/Experian), verify GST/Bank records, and process my digital loan application in compliance with RBI Digital Lending Guidelines.</span>
             </label>
           </div>
 
           <div class="app-card-footer">
-            <button class="btn btn-ghost" id="btn-review-back">Back</button>
-            <button class="btn btn-primary btn-pill" id="btn-submit">
+            <button type="button" class="btn btn-ghost" id="btn-review-back">Back</button>
+            <button type="button" class="btn btn-primary btn-pill" id="btn-submit">
               Submit Application
               <i data-feather="send" width="18" height="18"></i>
             </button>
@@ -2905,15 +3150,36 @@
     // Start auto rotation immediately
     startAutoRotation();
 
+    function toggleLoansContainer(show) {
+      const container = document.getElementById('existing-loans-details');
+      if (container) container.style.display = show ? 'block' : 'none';
+    }
+    window.toggleLoansContainer = toggleLoansContainer;
+
     function advanceToReview(e) {
       if (e && typeof e.preventDefault === 'function') e.preventDefault();
 
       const nameInput = document.getElementById('inp-name');
       const panInput = document.getElementById('inp-pan');
+      const dobInput = document.getElementById('inp-dob');
+      const genderInput = document.getElementById('inp-gender');
+      const addressInput = document.getElementById('inp-address');
+      const cityInput = document.getElementById('inp-city');
       const phoneInput = document.getElementById('inp-phone');
+      const emailInput = document.getElementById('inp-email');
+
       const bizInput = document.getElementById('inp-biz-name');
+      const bizStructInput = document.getElementById('inp-biz-structure');
       const bizTypeInput = document.getElementById('inp-biz-type');
+      const gstInput = document.getElementById('inp-gst');
+
+      const bankNameInput = document.getElementById('inp-bank-name');
+      const accTypeInput = document.getElementById('inp-acc-type');
       const revInput = document.getElementById('inp-revenue');
+      const turnoverInput = document.getElementById('inp-turnover');
+      const itrInput = document.getElementById('inp-itr-status');
+
+      const targetInput = document.getElementById('inp-purp-target');
 
       let name = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Priya Sharma';
       let pan = panInput && panInput.value.trim() ? panInput.value.trim() : 'ABCPR1992M';
@@ -2922,11 +3188,33 @@
       if (panInput && !panInput.value) panInput.value = pan;
 
       const rvName = document.getElementById('rv-name'); if (rvName) rvName.textContent = name;
+      const rvDobGender = document.getElementById('rv-dob-gender'); if (rvDobGender) rvDobGender.textContent = (dobInput ? dobInput.value : '1992-05-14') + ' • ' + (genderInput ? genderInput.value : 'Female');
       const rvPan = document.getElementById('rv-pan'); if (rvPan) rvPan.textContent = pan.toUpperCase();
-      const rvPhone = document.getElementById('rv-phone'); if (rvPhone) rvPhone.textContent = '+91 ' + (phoneInput && phoneInput.value ? phoneInput.value : '9876543210');
+      const rvAddress = document.getElementById('rv-address'); if (rvAddress) rvAddress.textContent = (addressInput && addressInput.value ? addressInput.value : '123 Business Street, Sector 5') + ', ' + (cityInput ? cityInput.value : 'Mumbai');
+      const rvPhoneEmail = document.getElementById('rv-phone-email'); if (rvPhoneEmail) rvPhoneEmail.textContent = '+91 ' + (phoneInput && phoneInput.value ? phoneInput.value : '9876543210') + ' • ' + (emailInput && emailInput.value ? emailInput.value : 'priya.sharma@email.com');
+
       const rvBizName = document.getElementById('rv-biz-name'); if (rvBizName) rvBizName.textContent = (bizInput && bizInput.value) ? bizInput.value : 'ABC Textiles Private Limited';
-      const rvBizType = document.getElementById('rv-biz-type'); if (rvBizType) rvBizType.textContent = (bizTypeInput && bizTypeInput.value) ? bizTypeInput.value : 'Retail Store';
-      const rvRevenue = document.getElementById('rv-revenue'); if (rvRevenue) rvRevenue.textContent = (revInput && revInput.value) ? revInput.value : 'INR 1 lakh to 3 lakh';
+      const rvBizType = document.getElementById('rv-biz-type'); if (rvBizType) rvBizType.textContent = (bizStructInput ? bizStructInput.value : 'Sole Proprietorship') + ' • ' + (bizTypeInput ? bizTypeInput.value : 'Retail Store');
+      const rvGstUdyam = document.getElementById('rv-gst-udyam'); if (rvGstUdyam) rvGstUdyam.textContent = (gstInput && gstInput.value ? gstInput.value : '27ABCPR1992M1Z0') + ' • Verified';
+
+      const rvBank = document.getElementById('rv-bank'); if (rvBank) rvBank.textContent = (bankNameInput ? bankNameInput.value : 'HDFC Bank') + ' (' + (accTypeInput ? accTypeInput.value : 'Current Acc') + ')';
+      const rvRevenue = document.getElementById('rv-revenue'); if (rvRevenue) rvRevenue.textContent = (revInput ? revInput.value : 'INR 1L to 3L') + ' Monthly • ' + (turnoverInput ? turnoverInput.value : 'INR 25L-50L') + ' Annual';
+      const rvItr = document.getElementById('rv-itr'); if (rvItr) rvItr.textContent = (itrInput ? itrInput.value : 'Yes, 2 Years Filed');
+
+      const rvPurposeSpec = document.getElementById('rv-purpose-spec');
+      if (rvPurposeSpec) rvPurposeSpec.textContent = 'Working Capital • ' + (targetInput && targetInput.value ? targetInput.value : 'Raw materials & seasonal stock buildup');
+
+      const hasLoansRadio = document.querySelector('input[name="has-loans"]:checked');
+      const rvExistingLoans = document.getElementById('rv-existing-loans');
+      if (rvExistingLoans) {
+        if (hasLoansRadio && hasLoansRadio.value === 'yes') {
+          const lenderEl = document.getElementById('inp-exist-lender');
+          const emiEl = document.getElementById('inp-exist-emi');
+          rvExistingLoans.textContent = (lenderEl && lenderEl.value ? lenderEl.value : 'Active Loan') + ' • ₹' + (emiEl && emiEl.value ? emiEl.value : '12,500') + '/mo EMI';
+        } else {
+          rvExistingLoans.textContent = 'No active external loan obligations';
+        }
+      }
 
       showScreen('screen-review');
     }
@@ -3020,17 +3308,23 @@
       const fields = key === 'pan' ? [
         { id: 'inp-name', parentId: 'field-name', val: 'Priya Sharma' },
         { id: 'inp-dob', parentId: 'field-dob', val: '1992-05-14' },
+        { id: 'inp-gender', parentId: 'field-gender', val: 'Female' },
         { id: 'inp-pan', parentId: 'field-pan', val: 'ABCPR1992M' },
+        { id: 'inp-aadhaar', parentId: 'field-aadhaar', val: '9876 5432 1098' },
         { id: 'inp-address', parentId: 'field-address', val: '123 Business Street, Sector 5' },
         { id: 'inp-city', parentId: 'field-city', val: 'Mumbai' },
         { id: 'inp-phone', parentId: 'field-phone', val: '9876543210' },
         { id: 'inp-email', parentId: 'field-email', val: 'priya.sharma@email.com' }
       ] : [
         { id: 'inp-biz-name', parentId: 'field-biz-name', val: 'ABC Textiles Private Limited' },
+        { id: 'inp-biz-structure', parentId: 'field-biz-structure', val: 'Sole Proprietorship' },
         { id: 'inp-biz-type', parentId: 'field-biz-type', val: 'Retail Store' },
-        { id: 'inp-industry', parentId: 'field-industry', val: 'Textiles' },
         { id: 'inp-biz-age', parentId: 'field-biz-age', val: '3 to 5 years' },
         { id: 'inp-revenue', parentId: 'field-revenue', val: 'INR 1 lakh to 3 lakh' },
+        { id: 'inp-turnover', parentId: 'field-turnover', val: 'INR 25 Lakh to 50 Lakh' },
+        { id: 'inp-bank-name', parentId: 'field-bank-name', val: 'HDFC Bank' },
+        { id: 'inp-acc-num', parentId: 'field-acc-num', val: '50100234567891' },
+        { id: 'inp-ifsc', parentId: 'field-ifsc', val: 'HDFC0001234' },
         { id: 'inp-gst-status', parentId: 'field-gst-status', val: 'Yes, registered' },
         { id: 'inp-gst', parentId: 'field-gst', val: '27ABCPR1992M1Z0' }
       ];
