@@ -437,12 +437,23 @@
       overflow: hidden;
       background: #0f172a;
     }
+    .hero-slider-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hero-slide-item {
+      position: relative;
+      min-width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+    }
     .hero-carousel-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center 25%;
-      transition: opacity 0.4s ease, transform 0.6s ease;
     }
     .hero-image-overlay {
       position: absolute;
@@ -1068,11 +1079,27 @@
         </div>
       </div>
 
-      <!-- Right Photo Panel: Big Image with Angled Cut + Auto-Rotating Photos & Light Theme Testimonial Card Overlay -->
-      <div class="hero-right-photo-panel" id="hero-carousel">
-        <!-- Big Hero Photo -->
-        <img id="hero-carousel-img" src="story_rajesh.png" alt="Rajesh Patel" class="hero-carousel-img" />
-        <div class="hero-image-overlay"></div>
+      <!-- Right Photo Panel: Big Images Sliding Track Underneath Angled Cut -->
+      <div class="hero-right-photo-panel" id="hero-carousel-panel">
+        <!-- Sliding Track of Images (Behind Angled White Panel z-index: 10) -->
+        <div class="hero-slider-track" id="hero-slider-track">
+          <div class="hero-slide-item">
+            <img src="story_rajesh.png" alt="Rajesh Patel" class="hero-carousel-img" />
+            <div class="hero-image-overlay"></div>
+          </div>
+          <div class="hero-slide-item">
+            <img src="story_meena.png" alt="Meena Sharma" class="hero-carousel-img" />
+            <div class="hero-image-overlay"></div>
+          </div>
+          <div class="hero-slide-item">
+            <img src="story_gerard.png" alt="Gerard D'Souza" class="hero-carousel-img" />
+            <div class="hero-image-overlay"></div>
+          </div>
+          <div class="hero-slide-item">
+            <img src="hero_business_owner.png" alt="Ananya Gupta" class="hero-carousel-img" />
+            <div class="hero-image-overlay"></div>
+          </div>
+        </div>
 
         <!-- Carousel Dots Nav -->
         <div class="carousel-dots" id="carousel-dots">
@@ -2154,7 +2181,7 @@
     currentSlideIndex = index;
     const slide = testimonialSlides[index];
     
-    const imgEl = document.getElementById('hero-carousel-img');
+    const trackEl = document.getElementById('hero-slider-track');
     const quoteEl = document.getElementById('htc-quote');
     const avatarEl = document.getElementById('htc-avatar');
     const nameEl = document.getElementById('htc-name');
@@ -2162,24 +2189,24 @@
     const disbursedEl = document.getElementById('htc-disbursed');
     const cardEl = document.getElementById('hero-testimonial-card');
     
-    if (!imgEl || !quoteEl) return;
+    if (trackEl) {
+      trackEl.style.transform = `translateX(-${index * 100}%)`;
+    }
 
-    cardEl.classList.add('slide-fade');
-    imgEl.style.opacity = '0.35';
-    
-    setTimeout(() => {
-      imgEl.src = slide.photo;
-      imgEl.alt = slide.name;
-      avatarEl.src = slide.photo;
-      quoteEl.textContent = slide.quote;
-      nameEl.textContent = slide.name;
-      metaEl.textContent = slide.meta;
-      disbursedEl.querySelector('span').textContent = slide.disbursed;
-      
-      imgEl.style.opacity = '1';
-      cardEl.classList.remove('slide-fade');
-      feather.replace();
-    }, 200);
+    if (cardEl && quoteEl) {
+      cardEl.classList.add('slide-fade');
+      setTimeout(() => {
+        if (avatarEl) avatarEl.src = slide.photo;
+        if (quoteEl) quoteEl.textContent = slide.quote;
+        if (nameEl) nameEl.textContent = slide.name;
+        if (metaEl) metaEl.textContent = slide.meta;
+        if (disbursedEl && disbursedEl.querySelector('span')) {
+          disbursedEl.querySelector('span').textContent = slide.disbursed;
+        }
+        cardEl.classList.remove('slide-fade');
+        feather.replace();
+      }, 200);
+    }
 
     const dots = document.querySelectorAll('.c-dot');
     dots.forEach((dot, i) => {
