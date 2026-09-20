@@ -2236,12 +2236,64 @@
           </div>
 
           <div
-            style="display:flex; gap:14px; background:#f8fafc; border:1px solid var(--border); border-radius:16px; padding:20px; margin-bottom:32px; font-size:14px; color:var(--text-secondary);">
+            style="display:flex; gap:14px; background:#f8fafc; border:1px solid var(--border); border-radius:16px; padding:20px; margin-bottom:28px; font-size:14px; color:var(--text-secondary);">
             <i data-feather="info" width="20" height="20"
               style="color:var(--accent); flex-shrink:0; margin-top:2px;"></i>
             <div>
               <strong>What This Means:</strong> This is your indicative loan range. Your final loan amount, interest
               rate, and repayment terms depend on verification of your documents and income.
+            </div>
+          </div>
+
+          <!-- Tailored Document Checklist (Shown on Result Screen before user applies) -->
+          <div style="background:#fff7ed; border:1px solid #fed7aa; border-radius:20px; padding:24px; margin-bottom:28px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="font-size:16px; font-weight:800; color:#c2410c; display:flex; align-items:center; gap:8px;">
+                  <i data-feather="file-text" width="18" height="18" style="color:#c2410c;"></i>
+                  Your Tailored Document Checklist
+                </div>
+                <div style="font-size:12.5px; color:#9a3412; margin-top:2px;">
+                  Get these ready before applying. We've tailored this checklist based on your business answers.
+                </div>
+              </div>
+              <span style="font-size:11.5px; font-weight:700; color:#c2410c; background:#ffedd5; padding:5px 12px; border-radius:100px;">
+                4 Items Required &bull; 2 Pre-Verified
+              </span>
+            </div>
+
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin-top:14px;">
+              <div style="background:#ffffff; border:1px solid #ffedd5; border-radius:12px; padding:12px 16px;">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;">
+                  <span style="font-size:13px; font-weight:700; color:var(--text-primary);">1. PAN / Identity Card</span>
+                  <span style="font-size:10.5px; font-weight:700; color:#15803d; background:#dcfce7; padding:2px 8px; border-radius:100px;">✓ Pre-Found</span>
+                </div>
+                <div style="font-size:11.5px; color:var(--text-muted);">Proof of identity &amp; DOB</div>
+              </div>
+
+              <div style="background:#ffffff; border:1px solid #ffedd5; border-radius:12px; padding:12px 16px;">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;">
+                  <span style="font-size:13px; font-weight:700; color:var(--text-primary);">2. GST Registration</span>
+                  <span style="font-size:10.5px; font-weight:700; color:#15803d; background:#dcfce7; padding:2px 8px; border-radius:100px;">✓ Verified</span>
+                </div>
+                <div style="font-size:11.5px; color:var(--text-muted);">Proof of business entity</div>
+              </div>
+
+              <div style="background:#ffffff; border:1px solid #ffedd5; border-radius:12px; padding:12px 16px;">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;">
+                  <span style="font-size:13px; font-weight:700; color:var(--text-primary);">3. 6-12M Bank Statement</span>
+                  <span style="font-size:10.5px; font-weight:700; color:#c2410c; background:#ffedd5; padding:2px 8px; border-radius:100px;">PDF Required</span>
+                </div>
+                <div style="font-size:11.5px; color:var(--text-muted);">Cash flow &amp; turnover check</div>
+              </div>
+
+              <div style="background:#ffffff; border:1px solid #ffedd5; border-radius:12px; padding:12px 16px;">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;">
+                  <span style="font-size:13px; font-weight:700; color:var(--text-primary);">4. 1-3Y ITR / Financials</span>
+                  <span style="font-size:10.5px; font-weight:700; color:#c2410c; background:#ffedd5; padding:2px 8px; border-radius:100px;">PDF Required</span>
+                </div>
+                <div style="font-size:11.5px; color:var(--text-muted);">Tax &amp; income declaration</div>
+              </div>
             </div>
           </div>
 
@@ -2321,36 +2373,7 @@
         <div class="app-card-main">
           <div>
             <h2 class="h2 mb-4">Master Business Loan Application</h2>
-            <p class="body-sm mb-20">Tailored specifically for your self-employed business profile. All extracted fields remain 100% editable.</p>
-
-            <!-- Tailored Document Checklist Box -->
-            <div style="background:#fff7ed; border:1px solid #fed7aa; border-radius:14px; padding:18px 20px; margin-bottom:28px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
-                <div>
-                  <div style="font-size:15px; font-weight:800; color:#c2410c;">Your Document Checklist — Tailored to You</div>
-                  <div style="font-size:12px; color:#9a3412;">We don't ask for documents that don't apply to your business structure</div>
-                </div>
-                <span style="font-size:11.5px; font-weight:700; color:#c2410c; background:#ffedd5; padding:5px 12px; border-radius:100px;">4 Required &bull; 2 Auto-Found</span>
-              </div>
-              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px; margin-top:10px;">
-                <div style="background:#ffffff; border:1px solid #ffedd5; border-radius:8px; padding:8px 12px; display:flex; align-items:center; justify-content:space-between;">
-                  <span style="font-size:12.5px; font-weight:600; color:var(--text-primary);">PAN / Identity</span>
-                  <span style="font-size:10.5px; font-weight:700; color:#15803d; background:#dcfce7; padding:2px 8px; border-radius:100px;">✓ Auto-Found</span>
-                </div>
-                <div style="background:#ffffff; border:1px solid #ffedd5; border-radius:8px; padding:8px 12px; display:flex; align-items:center; justify-content:space-between;">
-                  <span style="font-size:12.5px; font-weight:600; color:var(--text-primary);">GST Certificate</span>
-                  <span style="font-size:10.5px; font-weight:700; color:#15803d; background:#dcfce7; padding:2px 8px; border-radius:100px;">✓ Verified</span>
-                </div>
-                <div style="background:#ffffff; border:1px solid #ffedd5; border-radius:8px; padding:8px 12px; display:flex; align-items:center; justify-content:space-between;">
-                  <span style="font-size:12.5px; font-weight:600; color:var(--text-primary);">6-12M Bank Statement</span>
-                  <span style="font-size:10.5px; font-weight:700; color:#c2410c; background:#ffedd5; padding:2px 8px; border-radius:100px;">Upload &amp; Extract</span>
-                </div>
-                <div style="background:#ffffff; border:1px solid #ffedd5; border-radius:8px; padding:8px 12px; display:flex; align-items:center; justify-content:space-between;">
-                  <span style="font-size:12.5px; font-weight:600; color:var(--text-primary);">1-3Y ITR / Financials</span>
-                  <span style="font-size:10.5px; font-weight:700; color:#c2410c; background:#ffedd5; padding:2px 8px; border-radius:100px;">Upload &amp; Extract</span>
-                </div>
-              </div>
-            </div>
+            <p class="body-sm mb-28">Upload your documents below to auto-populate your details into the form. All fields remain fully editable.</p>
 
             <form id="application-form" novalidate onsubmit="advanceToReview(event); return false;">
 
