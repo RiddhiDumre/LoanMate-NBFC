@@ -1,47 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LoanMate by BOMBAYDC — Quick Business Loans for Self-Employed</title>
-  <meta name="description" content="Quick business loans. No stress. Get approved in minutes. Access funds in 24 hours. Borrow INR 1 lakh to INR 10 lakh for your business needs." />
+  <meta name="description"
+    content="Quick business loans. No stress. Get approved in minutes. Access funds in 24 hours. Borrow INR 1 lakh to INR 10 lakh for your business needs." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <script src="https://unpkg.com/feather-icons@4.29.1/dist/feather.min.js"></script>
   <style>
     /* ─── Tokens & Design System ───────────────────────────────────── */
     :root {
-      --bg:             #f8fafc;
-      --surface:        #ffffff;
-      --surface-subtle: #f1f5f9;
-      --border:         #e2e8f0;
-      --border-light:   #f1f5f9;
-      --text-primary:   #0f172a;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-subtle: #fff7ed;
+      --border: #e2e8f0;
+      --border-light: #f1f5f9;
+      --text-primary: #0f172a;
       --text-secondary: #475569;
-      --text-muted:     #64748b;
-      --accent:         #2563eb;
-      --accent-light:   #eff6ff;
-      --accent-hover:   #1d4ed8;
-      --success:        #16a34a;
-      --success-bg:     #f0fdf4;
-      --warning:        #d97706;
-      --warning-bg:     #fffbeb;
-      --chip-bg:        #eef2ff;
-      --chip-text:      #3730a3;
+      --text-muted: #64748b;
+      --accent: #ea580c;
+      --accent-light: #fff7ed;
+      --accent-hover: #c2410 --success: #16a34a;
+      --success-bg: #f0fdf4;
+      --warning: #d97706;
+      --warning-bg: #fffbeb;
+      --chip-bg: #ffedd5;
+      --chip-text: #9a3412;
       --r-sm: 8px;
       --r-md: 12px;
       --r-lg: 16px;
       --r-xl: 24px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 20px rgba(0,0,0,0.05);
-      --shadow-lg: 0 20px 40px -10px rgba(15,23,42,0.08);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.08);
       --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --t: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: var(--font);
       font-size: 15px;
@@ -57,10 +69,11 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
+
     .global-nav-inner {
       max-width: 1240px;
       margin: 0 auto;
@@ -70,6 +83,7 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .nav-brand {
       display: flex;
       align-items: center;
@@ -80,6 +94,7 @@
       text-decoration: none;
       letter-spacing: -0.5px;
     }
+
     .nav-brand-sub {
       font-size: 11px;
       font-weight: 700;
@@ -90,11 +105,13 @@
       letter-spacing: 0.4px;
       text-transform: uppercase;
     }
+
     .nav-right {
       display: flex;
       align-items: center;
       gap: 24px;
     }
+
     .nav-time-badge {
       display: inline-flex;
       align-items: center;
@@ -107,6 +124,7 @@
       border-radius: 100px;
       border: 1px solid #bbf7d0;
     }
+
     .nav-link {
       font-size: 14px;
       color: var(--text-secondary);
@@ -114,7 +132,11 @@
       font-weight: 600;
       transition: color var(--t);
     }
-    .nav-link:hover { color: var(--text-primary); }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
     .nav-link-cta {
       background: var(--accent);
       color: #fff !important;
@@ -122,9 +144,13 @@
       border-radius: 100px;
       font-weight: 700;
       transition: background var(--t), transform var(--t);
-      box-shadow: 0 4px 14px rgba(37,99,235,0.25);
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
     }
-    .nav-link-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    .nav-link-cta:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
 
     /* ─── Page Wrapper ───────────────────────────────────────────── */
     .page-wrap {
@@ -134,11 +160,25 @@
     }
 
     /* ─── Screens ─────────────────────────────────────────────────── */
-    .screen { display: none; }
-    .screen.active { display: block; animation: fadeUp 0.3s ease both; }
+    .screen {
+      display: none;
+    }
+
+    .screen.active {
+      display: block;
+      animation: fadeUp 0.3s ease both;
+    }
+
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* ─── Typography & Hierarchy ──────────────────────────────────── */
@@ -149,6 +189,7 @@
       line-height: 1.1;
       color: var(--text-primary);
     }
+
     .h2 {
       font-size: clamp(24px, 3.2vw, 34px);
       font-weight: 800;
@@ -156,15 +197,33 @@
       line-height: 1.2;
       color: var(--text-primary);
     }
+
     .h3 {
       font-size: clamp(18px, 2.2vw, 24px);
       font-weight: 700;
       letter-spacing: -0.4px;
       color: var(--text-primary);
     }
-    .h4 { font-size: 16px; font-weight: 700; color: var(--text-primary); }
-    .body-lg { font-size: 17px; color: var(--text-secondary); line-height: 1.65; font-weight: 400; }
-    .body-sm { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+    .h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .body-lg {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    .body-sm {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
     .label-caps {
       font-size: 11px;
       font-weight: 800;
@@ -191,35 +250,45 @@
       white-space: nowrap;
       text-decoration: none;
     }
+
     .btn-pill {
       border-radius: 100px;
       padding: 14px 36px;
       height: 52px;
     }
+
     .btn-primary {
       background: var(--accent);
       color: #fff;
     }
+
     .btn-primary:hover {
       background: var(--accent-hover);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(37,99,235,0.28);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.28);
     }
+
     .btn-secondary {
       background: var(--surface);
       color: var(--text-primary);
       border: 1.5px solid var(--border);
     }
+
     .btn-secondary:hover {
       background: var(--surface-subtle);
       border-color: #cbd5e1;
     }
+
     .btn-ghost {
       background: transparent;
       color: var(--text-secondary);
       padding: 0 20px;
     }
-    .btn-ghost:hover { color: var(--text-primary); background: rgba(0,0,0,0.04); }
+
+    .btn-ghost:hover {
+      color: var(--text-primary);
+      background: rgba(0, 0, 0, 0.04);
+    }
 
     /* ─── Screen 1 Entry (Full Bleed Replica matching Image 2) ────── */
     #screen-entry.active {
@@ -230,6 +299,7 @@
       flex-direction: column;
       background: #ffffff;
     }
+
     .entry-full-screen {
       height: 100%;
       width: 100%;
@@ -252,39 +322,46 @@
       justify-content: space-between;
       padding: 0 64px;
     }
+
     .entry-header-left {
       display: flex;
       align-items: center;
       gap: 40px;
     }
+
     .entry-brand {
       display: flex;
       align-items: center;
       gap: 10px;
       text-decoration: none;
     }
+
     .entry-brand-text {
       display: flex;
       flex-direction: column;
       line-height: 1.1;
     }
+
     .eb-name {
       font-size: 20px;
       font-weight: 900;
       color: #0f172a;
       letter-spacing: -0.5px;
     }
+
     .eb-sub {
       font-size: 10px;
       font-weight: 800;
       color: #64748b;
       letter-spacing: 0.8px;
     }
+
     .entry-nav-menu {
       display: flex;
       align-items: center;
       gap: 28px;
     }
+
     .entry-nav-link {
       font-size: 14px;
       font-weight: 600;
@@ -292,12 +369,17 @@
       text-decoration: none;
       transition: color 0.2s ease;
     }
-    .entry-nav-link:hover { color: #0f172a; }
+
+    .entry-nav-link:hover {
+      color: #0f172a;
+    }
+
     .entry-header-right {
       display: flex;
       align-items: center;
       gap: 16px;
     }
+
     .entry-time-tag {
       display: inline-flex;
       align-items: center;
@@ -311,10 +393,11 @@
       padding: 8px 18px;
       border-radius: 100px;
       border: 1px solid rgba(255, 255, 255, 0.3);
-      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     }
+
     .entry-cta-pill {
-      background: #1d61f2;
+      background: #ea580c;
       color: #ffffff;
       border: none;
       padding: 10px 24px;
@@ -322,10 +405,14 @@
       font-size: 14px;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 4px 16px rgba(29, 97, 242, 0.35);
+      box-shadow: 0 4px 16px rgba(234, 88, 12, 0.35);
       transition: all 0.2s ease;
     }
-    .entry-cta-pill:hover { background: #154ec2; transform: translateY(-1px); }
+
+    .entry-cta-pill:hover {
+      background: #c2410c;
+      transform: translateY(-1px);
+    }
 
     /* Main Hero Slanted Split Area */
     .hero-slanted-main {
@@ -350,6 +437,7 @@
       z-index: 10;
       clip-path: polygon(0 0, 100% 0, 84% 100%, 0 100%);
     }
+
     .rbi-tag-row {
       display: flex;
       align-items: center;
@@ -361,6 +449,7 @@
       color: #64748b;
       margin-bottom: 20px;
     }
+
     .rbi-line {
       width: 48px;
       height: 1.5px;
@@ -375,8 +464,9 @@
       color: #0f172a;
       margin-bottom: 20px;
     }
+
     .hero-title-giant .text-blue {
-      color: #1d61f2;
+      color: #ea580c;
     }
 
     .hero-subhead {
@@ -387,6 +477,7 @@
       margin-bottom: 12px;
       max-width: 520px;
     }
+
     .hero-subtext {
       font-size: 14.5px;
       color: #64748b;
@@ -397,8 +488,9 @@
     .hero-btn-row {
       margin-bottom: 16px;
     }
+
     .btn-hero-primary {
-      background: #1d61f2;
+      background: #ea580c;
       color: #ffffff;
       border: none;
       height: 52px;
@@ -410,13 +502,14 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      box-shadow: 0 8px 20px rgba(29, 97, 242, 0.3);
+      box-shadow: 0 8px 20px rgba(234, 88, 12, 0.3);
       transition: all 0.2s ease;
     }
+
     .btn-hero-primary:hover {
-      background: #154ec2;
+      background: #c2410c;
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(29, 97, 242, 0.4);
+      box-shadow: 0 12px 28px rgba(234, 88, 12, 0.4);
     }
 
     .hero-micro-bullets {
@@ -437,6 +530,7 @@
       overflow: hidden;
       background: #0f172a;
     }
+
     .hero-slider-track {
       display: flex;
       width: 400%;
@@ -444,6 +538,7 @@
       transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform;
     }
+
     .hero-slide-item {
       position: relative;
       width: 25%;
@@ -451,6 +546,7 @@
       flex-shrink: 0;
       flex-grow: 0;
     }
+
     .hero-carousel-img {
       width: 100%;
       height: 100%;
@@ -458,6 +554,7 @@
       object-position: center 25%;
       display: block;
     }
+
     .hero-image-overlay {
       position: absolute;
       inset: 0;
@@ -485,13 +582,20 @@
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
       transition: all 0.2s ease;
     }
+
     .slider-arrow:hover {
       background: #ffffff;
       transform: translateY(-50%) scale(1.1);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
-    .arrow-left { left: 24px; }
-    .arrow-right { right: 24px; }
+
+    .arrow-left {
+      left: 24px;
+    }
+
+    .arrow-right {
+      right: 24px;
+    }
 
     /* Light Theme Floating Testimonial Card Overlay */
     .hero-testimonial-card-light {
@@ -509,6 +613,7 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
       z-index: 12;
     }
+
     .hero-testimonial-card-light.slide-fade {
       opacity: 0.5;
       transform: translateY(4px);
@@ -520,12 +625,14 @@
       justify-content: space-between;
       margin-bottom: 6px;
     }
+
     .htc-stars {
       color: #f59e0b;
       font-size: 13px;
       letter-spacing: 2px;
       font-weight: 800;
     }
+
     .htc-verified-badge {
       display: inline-flex;
       align-items: center;
@@ -538,6 +645,7 @@
       border-radius: 100px;
       border: 1px solid #bbf7d0;
     }
+
     .htc-quote {
       font-size: 13.5px;
       font-weight: 600;
@@ -546,6 +654,7 @@
       margin-bottom: 12px;
       font-style: italic;
     }
+
     .htc-footer {
       display: flex;
       align-items: center;
@@ -554,30 +663,35 @@
       border-top: 1px solid #f1f5f9;
       padding-top: 10px;
     }
+
     .htc-user-info {
       display: flex;
       align-items: center;
       gap: 10px;
     }
+
     .htc-avatar {
       width: 38px;
       height: 38px;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid #ffffff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     }
+
     .htc-name {
       font-size: 13.5px;
       font-weight: 800;
       color: #0f172a;
       line-height: 1.2;
     }
+
     .htc-meta {
       font-size: 11px;
       color: #64748b;
       font-weight: 500;
     }
+
     .htc-disbursed-badge {
       display: inline-flex;
       align-items: center;
@@ -606,6 +720,7 @@
       border-radius: 100px;
       border: 1px solid rgba(255, 255, 255, 0.25);
     }
+
     .c-dot {
       width: 8px;
       height: 8px;
@@ -616,6 +731,7 @@
       padding: 0;
       transition: all 0.3s ease;
     }
+
     .c-dot.active {
       background: #ffffff;
       width: 22px;
@@ -636,11 +752,39 @@
       z-index: 30;
       flex-shrink: 0;
     }
-    .ess-col { text-align: left; }
-    .ess-label { font-size: 11px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 2px; }
-    .ess-val { font-size: 24px; font-weight: 900; color: #0f172a; letter-spacing: -0.6px; line-height: 1.1; }
-    .ess-sub { font-size: 12px; font-weight: 600; color: #64748b; }
-    .ess-divider { width: 1px; height: 36px; background: #e2e8f0; }
+
+    .ess-col {
+      text-align: left;
+    }
+
+    .ess-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 2px;
+    }
+
+    .ess-val {
+      font-size: 24px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.6px;
+      line-height: 1.1;
+    }
+
+    .ess-sub {
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    .ess-divider {
+      width: 1px;
+      height: 36px;
+      background: #e2e8f0;
+    }
 
     /* Banking Partners Footer Strip */
     .entry-bank-footer {
@@ -654,10 +798,35 @@
       z-index: 30;
       flex-shrink: 0;
     }
-    .ebf-label { font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.8px; }
-    .ebf-logos { display: flex; align-items: center; gap: 32px; }
-    .ebf-right { display: flex; align-items: center; gap: 16px; }
-    .ebf-rbi-tag { font-size: 11px; font-weight: 800; color: #64748b; letter-spacing: 0.8px; text-transform: uppercase; }
+
+    .ebf-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .ebf-logos {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .ebf-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .ebf-rbi-tag {
+      font-size: 11px;
+      font-weight: 800;
+      color: #64748b;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
     .ebf-learn-btn {
       background: transparent;
       border: 1.5px solid #cbd5e1;
@@ -672,100 +841,139 @@
       gap: 6px;
       transition: all 0.2s ease;
     }
-    .ebf-learn-btn:hover { border-color: #0f172a; color: #0f172a; background: #ffffff; }
+
+    .ebf-learn-btn:hover {
+      border-color: #0f172a;
+      color: #0f172a;
+      background: #ffffff;
+    }
 
     @media (max-width: 960px) {
-      #screen-entry.active { height: auto; max-height: none; overflow: auto; }
-      .hero-slanted-main { flex-direction: column; height: auto; }
-      .hero-left-panel { width: 100%; clip-path: none; padding: 90px 24px 24px; }
-      .hero-right-photo-panel { position: relative; width: 100%; height: 360px; border-radius: 0; }
-      .entry-stats-strip { height: auto; flex-direction: column; padding: 24px; gap: 16px; }
-      .ess-divider { display: none; }
-      .entry-bank-footer { height: auto; flex-direction: column; padding: 20px; gap: 16px; }
-    }
-    @media (max-width: 640px) {
-      .trust-divider { display: none; }
-      .tpc-container { grid-template-columns: 1fr; }
-    }
+      #screen-entry.active {
+        height: auto;
+        max-height: none;
+        overflow: auto;
+      }
 
-    /* ─── Extended DNB Application Card Container ──────────────────── */
-    .app-card-container {
-      max-width: 1120px;
-      margin: 40px auto 80px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 32px;
-      box-shadow: var(--shadow-lg);
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      align-items: start;
-    }
-    @media (max-width: 900px) {
-      .app-card-container {
-        grid-template-columns: 1fr;
-        margin: 20px auto 40px;
-        border-radius: 24px;
+      .hero-slanted-main {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .hero-left-panel {
+        width: 100%;
+        clip-path: none;
+        padding: 90px 24px 24px;
+      }
+
+      .hero-right-photo-panel {
+        position: relative;
+        width: 100%;
+        height: 360px;
+        border-radius: 0;
+      }
+
+      .entry-stats-strip {
+        height: auto;
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+      }
+
+      .ess-divider {
+        display: none;
+      }
+
+      .entry-bank-footer {
+        height: auto;
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
       }
     }
 
-    /* Left Sticky Sidebar */
+    @media (max-width: 640px) {
+      .trust-divider {
+        display: none;
+      }
+
+      .tpc-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── Integrated Step Wizard Layout ────────────────────────────── */
+    .wizard-page-wrap {
+      width: 100%;
+      max-width: 1140px;
+      margin: 32px auto 60px;
+      padding: 0 16px;
+    }
+
+    .wizard-card-container {
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .wizard-card-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    /* Left Sidebar */
+    .wizard-sidebar,
     .app-card-sidebar {
-      background: #f8fafc;
-      border-right: 1px solid var(--border);
-      border-top-left-radius: 32px;
-      border-bottom-left-radius: 32px;
-      padding: 48px 36px;
+      position: sticky;
+      top: 96px;
+      background: #f6f4ef;
+      border: 1px solid #e7e2d8;
+      border-radius: 20px;
+      padding: 36px 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: sticky;
-      top: 90px;
-      align-self: start;
-      z-index: 10;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      z-index: 20;
     }
+
+    .app-card-container {
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
     @media (max-width: 900px) {
-      .app-card-sidebar {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-        border-top-left-radius: 24px;
-        border-top-right-radius: 24px;
-        border-bottom-left-radius: 0;
-        position: static;
-        padding: 28px 24px;
+      .app-card-container {
+        grid-template-columns: 1fr;
       }
     }
 
-    .app-sidebar-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 20px;
-      color: var(--accent);
-      margin-bottom: 28px;
-    }
-    .app-sidebar-title {
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
-    }
-    .app-time-estimate {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
+    .sidebar-eyebrow {
+      font-size: 11px;
       font-weight: 700;
-      color: var(--success);
-      background: var(--success-bg);
-      padding: 6px 14px;
-      border-radius: 100px;
-      border: 1px solid #bbf7d0;
-      margin-bottom: 32px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: #78716c;
+      margin-bottom: 8px;
     }
 
-    /* DNB Connected Vertical Stepper */
+    .sidebar-serif-title {
+      font-family: var(--font);
+      font-size: 26px;
+      font-weight: 800;
+      color: #1c1917;
+      line-height: 1.25;
+      margin: 0 0 28px 0;
+      letter-spacing: -0.5px;
+    }
+
+    /* Vertical Stepper */
     .v-stepper {
       list-style: none;
       padding: 0;
@@ -773,94 +981,228 @@
       display: flex;
       flex-direction: column;
     }
+
     .v-step {
       position: relative;
       display: flex;
-      align-items: center;
-      gap: 16px;
-      padding-bottom: 36px;
+      align-items: flex-start;
+      gap: 14px;
+      padding-bottom: 28px;
+      cursor: pointer;
     }
-    .v-step:last-child { padding-bottom: 0; }
+
+    .v-step:last-child {
+      padding-bottom: 0;
+    }
+
     .v-step:not(:last-child)::after {
       content: '';
       position: absolute;
-      top: 38px;
-      left: 19px;
+      top: 36px;
+      left: 17px;
       width: 2px;
-      height: calc(100% - 38px);
-      background: #cbd5e1;
+      height: calc(100% - 36px);
+      background: #e7e5e4;
       transition: background 0.3s ease;
     }
-    .v-step.done:not(:last-child)::after { background: var(--accent); }
+
+    .v-step.done:not(:last-child)::after {
+      background: var(--accent);
+    }
+
     .v-step-num {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      border: 2px solid #cbd5e1;
+      border: 1.5px solid #d6d3d1;
       background: #ffffff;
-      color: var(--text-muted);
+      color: #78716c;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 700;
       flex-shrink: 0;
       z-index: 2;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
     }
+
     .v-step.active .v-step-num {
       border-color: var(--accent);
-      background: var(--accent-light);
-      color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.16);
     }
+
     .v-step.done .v-step-num {
       border-color: var(--accent);
       background: var(--accent);
       color: #ffffff;
     }
+
+    .v-step-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding-top: 6px;
+    }
+
+    /* Clean Document Upload & Processing Styles */
+    .upload-zone-processing {
+      border: 1.5px dashed var(--accent) !important;
+      background: #fff7ed !important;
+      padding: 24px;
+      text-align: center;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .upload-spinner {
+      width: 20px;
+      height: 20px;
+      border: 2.5px solid rgba(234, 88, 12, 0.2);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes fieldHighlightPulse {
+      0% {
+        border-color: #ea580c !important;
+        background-color: #fff7ed !important;
+        box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.25) !important;
+      }
+      50% {
+        border-color: #ea580c !important;
+        background-color: #ffedd5 !important;
+        box-shadow: 0 0 0 6px rgba(234, 88, 12, 0.35) !important;
+      }
+      100% {
+        border-color: #cbd5e1 !important;
+        background-color: #ffffff !important;
+        box-shadow: none !important;
+      }
+    }
+
+    .field-highlight-autofill input,
+    .field-highlight-autofill select {
+      animation: fieldHighlightPulse 1.2s ease-in-out forwards !important;
+    }
+
     .v-step-label {
       font-size: 15px;
       font-weight: 600;
-      color: var(--text-muted);
-      transition: color 0.3s ease;
+      color: #57534e;
+      transition: color 0.2s ease;
     }
-    .v-step.active .v-step-label { font-weight: 800; color: var(--text-primary); }
-    .v-step.done .v-step-label { font-weight: 700; color: var(--text-primary); }
 
-    /* Live Estimate Sidebar Box */
+    .v-step.active .v-step-label {
+      font-weight: 700;
+      color: #1c1917;
+    }
+
+    .v-step.done .v-step-label {
+      font-weight: 700;
+      color: #1c1917;
+    }
+
+    .v-step-sub {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    /* Sidebar Estimate Box */
     .sidebar-total {
-      margin-top: 36px;
       background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      padding: 24px;
-      box-shadow: var(--shadow-sm);
+      border: 1px solid #e7e5e4;
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 32px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
     }
-    .sidebar-total-label { font-size: 11px; text-transform: uppercase; font-weight: 800; color: var(--text-muted); letter-spacing: 0.6px; }
-    .sidebar-total-val { font-size: 24px; font-weight: 800; color: var(--accent); margin: 6px 0; letter-spacing: -0.6px; }
-    .sidebar-total-note { font-size: 12px; color: var(--text-muted); }
 
-    /* Right Extended Main Panel */
-    .app-card-main {
-      padding: 56px 56px;
+    .sidebar-total-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #78716c;
+      letter-spacing: 1px;
+    }
+
+    .sidebar-total-val {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1c1917;
+      margin: 6px 0 2px;
+      letter-spacing: -0.5px;
+    }
+
+    .sidebar-total-note {
+      font-size: 12px;
+      color: #78716c;
+    }
+
+    .sidebar-divider {
+      border: none;
+      border-top: 1px solid #f0eae1;
+      margin: 12px 0;
+    }
+
+    .sidebar-disclaimer {
+      font-size: 12px;
+      color: #78716c;
+      line-height: 1.45;
+    }
+
+    .sidebar-watermark {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 14px;
+      color: #a8a29e;
+      margin-top: 28px;
+      letter-spacing: -0.2px;
+    }
+
+    /* Right Main Card */
+    .wizard-main {
       background: #ffffff;
+      border: 1px solid #e7e5e4;
+      border-radius: 20px;
+      padding: 40px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-    }
-    @media (max-width: 640px) {
-      .app-card-main { padding: 32px 24px; }
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+      min-height: 520px;
     }
 
-    /* Section Caps & Field Grouping */
+    @media (max-width: 640px) {
+      .wizard-main {
+        padding: 24px 20px;
+      }
+    }
+
+    /* Floating Fields & Section Headers */
     .section-group-header {
       border-bottom: 2px solid var(--border-light);
       padding-bottom: 10px;
       margin-bottom: 28px;
       margin-top: 36px;
     }
-    .section-group-header:first-child { margin-top: 0; }
+
+    .section-group-header:first-child {
+      margin-top: 0;
+    }
+
     .section-group-header .group-title {
       font-size: 12px;
       font-weight: 800;
@@ -869,11 +1211,11 @@
       color: var(--accent);
     }
 
-    /* Outlined Form Fields */
     .floating-field {
       position: relative;
       margin-bottom: 24px;
     }
+
     .floating-field label {
       font-size: 13px;
       font-weight: 700;
@@ -881,7 +1223,10 @@
       margin-bottom: 8px;
       display: block;
     }
-    .floating-field input, .floating-field select, .floating-field textarea {
+
+    .floating-field input,
+    .floating-field select,
+    .floating-field textarea {
       width: 100%;
       height: 52px;
       padding: 0 18px;
@@ -894,95 +1239,308 @@
       outline: none;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    .floating-field textarea { height: 90px; padding: 14px 18px; resize: vertical; }
-    .floating-field input:focus, .floating-field select:focus, .floating-field textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+
+    .floating-field textarea {
+      height: 90px;
+      padding: 14px 18px;
+      resize: vertical;
     }
-    .floating-field.has-error input, .floating-field.has-error select { border-color: #dc2626; }
-    .floating-field .field-error { font-size: 12px; color: #dc2626; margin-top: 6px; display: none; font-weight: 600; }
-    .floating-field.has-error .field-error { display: block; }
-    .floating-field .field-help { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
 
-    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    @media (max-width: 600px) { .form-grid-2 { grid-template-columns: 1fr; } }
+    .floating-field input:focus,
+    .floating-field select:focus,
+    .floating-field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.14);
+    }
 
-    /* Footer Action Bar */
-    .app-card-footer {
-      border-top: 1px solid var(--border-light);
-      padding-top: 32px;
-      margin-top: 48px;
+    .floating-field.has-error input,
+    .floating-field.has-error select {
+      border-color: #dc2626;
+    }
+
+    .floating-field .field-error {
+      font-size: 12px;
+      color: #dc2626;
+      margin-top: 6px;
+      display: none;
+      font-weight: 600;
+    }
+
+    .floating-field.has-error .field-error {
+      display: block;
+    }
+
+    .floating-field .field-help {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 600px) {
+      .form-grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Question Row Structure & Unveil Animation */
+    .q-row {
+      margin-bottom: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #f5f5f4;
+    }
+
+    .q-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .q-row-unveiled {
+      animation: unveilSlideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes unveilSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Question Typography */
+    .q-num {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .q-serif-label {
+      font-family: var(--font);
+      font-size: 28px;
+      font-weight: 800;
+      color: #1c1917;
+      line-height: 1.25;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.5px;
+    }
+
+    .q-hint {
+      font-size: 15px;
+      color: #78716c;
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+
+    /* Option Cards Grid */
+    .option-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 600px) {
+      .option-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    .option-btn {
+      border: 1.5px solid #e7e5e4;
+      border-radius: 14px;
+      padding: 22px 24px;
+      background: #ffffff;
+      cursor: pointer !important;
       display: flex;
       align-items: center;
       justify-content: space-between;
-    }
-
-    /* ─── Question Options Spacing ────────────────────────────────── */
-    .q-stack { display: flex; flex-direction: column; gap: 32px; }
-    .q-row {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--r-xl);
-      padding: 32px;
-      opacity: 0.35;
-      transform: translateY(8px);
-      pointer-events: none;
-      transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.25s ease;
-    }
-    .q-row.unlocked { opacity: 1; transform: translateY(0); pointer-events: auto; box-shadow: var(--shadow-md); }
-    .q-row.answered { border-color: #cbd5e1; background: #ffffff; }
-    .q-num { font-size: 12px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
-    .q-label { font-size: 19px; font-weight: 800; color: var(--text-primary); margin-bottom: 6px; letter-spacing: -0.3px; }
-    .q-hint { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
-
-    .option-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-    @media (max-width: 600px) { .option-grid { grid-template-columns: 1fr !important; } }
-    .option-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 6px;
-      padding: 18px 20px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--r-md);
-      background: var(--surface);
-      cursor: pointer;
       text-align: left;
-      font-family: var(--font);
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      min-height: 84px;
+      width: 100%;
+      user-select: none;
+      position: relative;
+      z-index: 10;
+      pointer-events: auto !important;
     }
+
+    .option-btn * {
+      pointer-events: none !important;
+    }
+
     .option-btn:hover {
       border-color: var(--accent);
-      background: var(--accent-light);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(37,99,235,0.08);
+      background: #fff7ed;
     }
+
     .option-btn.selected {
-      border-color: var(--accent);
-      background: var(--accent-light);
-      box-shadow: 0 0 0 2px var(--accent);
+      border: 2px solid var(--accent) !important;
+      background: #fff7ed !important;
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.08);
     }
-    .opt-title { font-size: 15px; font-weight: 700; color: var(--text-primary); }
-    .opt-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.45; }
+
+    .opt-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .opt-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1c1917;
+    }
+
+    .opt-desc {
+      font-size: 13.5px;
+      color: #78716c;
+      line-height: 1.4;
+    }
+
+    .option-btn.selected .opt-title {
+      color: var(--accent);
+    }
+
+    /* Radio button indicator dot */
+    .opt-radio {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #d6d3d1;
+      background: #ffffff;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      margin-left: 12px;
+    }
+
+    .option-btn:hover .opt-radio {
+      border-color: var(--accent);
+    }
+
+    .option-btn.selected .opt-radio {
+      border-color: var(--accent);
+      background: #ffffff;
+    }
+
+    .option-btn.selected .opt-radio::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Footer Action Nav Bar inside Main Card */
+    .wizard-footer-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #f5f5f4;
+      padding-top: 24px;
+      margin-top: auto;
+    }
+
+    .btn-wiz-back {
+      background: transparent;
+      border: none;
+      font-size: 15px;
+      font-weight: 600;
+      color: #44403c;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-wiz-back:hover {
+      background: #f5f5f4;
+      color: #1c1917;
+    }
+
+    .btn-wiz-continue {
+      background: var(--accent);
+      color: #ffffff;
+      border-radius: 100px;
+      padding: 14px 32px;
+      font-weight: 600;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
+      transition: all 0.2s;
+    }
+
+    .btn-wiz-continue:hover {
+      background: #c2410c;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(234, 88, 12, 0.35);
+    }
+
+    /* Bottom Trust Footer Strip */
+    .wizard-trust-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      padding: 0 8px;
+      font-size: 13px;
+      color: #78716c;
+    }
+
+    @media (max-width: 768px) {
+      .wizard-trust-footer {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+
+    .wiz-trust-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .wiz-sep {
+      color: #d6d3d1;
+    }
+
+    .wiz-trust-right a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .wiz-trust-right a:hover {
+      text-decoration: underline;
+    }
 
     .q-answered-badge {
-      display: none;
-      align-items: center;
-      gap: 10px;
-      background: var(--success-bg);
-      border: 1px solid #bbf7d0;
-      color: var(--success);
-      padding: 12px 18px;
-      border-radius: var(--r-md);
-      font-size: 14px;
-      font-weight: 700;
+      display: none !important;
     }
-    .q-row.answered .option-grid { display: none; }
-    .q-row.answered .q-answered-badge { display: flex; }
 
     /* Upload Zone */
     .upload-zone {
@@ -995,9 +1553,28 @@
       position: relative;
       transition: all var(--t);
     }
-    .upload-zone:hover, .upload-zone.dragging { border-color: var(--accent); background: var(--accent-light); }
-    .upload-zone input[type="file"] { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
-    .upload-zone-icon { color: var(--accent); margin-bottom: 8px; }
+
+    .upload-zone:hover,
+    .upload-zone.dragging {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .upload-zone input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .upload-zone-icon {
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
     .upload-file-item {
       display: flex;
       align-items: center;
@@ -1009,1243 +1586,1517 @@
       margin-top: 12px;
     }
 
-    .review-row { display: flex; justify-content: space-between; font-size: 15px; padding: 8px 0; border-bottom: 1px solid var(--border-light); }
-    .review-row:last-child { border-bottom: none; }
-    .review-row-label { color: var(--text-secondary); font-weight: 500; }
-    .review-row-value { font-weight: 700; color: var(--text-primary); text-align: right; }
+    .review-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .review-row:last-child {
+      border-bottom: none;
+    }
+
+    .review-row-label {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .review-row-value {
+      font-weight: 700;
+      color: var(--text-primary);
+      text-align: right;
+    }
 
     /* Helpers */
-    .mt-8 { margin-top: 8px; } .mt-12 { margin-top: 12px; } .mt-16 { margin-top: 16px; } .mt-24 { margin-top: 24px; } .mt-32 { margin-top: 32px; }
-    .mb-4 { margin-bottom: 4px; } .mb-8 { margin-bottom: 8px; } .mb-12 { margin-bottom: 12px; } .mb-16 { margin-bottom: 16px; } .mb-24 { margin-bottom: 24px; } .mb-32 { margin-bottom: 32px; }
-    .divider { height: 1px; background: var(--border); margin: 32px 0; }
+    .mt-8 {
+      margin-top: 8px;
+    }
+
+    .mt-12 {
+      margin-top: 12px;
+    }
+
+    .mt-16 {
+      margin-top: 16px;
+    }
+
+    .mt-24 {
+      margin-top: 24px;
+    }
+
+    .mt-32 {
+      margin-top: 32px;
+    }
+
+    .mb-4 {
+      margin-bottom: 4px;
+    }
+
+    .mb-8 {
+      margin-bottom: 8px;
+    }
+
+    .mb-12 {
+      margin-bottom: 12px;
+    }
+
+    .mb-16 {
+      margin-bottom: 16px;
+    }
+
+    .mb-24 {
+      margin-bottom: 24px;
+    }
+
+    .mb-32 {
+      margin-bottom: 32px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0;
+    }
   </style>
 </head>
+
 <body>
 
-<!-- ─── Global Nav ──────────────────────────────────────────────── -->
-<nav class="global-nav">
-  <div class="global-nav-inner">
-    <a href="#" class="nav-brand" onclick="showScreen('screen-entry'); return false;">
-      <img src="nano_banana_logo.png" alt="LoanMate Logo" style="height: 34px; width: auto; object-fit: contain; border-radius: 6px;" />
-      <span>LoanMate</span>
-      <span class="nav-brand-sub">by BOMBAYDC</span>
-    </a>
-    <div class="nav-right">
-      <div class="nav-time-badge">
-        <i data-feather="clock" width="14" height="14"></i>
-        <span>Takes 2 minutes</span>
+  <!-- ─── Global Nav ──────────────────────────────────────────────── -->
+  <nav class="global-nav">
+    <div class="global-nav-inner">
+      <a href="#" class="nav-brand" onclick="showScreen('screen-entry'); return false;">
+        <img src="nano_banana_logo.png" alt="LoanMate Logo"
+          style="height: 34px; width: auto; object-fit: contain; border-radius: 6px;" />
+        <span>LoanMate</span>
+        <span class="nav-brand-sub">by BOMBAYDC</span>
+      </a>
+      <div class="nav-right">
+        <a href="#" class="nav-link nav-link-cta" id="nav-cta-btn">Check Eligibility</a>
       </div>
-      <a href="#" class="nav-link nav-link-cta" id="nav-cta-btn">Check Eligibility</a>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<div id="screens-root">
+  <div id="screens-root">
 
-<!-- ═══════════════════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════════════════
      SCREEN 1: ENTRY / HOMEPAGE WITH TESTIMONIAL CARDS
 ═══════════════════════════════════════════════════════════════════ -->
-<div id="screen-entry" class="screen active">
-  <div class="entry-full-screen">
-    
-    <!-- Top Overlaid Header Nav -->
-    <header class="entry-header">
-      <div class="entry-header-left">
-        <a href="#" class="entry-brand" onclick="showScreen('screen-entry'); return false;">
-          <img src="nano_banana_logo.png" alt="LoanMate Logo" style="height: 32px; width: auto; object-fit: contain; border-radius: 6px;" />
-          <div class="entry-brand-text">
-            <span class="eb-name">LoanMate</span>
-            <span class="eb-sub">BY BOMBAYDC</span>
-          </div>
-        </a>
-        <nav class="entry-nav-menu">
-          <a href="#" class="entry-nav-link" onclick="showScreen('screen-check'); return false;">Business Loans</a>
-          <a href="#" class="entry-nav-link" onclick="showScreen('screen-check'); return false;">How It Works</a>
-          <a href="#" class="entry-nav-link" onclick="showScreen('screen-check'); return false;">Success Stories</a>
-          <a href="#" class="entry-nav-link" onclick="showScreen('screen-check'); return false;">FAQs</a>
-        </nav>
-      </div>
+    <div id="screen-entry" class="screen active">
+      <div class="entry-full-screen">
 
-      <div class="entry-header-right">
-        <div class="entry-time-tag">
-          <i data-feather="clock" width="14" height="14"></i>
-          <span>Takes 2 minutes</span>
-        </div>
-        <button class="entry-cta-pill" onclick="showScreen('screen-check')">
-          Check Eligibility
-        </button>
-      </div>
-    </header>
-
-    <!-- Main Hero Slanted Split Area -->
-    <div class="hero-slanted-main">
-      
-      <!-- Left White Panel with Polygon Cut -->
-      <div class="hero-left-panel">
-        <div class="rbi-tag-row">
-          <span>RBI-REGULATED PARTNER</span>
-          <div class="rbi-line"></div>
-        </div>
-
-        <h1 class="hero-title-giant">
-          Fuel what<br>you <span class="text-blue">build.</span>
-        </h1>
-
-        <p class="hero-subhead">
-          Business loans from INR 1 lakh to INR 10 lakh. Approved in minutes. Funds in 24 hours.
-        </p>
-
-        <p class="hero-subtext">
-          No collateral. No processing fees. 100% transparent pricing.
-        </p>
-
-        <div class="hero-btn-row">
-          <button class="btn-hero-primary" onclick="showScreen('screen-check')">
-            Check Your Eligibility
-            <i data-feather="arrow-right" width="18" height="18"></i>
-          </button>
-        </div>
-
-        <div class="hero-micro-bullets">
-          Takes 2 minutes &bull; No paperwork upfront &bull; No credit score impact
-        </div>
-      </div>
-
-      <!-- Right Photo Panel: Big Images Sliding Track Underneath Angled Cut -->
-      <div class="hero-right-photo-panel" id="hero-carousel-panel">
-        <!-- Sliding Track of Images (Behind Angled White Panel z-index: 10) -->
-        <div class="hero-slider-track" id="hero-slider-track">
-          <div class="hero-slide-item">
-            <img src="story_rajesh.png" alt="Rajesh Patel" class="hero-carousel-img" />
-            <div class="hero-image-overlay"></div>
-          </div>
-          <div class="hero-slide-item">
-            <img src="story_meena.png" alt="Meena Sharma" class="hero-carousel-img" />
-            <div class="hero-image-overlay"></div>
-          </div>
-          <div class="hero-slide-item">
-            <img src="story_gerard.png" alt="Gerard D'Souza" class="hero-carousel-img" />
-            <div class="hero-image-overlay"></div>
-          </div>
-          <div class="hero-slide-item">
-            <img src="hero_business_owner.png" alt="Ananya Gupta" class="hero-carousel-img" />
-            <div class="hero-image-overlay"></div>
-          </div>
-        </div>
-
-        <!-- Light Theme Floating Testimonial Card Overlay -->
-        <div class="hero-testimonial-card-light" id="hero-testimonial-card" onclick="showScreen('screen-check')" style="cursor: pointer;">
-          <div class="htc-header">
-            <div class="htc-stars">★ ★ ★ ★ ★</div>
-            <span class="htc-verified-badge">
-              <i data-feather="check-circle" width="12" height="12"></i> Verified Borrower
-            </span>
+        <!-- Top Overlaid Header Nav -->
+        <header class="entry-header">
+          <div class="entry-header-left">
+            <a href="#" class="entry-brand" onclick="showScreen('screen-entry'); return false;">
+              <img src="nano_banana_logo.png" alt="LoanMate Logo"
+                style="height: 32px; width: auto; object-fit: contain; border-radius: 6px;" />
+              <div class="entry-brand-text">
+                <span class="eb-name">LoanMate</span>
+                <span class="eb-sub">BY BOMBAYDC</span>
+              </div>
+            </a>
+            <nav class="entry-nav-menu">
+              <a href="#" class="entry-nav-link" onclick="showScreen('screen-check'); return false;">Business Loans</a>
+              <a href="#" class="entry-nav-link" onclick="showScreen('screen-check'); return false;">How It Works</a>
+              <a href="#" class="entry-nav-link" onclick="showScreen('screen-check'); return false;">Success Stories</a>
+              <a href="#" class="entry-nav-link" onclick="showScreen('screen-check'); return false;">FAQs</a>
+            </nav>
           </div>
 
-          <p class="htc-quote" id="htc-quote">
-            “LoanMate transferred ₹5 Lakh directly to my vendor within 18 hours. No collateral, no stress, and zero paperwork upfront!”
-          </p>
+          <div class="entry-header-right">
+            <div class="entry-time-tag">
+              <i data-feather="clock" width="14" height="14"></i>
+              <span>Takes 2 minutes</span>
+            </div>
+            <button class="entry-cta-pill" onclick="showScreen('screen-check')">
+              Check Eligibility
+            </button>
+          </div>
+        </header>
 
-          <div class="htc-footer">
-            <div class="htc-user-info">
-              <img id="htc-avatar" src="story_rajesh.png" alt="Avatar" class="htc-avatar" />
-              <div>
-                <div class="htc-name" id="htc-name">Rajesh Patel</div>
-                <div class="htc-meta" id="htc-meta">Owner, Patel Textiles • Surat</div>
+        <!-- Main Hero Slanted Split Area -->
+        <div class="hero-slanted-main">
+
+          <!-- Left White Panel with Polygon Cut -->
+          <div class="hero-left-panel">
+            <div class="rbi-tag-row">
+              <span>RBI-REGULATED PARTNER</span>
+              <div class="rbi-line"></div>
+            </div>
+
+            <h1 class="hero-title-giant">
+              Fuel what<br>you <span class="text-blue">build.</span>
+            </h1>
+
+            <p class="hero-subhead">
+              Business loans from INR 1 lakh to INR 10 lakh. Approved in minutes. Funds in 24 hours.
+            </p>
+
+            <p class="hero-subtext">
+              No collateral. No processing fees. 100% transparent pricing.
+            </p>
+
+            <div class="hero-btn-row">
+              <button class="btn-hero-primary" onclick="showScreen('screen-check')">
+                Check Your Eligibility
+                <i data-feather="arrow-right" width="18" height="18"></i>
+              </button>
+            </div>
+
+            <div class="hero-micro-bullets">
+              Takes 2 minutes &bull; No paperwork upfront &bull; No credit score impact
+            </div>
+          </div>
+
+          <!-- Right Photo Panel: Big Images Sliding Track Underneath Angled Cut -->
+          <div class="hero-right-photo-panel" id="hero-carousel-panel">
+            <!-- Sliding Track of Images (Behind Angled White Panel z-index: 10) -->
+            <div class="hero-slider-track" id="hero-slider-track">
+              <div class="hero-slide-item">
+                <img src="story_rajesh.png" alt="Rajesh Patel" class="hero-carousel-img" />
+                <div class="hero-image-overlay"></div>
+              </div>
+              <div class="hero-slide-item">
+                <img src="story_meena.png" alt="Meena Sharma" class="hero-carousel-img" />
+                <div class="hero-image-overlay"></div>
+              </div>
+              <div class="hero-slide-item">
+                <img src="story_gerard.png" alt="Gerard D'Souza" class="hero-carousel-img" />
+                <div class="hero-image-overlay"></div>
+              </div>
+              <div class="hero-slide-item">
+                <img src="hero_business_owner.png" alt="Ananya Gupta" class="hero-carousel-img" />
+                <div class="hero-image-overlay"></div>
               </div>
             </div>
 
-            <div class="htc-disbursed-badge" id="htc-disbursed">
-              <i data-feather="shield-check" width="13" height="13"></i>
-              <span>₹5,00,000 Disbursed</span>
+            <!-- Light Theme Floating Testimonial Card Overlay -->
+            <div class="hero-testimonial-card-light" id="hero-testimonial-card" onclick="showScreen('screen-check')"
+              style="cursor: pointer;">
+              <div class="htc-header">
+                <div class="htc-stars">★ ★ ★ ★ ★</div>
+                <span class="htc-verified-badge">
+                  <i data-feather="check-circle" width="12" height="12"></i> Verified Borrower
+                </span>
+              </div>
+
+              <p class="htc-quote" id="htc-quote">
+                “LoanMate transferred ₹5 Lakh directly to my vendor within 18 hours. No collateral, no stress, and zero
+                paperwork upfront!”
+              </p>
+
+              <div class="htc-footer">
+                <div class="htc-user-info">
+                  <img id="htc-avatar" src="story_rajesh.png" alt="Avatar" class="htc-avatar" />
+                  <div>
+                    <div class="htc-name" id="htc-name">Rajesh Patel</div>
+                    <div class="htc-meta" id="htc-meta">Owner, Patel Textiles • Surat</div>
+                  </div>
+                </div>
+
+                <div class="htc-disbursed-badge" id="htc-disbursed">
+                  <i data-feather="shield-check" width="13" height="13"></i>
+                  <span>₹5,00,000 Disbursed</span>
+                </div>
+              </div>
             </div>
           </div>
+
+        </div>
+
+        <!-- Middle Stats Bar (Full Width) -->
+        <div class="entry-stats-strip">
+          <div class="ess-col">
+            <div class="ess-label">TRUSTED BY</div>
+            <div class="ess-val">100,000+</div>
+            <div class="ess-sub">Businesses across India</div>
+          </div>
+
+          <div class="ess-divider"></div>
+
+          <div class="ess-col">
+            <div class="ess-val">INR 500 Cr+</div>
+            <div class="ess-sub">Loans Disbursed</div>
+          </div>
+
+          <div class="ess-divider"></div>
+
+          <div class="ess-col">
+            <div class="ess-val">12% – 15%</div>
+            <div class="ess-sub">Interest Rates (p.a.)</div>
+          </div>
+
+          <div class="ess-divider"></div>
+
+          <div class="ess-col">
+            <div class="ess-val">24 Hours</div>
+            <div class="ess-sub">Disbursement Time</div>
+          </div>
+        </div>
+
+        <!-- Bottom Banking Partners Footer Strip (Warm Beige Background) -->
+        <div class="entry-bank-footer">
+          <div class="ebf-left">
+            <span class="ebf-label">IN PARTNERSHIP WITH LEADING FINANCIAL INSTITUTIONS</span>
+          </div>
+
+          <div class="ebf-logos">
+            <!-- SBI -->
+            <div class="bank-logo-item" title="State Bank of India">
+              <svg width="105" height="26" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="16" fill="#0083CA" />
+                <circle cx="20" cy="14" r="6" fill="#FFFFFF" />
+                <rect x="18" y="14" width="4" height="18" fill="#FFFFFF" />
+                <text x="46" y="27" font-family="'Inter', sans-serif" font-weight="800" font-size="20" fill="#0083CA"
+                  letter-spacing="-0.5">SBI</text>
+              </svg>
+            </div>
+
+            <!-- HDFC BANK -->
+            <div class="bank-logo-item" title="HDFC Bank">
+              <svg width="125" height="26" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="6" width="28" height="28" fill="#004C8F" rx="3" />
+                <rect x="10" y="14" width="12" height="12" fill="#EE2E24" />
+                <rect x="13" y="6" width="6" height="28" fill="#FFFFFF" />
+                <rect x="2" y="17" width="28" height="6" fill="#FFFFFF" />
+                <rect x="13" y="17" width="6" height="6" fill="#EE2E24" />
+                <text x="38" y="26" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#004C8F"
+                  letter-spacing="-0.3">HDFC BANK</text>
+              </svg>
+            </div>
+
+            <text x="44" y="26" font-family="'Inter', sans-serif" font-weight="800" font-size="17" fill="#F37021"
+              letter-spacing="-0.5">ICICI Bank</text>
+            </svg>
+          </div>
         </div>
       </div>
 
     </div>
-
-    <!-- Middle Stats Bar (Full Width) -->
-    <div class="entry-stats-strip">
-      <div class="ess-col">
-        <div class="ess-label">TRUSTED BY</div>
-        <div class="ess-val">100,000+</div>
-        <div class="ess-sub">Businesses across India</div>
-      </div>
-
-      <div class="ess-divider"></div>
-
-      <div class="ess-col">
-        <div class="ess-val">INR 500 Cr+</div>
-        <div class="ess-sub">Loans Disbursed</div>
-      </div>
-
-      <div class="ess-divider"></div>
-
-      <div class="ess-col">
-        <div class="ess-val">12% – 15%</div>
-        <div class="ess-sub">Interest Rates (p.a.)</div>
-      </div>
-
-      <div class="ess-divider"></div>
-
-      <div class="ess-col">
-        <div class="ess-val">24 Hours</div>
-        <div class="ess-sub">Disbursement Time</div>
-      </div>
-    </div>
-
-    <!-- Bottom Banking Partners Footer Strip (Warm Beige Background) -->
-    <div class="entry-bank-footer">
-      <div class="ebf-left">
-        <span class="ebf-label">IN PARTNERSHIP WITH LEADING FINANCIAL INSTITUTIONS</span>
-      </div>
-
-      <div class="ebf-logos">
-        <!-- SBI -->
-        <div class="bank-logo-item" title="State Bank of India">
-          <svg width="105" height="26" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="16" fill="#0083CA"/>
-            <circle cx="20" cy="14" r="6" fill="#FFFFFF"/>
-            <rect x="18" y="14" width="4" height="18" fill="#FFFFFF"/>
-            <text x="46" y="27" font-family="'Inter', sans-serif" font-weight="800" font-size="20" fill="#0083CA" letter-spacing="-0.5">SBI</text>
-          </svg>
-        </div>
-
-        <!-- HDFC BANK -->
-        <div class="bank-logo-item" title="HDFC Bank">
-          <svg width="125" height="26" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="6" width="28" height="28" fill="#004C8F" rx="3"/>
-            <rect x="10" y="14" width="12" height="12" fill="#EE2E24"/>
-            <rect x="13" y="6" width="6" height="28" fill="#FFFFFF"/>
-            <rect x="2" y="17" width="28" height="6" fill="#FFFFFF"/>
-            <rect x="13" y="17" width="6" height="6" fill="#EE2E24"/>
-            <text x="38" y="26" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#004C8F" letter-spacing="-0.3">HDFC BANK</text>
-          </svg>
-        </div>
-
-        <!-- ICICI BANK -->
-        <div class="bank-logo-item" title="ICICI Bank">
-          <svg width="120" height="26" viewBox="0 0 155 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="15" fill="#F37021"/>
-            <path d="M12 20 L28 20 M20 12 L20 28" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
-            <text x="44" y="26" font-family="'Inter', sans-serif" font-weight="800" font-size="17" fill="#F37021" letter-spacing="-0.5">ICICI Bank</text>
-          </svg>
-        </div>
-
-        <!-- AXIS BANK -->
-        <div class="bank-logo-item" title="Axis Bank">
-          <svg width="120" height="26" viewBox="0 0 155 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 6 L34 32 L25 32 L20 22 L15 32 L6 32 Z" fill="#97144D"/>
-            <text x="42" y="26" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#97144D" letter-spacing="-0.3">AXIS BANK</text>
-          </svg>
-        </div>
-      </div>
-
-      <div class="ebf-right">
-        <span class="ebf-rbi-tag">RBI-REGULATED PARTNER</span>
-        <button class="ebf-learn-btn" onclick="showScreen('screen-check')">
-          Learn More <i data-feather="arrow-right" width="14" height="14"></i>
-        </button>
-      </div>
-    </div>
-
   </div>
-</div>
 
-
-<!-- ═══════════════════════════════════════════════════════════════
-     SCREEN 2: QUICK ELIGIBILITY CHECK (DNB Extended Card Layout)
+  <!-- ═══════════════════════════════════════════════════════════════
+     SCREEN 2: QUICK ELIGIBILITY CHECK
 ═══════════════════════════════════════════════════════════════════ -->
-<div id="screen-check" class="screen">
-  <div class="page-wrap">
+  <div id="screen-check" class="screen">
+    <div class="wizard-page-wrap">
 
-    <div class="app-card-container">
-      
-      <!-- Left Sticky Sidebar Stepper -->
-      <div class="app-card-sidebar">
-        <div>
-          <div class="app-sidebar-logo">
-            <i data-feather="briefcase" width="20" height="20"></i>
-            <span>LoanMate</span>
-          </div>
-          <div class="app-sidebar-title">Eligibility Check</div>
-          <div class="app-time-estimate">
-            <i data-feather="clock" width="14" height="14"></i>
-            Takes under 2 mins
+      <div class="wizard-card-container">
+
+        <!-- Left Sidebar Panel -->
+        <div class="wizard-sidebar">
+          <div>
+            <div class="sidebar-eyebrow">ELIGIBILITY CHECK</div>
+            <h2 class="sidebar-serif-title">Find the right loan<br />in 2 minutes</h2>
+
+            <ul class="v-stepper">
+              <li class="v-step active" id="vstep-0">
+                <div class="v-step-num">1</div>
+                <div class="v-step-text">
+                  <div class="v-step-label">Loan Amount</div>
+                  <div class="v-step-sub" id="vstep-sub-0">In progress</div>
+                </div>
+              </li>
+              <li class="v-step" id="vstep-1">
+                <div class="v-step-num">2</div>
+                <div class="v-step-text">
+                  <div class="v-step-label">Loan Purpose</div>
+                  <div class="v-step-sub" id="vstep-sub-1"></div>
+                </div>
+              </li>
+              <li class="v-step" id="vstep-2">
+                <div class="v-step-num">3</div>
+                <div class="v-step-text">
+                  <div class="v-step-label">Business Age</div>
+                  <div class="v-step-sub" id="vstep-sub-2"></div>
+                </div>
+              </li>
+              <li class="v-step" id="vstep-3">
+                <div class="v-step-num">4</div>
+                <div class="v-step-text">
+                  <div class="v-step-label">Monthly Income</div>
+                  <div class="v-step-sub" id="vstep-sub-3"></div>
+                </div>
+              </li>
+              <li class="v-step" id="vstep-4">
+                <div class="v-step-num">5</div>
+                <div class="v-step-text">
+                  <div class="v-step-label">GST Status</div>
+                  <div class="v-step-sub" id="vstep-sub-4"></div>
+                </div>
+              </li>
+            </ul>
           </div>
 
-          <ul class="v-stepper">
-            <li class="v-step active" id="vstep-0">
-              <div class="v-step-num">1</div>
-              <div class="v-step-label">Loan Amount</div>
-            </li>
-            <li class="v-step" id="vstep-1">
-              <div class="v-step-num">2</div>
-              <div class="v-step-label">Loan Purpose</div>
-            </li>
-            <li class="v-step" id="vstep-2">
-              <div class="v-step-num">3</div>
-              <div class="v-step-label">Business Age</div>
-            </li>
-            <li class="v-step" id="vstep-3">
-              <div class="v-step-num">4</div>
-              <div class="v-step-label">Monthly Income</div>
-            </li>
-            <li class="v-step" id="vstep-4">
-              <div class="v-step-num">5</div>
-              <div class="v-step-label">GST Status</div>
-            </li>
-          </ul>
+          <div>
+            <!-- Live Estimate Card inside Sidebar (Hidden until form submit) -->
+            <div class="sidebar-total" id="sidebar-total" style="display:none;">
+              <div class="sidebar-total-label">ESTIMATED LOAN RANGE</div>
+              <div class="sidebar-total-val" id="sidebar-range">—</div>
+              <div class="sidebar-total-note">Calculated in real-time</div>
+              <hr class="sidebar-divider" />
+              <div class="sidebar-disclaimer">This is an estimate. Final loan offers may vary based on your details.
+              </div>
+            </div>
+
+            <div class="sidebar-watermark">Growing Businesses Together</div>
+          </div>
         </div>
 
-        <div class="sidebar-total" id="sidebar-total" style="display:none;">
-          <div class="sidebar-total-label">Indicative Loan Range</div>
-          <div class="sidebar-total-val" id="sidebar-range">—</div>
-          <div class="sidebar-total-note">Calculated in real-time</div>
-        </div>
-      </div>
+        <!-- Right Main Panel -->
+        <div class="wizard-main">
 
-      <!-- Right Main Content Area -->
-      <div class="app-card-main">
-        <div>
-          <h2 class="h2 mb-4">Let's find the right loan for you</h2>
-          <p class="body-sm mb-32">Quick 2-minute eligibility check. No documents needed yet.</p>
-
+          <!-- Questions Container (revealed one by one upon selection) -->
           <div class="q-stack" id="q-stack">
 
             <!-- Q1: Amount -->
-            <div class="q-row unlocked" id="q-row-0" data-qid="0">
-              <div class="q-num">Step 1 of 5</div>
-              <div class="q-label">How much do you need to borrow?</div>
-              <div class="q-hint">This helps us calculate your eligibility and available loan options</div>
+            <div class="q-row" id="q-row-0" data-qid="0">
+              <div class="q-num">STEP 1 OF 5</div>
+              <h2 class="q-serif-label">How much do you need to borrow?</h2>
+              <div class="q-hint">This helps us calculate your eligibility and show the best loan options for you.</div>
               <div class="option-grid">
-                <button class="option-btn" data-q="0" data-val="INR 1 lakh to 2 lakh">
-                  <span class="opt-title">INR 1 lakh to 2 lakh</span>
-                  <span class="opt-desc">Small working capital boost</span>
+                <button type="button" class="option-btn" data-q="0" data-val="INR 1 lakh to 2 lakh"
+                  onclick="selectOption(this, 0, 'INR 1 lakh to 2 lakh')">
+                  <div class="opt-text">
+                    <span class="opt-title">INR 1 lakh to 2 lakh</span>
+                    <span class="opt-desc">Small working capital boost</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="0" data-val="INR 2 lakh to 5 lakh">
-                  <span class="opt-title">INR 2 lakh to 5 lakh</span>
-                  <span class="opt-desc">Inventory & stock purchase</span>
+                <button type="button" class="option-btn" data-q="0" data-val="INR 2 lakh to 5 lakh"
+                  onclick="selectOption(this, 0, 'INR 2 lakh to 5 lakh')">
+                  <div class="opt-text">
+                    <span class="opt-title">INR 2 lakh to 5 lakh</span>
+                    <span class="opt-desc">Inventory & stock purchase</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="0" data-val="INR 5 lakh to 10 lakh">
-                  <span class="opt-title">INR 5 lakh to 10 lakh</span>
-                  <span class="opt-desc">Business expansion & tools</span>
+                <button type="button" class="option-btn" data-q="0" data-val="INR 5 lakh to 10 lakh"
+                  onclick="selectOption(this, 0, 'INR 5 lakh to 10 lakh')">
+                  <div class="opt-text">
+                    <span class="opt-title">INR 5 lakh to 10 lakh</span>
+                    <span class="opt-desc">Business expansion & tools</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="0" data-val="More than INR 10 lakh">
-                  <span class="opt-title">More than INR 10 lakh</span>
-                  <span class="opt-desc">Large scale operations</span>
+                <button type="button" class="option-btn" data-q="0" data-val="More than INR 10 lakh"
+                  onclick="selectOption(this, 0, 'More than INR 10 lakh')">
+                  <div class="opt-text">
+                    <span class="opt-title">More than INR 10 lakh</span>
+                    <span class="opt-desc">Large scale operations</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-              </div>
-              <div class="q-answered-badge" id="badge-0">
-                <i data-feather="check-circle" width="16" height="16"></i>
-                <span id="badge-val-0"></span>
-                <button onclick="editAnswer(0)" style="margin-left:auto;background:none;border:none;cursor:pointer;color:var(--accent);font-size:13px;font-weight:700;">Edit</button>
               </div>
             </div>
 
             <!-- Q2: Purpose -->
-            <div class="q-row" id="q-row-1" data-qid="1">
-              <div class="q-num">Step 2 of 5</div>
-              <div class="q-label">What will you use this loan for?</div>
+            <div class="q-row" id="q-row-1" data-qid="1" style="display:none;">
+              <div class="q-num">STEP 2 OF 5</div>
+              <h2 class="q-serif-label">What will you use this loan for?</h2>
               <div class="q-hint">We offer loans for multiple business purposes. Select what fits your need.</div>
               <div class="option-grid">
-                <button class="option-btn" data-q="1" data-val="Business Expansion">
-                  <span class="opt-title">Business Expansion</span>
-                  <span class="opt-desc">Expand operations, open new location</span>
+                <button type="button" class="option-btn" data-q="1" data-val="Business Expansion"
+                  onclick="selectOption(this, 1, 'Business Expansion')">
+                  <div class="opt-text">
+                    <span class="opt-title">Business Expansion</span>
+                    <span class="opt-desc">Expand operations, open new location</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="1" data-val="Inventory Purchase">
-                  <span class="opt-title">Inventory Purchase</span>
-                  <span class="opt-desc">Stock, raw materials, inventory</span>
+                <button type="button" class="option-btn" data-q="1" data-val="Inventory Purchase"
+                  onclick="selectOption(this, 1, 'Inventory Purchase')">
+                  <div class="opt-text">
+                    <span class="opt-title">Inventory Purchase</span>
+                    <span class="opt-desc">Stock, raw materials, inventory</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="1" data-val="Equipment Purchase">
-                  <span class="opt-title">Equipment Purchase</span>
-                  <span class="opt-desc">Machinery, tools, vehicles, tech</span>
+                <button type="button" class="option-btn" data-q="1" data-val="Equipment Purchase"
+                  onclick="selectOption(this, 1, 'Equipment Purchase')">
+                  <div class="opt-text">
+                    <span class="opt-title">Equipment Purchase</span>
+                    <span class="opt-desc">Machinery, tools, vehicles, tech</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="1" data-val="Working Capital">
-                  <span class="opt-title">Working Capital</span>
-                  <span class="opt-desc">Day-to-day operations, payroll</span>
+                <button type="button" class="option-btn" data-q="1" data-val="Working Capital"
+                  onclick="selectOption(this, 1, 'Working Capital')">
+                  <div class="opt-text">
+                    <span class="opt-title">Working Capital</span>
+                    <span class="opt-desc">Day-to-day operations, payroll</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="1" data-val="Other Business Purpose" style="grid-column: span 2;">
-                  <span class="opt-title">Other Business Purpose</span>
-                  <span class="opt-desc">Tell us more during application</span>
-                </button>
-              </div>
-              <div class="q-answered-badge" id="badge-1">
-                <i data-feather="check-circle" width="16" height="16"></i>
-                <span id="badge-val-1"></span>
-                <button onclick="editAnswer(1)" style="margin-left:auto;background:none;border:none;cursor:pointer;color:var(--accent);font-size:13px;font-weight:700;">Edit</button>
               </div>
             </div>
 
             <!-- Q3: Business Age -->
-            <div class="q-row" id="q-row-2" data-qid="2">
-              <div class="q-num">Step 3 of 5</div>
-              <div class="q-label">How long has your business been operating?</div>
-              <div class="q-hint">This helps us understand your business maturity and experience</div>
+            <div class="q-row" id="q-row-2" data-qid="2" style="display:none;">
+              <div class="q-num">STEP 3 OF 5</div>
+              <h2 class="q-serif-label">How long has your business been operating?</h2>
+              <div class="q-hint">This helps us understand your business maturity and experience.</div>
               <div class="option-grid">
-                <button class="option-btn" data-q="2" data-val="Less than 1 year">
-                  <span class="opt-title">Less than 1 year</span>
-                  <span class="opt-desc">Recently started</span>
+                <button type="button" class="option-btn" data-q="2" data-val="Less than 1 year"
+                  onclick="selectOption(this, 2, 'Less than 1 year')">
+                  <div class="opt-text">
+                    <span class="opt-title">Less than 1 year</span>
+                    <span class="opt-desc">Recently started business</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="2" data-val="1 to 3 years">
-                  <span class="opt-title">1 to 3 years</span>
-                  <span class="opt-desc">Growing stage</span>
+                <button type="button" class="option-btn" data-q="2" data-val="1 to 3 years"
+                  onclick="selectOption(this, 2, '1 to 3 years')">
+                  <div class="opt-text">
+                    <span class="opt-title">1 to 3 years</span>
+                    <span class="opt-desc">Growing business stage</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="2" data-val="3 to 5 years">
-                  <span class="opt-title">3 to 5 years</span>
-                  <span class="opt-desc">Established</span>
+                <button type="button" class="option-btn" data-q="2" data-val="3 to 5 years"
+                  onclick="selectOption(this, 2, '3 to 5 years')">
+                  <div class="opt-text">
+                    <span class="opt-title">3 to 5 years</span>
+                    <span class="opt-desc">Established business</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="2" data-val="5+ years">
-                  <span class="opt-title">5+ years</span>
-                  <span class="opt-desc">Experienced</span>
+                <button type="button" class="option-btn" data-q="2" data-val="5+ years"
+                  onclick="selectOption(this, 2, '5+ years')">
+                  <div class="opt-text">
+                    <span class="opt-title">5+ years</span>
+                    <span class="opt-desc">Experienced operations</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-              </div>
-              <div class="q-answered-badge" id="badge-2">
-                <i data-feather="check-circle" width="16" height="16"></i>
-                <span id="badge-val-2"></span>
-                <button onclick="editAnswer(2)" style="margin-left:auto;background:none;border:none;cursor:pointer;color:var(--accent);font-size:13px;font-weight:700;">Edit</button>
               </div>
             </div>
 
-            <!-- Q4: Revenue -->
-            <div class="q-row" id="q-row-3" data-qid="3">
-              <div class="q-num">Step 4 of 5</div>
-              <div class="q-label">What is your approximate monthly business income?</div>
-              <div class="q-hint">This is the total revenue your business generates each month</div>
+            <!-- Q4: Monthly Income -->
+            <div class="q-row" id="q-row-3" data-qid="3" style="display:none;">
+              <div class="q-num">STEP 4 OF 5</div>
+              <h2 class="q-serif-label">What is your approximate monthly business income?</h2>
+              <div class="q-hint">This is the total revenue your business generates each month.</div>
               <div class="option-grid">
-                <button class="option-btn" data-q="3" data-val="INR 25,000 to 50,000">
-                  <span class="opt-title">INR 25,000 to 50,000</span>
-                  <span class="opt-desc">per month</span>
+                <button type="button" class="option-btn" data-q="3" data-val="INR 25,000 to 50,000"
+                  onclick="selectOption(this, 3, 'INR 25,000 to 50,000')">
+                  <div class="opt-text">
+                    <span class="opt-title">INR 25,000 to 50,000</span>
+                    <span class="opt-desc">Monthly revenue range</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="3" data-val="INR 50,000 to 1 lakh">
-                  <span class="opt-title">INR 50,000 to 1 lakh</span>
-                  <span class="opt-desc">per month</span>
+                <button type="button" class="option-btn" data-q="3" data-val="INR 50,000 to 1 lakh"
+                  onclick="selectOption(this, 3, 'INR 50,000 to 1 lakh')">
+                  <div class="opt-text">
+                    <span class="opt-title">INR 50,000 to 1 lakh</span>
+                    <span class="opt-desc">Monthly revenue range</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="3" data-val="INR 1 lakh to 3 lakh">
-                  <span class="opt-title">INR 1 lakh to 3 lakh</span>
-                  <span class="opt-desc">per month</span>
+                <button type="button" class="option-btn" data-q="3" data-val="INR 1 lakh to 3 lakh"
+                  onclick="selectOption(this, 3, 'INR 1 lakh to 3 lakh')">
+                  <div class="opt-text">
+                    <span class="opt-title">INR 1 lakh to 3 lakh</span>
+                    <span class="opt-desc">Monthly revenue range</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="3" data-val="INR 3 lakh or more">
-                  <span class="opt-title">INR 3 lakh or more</span>
-                  <span class="opt-desc">per month</span>
+                <button type="button" class="option-btn" data-q="3" data-val="INR 3 lakh or more"
+                  onclick="selectOption(this, 3, 'INR 3 lakh or more')">
+                  <div class="opt-text">
+                    <span class="opt-title">INR 3 lakh or more</span>
+                    <span class="opt-desc">Monthly revenue range</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-              </div>
-              <div class="q-answered-badge" id="badge-3">
-                <i data-feather="check-circle" width="16" height="16"></i>
-                <span id="badge-val-3"></span>
-                <button onclick="editAnswer(3)" style="margin-left:auto;background:none;border:none;cursor:pointer;color:var(--accent);font-size:13px;font-weight:700;">Edit</button>
               </div>
             </div>
 
-            <!-- Q5: GST -->
-            <div class="q-row" id="q-row-4" data-qid="4">
-              <div class="q-num">Step 5 of 5</div>
-              <div class="q-label">Is your business GST registered?</div>
-              <div class="q-hint">This determines which documents we will need from you</div>
-              <div class="option-grid" style="grid-template-columns: repeat(3, 1fr);">
-                <button class="option-btn" data-q="4" data-val="Yes, GST registered">
-                  <span class="opt-title">Yes, GST registered</span>
+            <!-- Q5: GST Status -->
+            <div class="q-row" id="q-row-4" data-qid="4" style="display:none;">
+              <div class="q-num">STEP 5 OF 5</div>
+              <h2 class="q-serif-label">Is your business GST registered?</h2>
+              <div class="q-hint">This determines which documents we will need from you.</div>
+              <div class="option-grid">
+                <button type="button" class="option-btn" data-q="4" data-val="Yes, GST registered"
+                  onclick="selectOption(this, 4, 'Yes, GST registered')">
+                  <div class="opt-text">
+                    <span class="opt-title">Yes, GST registered</span>
+                    <span class="opt-desc">Active GSTIN available</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="4" data-val="No, not GST registered">
-                  <span class="opt-title">No, not registered</span>
+                <button type="button" class="option-btn" data-q="4" data-val="No, not GST registered"
+                  onclick="selectOption(this, 4, 'No, not GST registered')">
+                  <div class="opt-text">
+                    <span class="opt-title">No, not registered</span>
+                    <span class="opt-desc">Operating without GST</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-                <button class="option-btn" data-q="4" data-val="Unsure">
-                  <span class="opt-title">Unsure</span>
+                <button type="button" class="option-btn" data-q="4" data-val="Unsure / Pending"
+                  style="grid-column: span 2;" onclick="selectOption(this, 4, 'Unsure / Pending')">
+                  <div class="opt-text">
+                    <span class="opt-title">Unsure / Pending</span>
+                    <span class="opt-desc">Applied or registration in progress</span>
+                  </div>
+                  <div class="opt-radio"></div>
                 </button>
-              </div>
-              <div class="q-answered-badge" id="badge-4">
-                <i data-feather="check-circle" width="16" height="16"></i>
-                <span id="badge-val-4"></span>
-                <button onclick="editAnswer(4)" style="margin-left:auto;background:none;border:none;cursor:pointer;color:var(--accent);font-size:13px;font-weight:700;">Edit</button>
               </div>
             </div>
 
           </div>
+
+          <!-- Submit Button (shown only when all questions are unlocked/answered) -->
+          <div class="wizard-submit-bar" id="check-submit-cta"
+            style="display:none; text-align:right; margin-top:32px; border-top: 1px solid #f5f5f4; padding-top:24px;">
+            <button type="button" class="btn-wiz-continue" onclick="submitEligibilityCheck()">
+              <span>Check Eligibility</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+
         </div>
 
-        <div class="app-card-footer" id="check-cta" style="display:none;">
-          <button class="btn btn-ghost" id="btn-check-back">Back</button>
-          <button class="btn btn-primary btn-pill" id="btn-see-estimate">
-            Check Eligibility
-            <i data-feather="arrow-right" width="18" height="18"></i>
-          </button>
-        </div>
       </div>
 
+      <!-- Bottom Footer Trust Strip -->
+      <div class="wizard-trust-footer">
+        <div class="wiz-trust-left">
+          <span>Secure &amp; trusted</span>
+          <span class="wiz-sep">|</span>
+          <span>Backed by leading financial institutions</span>
+          <span class="wiz-sep">|</span>
+          <span>Your data is always safe with us</span>
+        </div>
+        <div class="wiz-trust-right">
+          Have questions? <a href="#" onclick="alert('Support hotline: 1800-123-LOAN'); return false;">Contact
+            Support</a>
+        </div>
+      </div>
     </div>
-
   </div>
-</div>
 
 
-<!-- ═══════════════════════════════════════════════════════════════
+  <!-- ═══════════════════════════════════════════════════════════════
      SCREEN 3: INDICATIVE ELIGIBILITY RESULT
 ═══════════════════════════════════════════════════════════════════ -->
-<div id="screen-result" class="screen">
-  <div class="page-wrap" style="padding-top: 40px; padding-bottom: 80px;">
-    
-    <div style="max-width: 920px; margin: 0 auto;">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
-        <button class="btn btn-ghost" id="btn-result-back" style="padding-left:0;">
-          <i data-feather="chevron-left" width="18" height="18"></i> Adjust My Answers
-        </button>
-        <span style="font-size:12px; font-weight:800; color:var(--accent); background:var(--accent-light); padding:6px 16px; border-radius:100px; text-transform:uppercase; letter-spacing:0.5px;">
-          Eligibility Summary
-        </span>
-      </div>
+  <div id="screen-result" class="screen">
+    <div class="page-wrap" style="padding-top: 40px; padding-bottom: 80px;">
 
-      <div style="background:var(--surface); border:1px solid var(--border); border-radius:32px; padding:48px; box-shadow:var(--shadow-lg);">
-        <h2 class="h2 mb-16">Your Eligibility Summary</h2>
+      <div style="max-width: 920px; margin: 0 auto;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
+          <button class="btn btn-ghost" id="btn-result-back" onclick="showScreen('screen-check')" style="padding-left:0;">
+            <i data-feather="chevron-left" width="18" height="18"></i> Adjust My Answers
+          </button>
+          <span
+            style="font-size:12px; font-weight:800; color:var(--accent); background:var(--accent-light); padding:6px 16px; border-radius:100px; text-transform:uppercase; letter-spacing:0.5px;">
+            Eligibility Summary
+          </span>
+        </div>
 
-        <div style="font-size:12px; font-weight:800; letter-spacing:0.8px; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Available Loan Amount</div>
-        <div style="font-size: clamp(34px, 4.5vw, 52px); font-weight: 800; color: var(--accent); letter-spacing: -1.2px; margin-bottom:4px;" id="result-amount-display">INR 3 lakh to 6 lakh</div>
-        <p class="body-sm mb-32" style="font-size:15px;">Based on your business profile and revenue</p>
+        <div
+          style="background:var(--surface); border:1px solid var(--border); border-radius:32px; padding:48px; box-shadow:var(--shadow-lg);">
+          <h2 class="h2 mb-16">Your Eligibility Summary</h2>
 
-        <div style="background:#f8fafc; border:1px solid var(--border); border-radius:20px; padding:28px; margin-bottom:32px;">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-            <div>
-              <div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Estimated Interest Rate</div>
-              <div style="font-size:22px; font-weight:800; color:var(--text-primary);">12% to 15% per annum</div>
-            </div>
-            <div>
-              <div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Sample Monthly Payment</div>
-              <div style="font-size:16px; font-weight:700; color:var(--text-secondary);">
-                For INR 5 lakh (24 mos): <strong style="color:var(--accent);">INR 22,700/mo</strong>
+          <div
+            style="font-size:12px; font-weight:800; letter-spacing:0.8px; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">
+            Available Loan Amount</div>
+          <div
+            style="font-size: clamp(34px, 4.5vw, 52px); font-weight: 800; color: var(--accent); letter-spacing: -1.2px; margin-bottom:4px;"
+            id="result-amount-display">INR 3 lakh to 6 lakh</div>
+          <p class="body-sm mb-32" style="font-size:15px;">Based on your business profile and revenue</p>
+
+          <div
+            style="background:#f8fafc; border:1px solid var(--border); border-radius:20px; padding:28px; margin-bottom:32px;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+              <div>
+                <div
+                  style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">
+                  Estimated Interest Rate</div>
+                <div style="font-size:22px; font-weight:800; color:var(--text-primary);">12% to 15% per annum</div>
+              </div>
+              <div>
+                <div
+                  style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">
+                  Sample Monthly Payment</div>
+                <div style="font-size:16px; font-weight:700; color:var(--text-secondary);">
+                  For INR 5 lakh (24 mos): <strong style="color:var(--accent);">INR 22,700/mo</strong>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div style="display:flex; gap:14px; background:#f8fafc; border:1px solid var(--border); border-radius:16px; padding:20px; margin-bottom:32px; font-size:14px; color:var(--text-secondary);">
-          <i data-feather="info" width="20" height="20" style="color:var(--accent); flex-shrink:0; margin-top:2px;"></i>
-          <div>
-            <strong>What This Means:</strong> This is your indicative loan range. Your final loan amount, interest rate, and repayment terms depend on verification of your documents and income.
+          <div
+            style="display:flex; gap:14px; background:#f8fafc; border:1px solid var(--border); border-radius:16px; padding:20px; margin-bottom:32px; font-size:14px; color:var(--text-secondary);">
+            <i data-feather="info" width="20" height="20"
+              style="color:var(--accent); flex-shrink:0; margin-top:2px;"></i>
+            <div>
+              <strong>What This Means:</strong> This is your indicative loan range. Your final loan amount, interest
+              rate, and repayment terms depend on verification of your documents and income.
+            </div>
+          </div>
+
+          <div class="chips-row mb-32" id="result-chips"></div>
+
+          <div style="display:flex; gap:16px; align-items:center;">
+            <button class="btn btn-primary btn-pill" id="btn-to-application" onclick="showScreen('screen-form')">
+              Apply Now
+              <i data-feather="arrow-right" width="18" height="18"></i>
+            </button>
+            <button class="btn btn-secondary btn-pill" id="btn-result-change" onclick="showScreen('screen-check')">
+              Adjust My Answers
+            </button>
           </div>
         </div>
-
-        <div class="chips-row mb-32" id="result-chips"></div>
-
-        <div style="display:flex; gap:16px; align-items:center;">
-          <button class="btn btn-primary btn-pill" id="btn-to-application">
-            Apply Now
-            <i data-feather="arrow-right" width="18" height="18"></i>
-          </button>
-          <button class="btn btn-secondary btn-pill" id="btn-result-change">
-            Adjust My Answers
-          </button>
-        </div>
       </div>
+
     </div>
-
   </div>
-</div>
 
 
-<!-- ═══════════════════════════════════════════════════════════════
+  <!-- ═══════════════════════════════════════════════════════════════
      SCREEN 4: EXTENDED APPLICATION FORM (Personal, Business, Upload)
 ═══════════════════════════════════════════════════════════════════ -->
-<div id="screen-form" class="screen">
-  <div class="page-wrap">
+  <div id="screen-form" class="screen">
+    <div class="page-wrap">
 
-    <div class="app-card-container">
-      
-      <!-- Left Sticky Sidebar Stepper -->
-      <div class="app-card-sidebar">
-        <div>
-          <div class="app-sidebar-logo">
-            <i data-feather="briefcase" width="20" height="20"></i>
-            <span>LoanMate</span>
+      <div class="app-card-container">
+
+        <!-- Left Sticky Sidebar Stepper -->
+        <div class="app-card-sidebar">
+          <div>
+            <div class="app-sidebar-logo">
+              <i data-feather="briefcase" width="20" height="20"></i>
+              <span>LoanMate</span>
+            </div>
+            <div class="app-sidebar-title">Loan Application</div>
+            <div class="app-time-estimate">
+              <i data-feather="clock" width="14" height="14"></i>
+              Estimated time: 2 mins
+            </div>
+
+            <ul class="v-stepper">
+              <li class="v-step active" id="app-step-1" style="cursor:pointer;" onclick="document.getElementById('section-personal').scrollIntoView({behavior:'smooth'})">
+                <div class="v-step-num">1</div>
+                <div class="v-step-label">Personal &amp; Identity</div>
+              </li>
+              <li class="v-step" id="app-step-2" style="cursor:pointer;" onclick="document.getElementById('section-business').scrollIntoView({behavior:'smooth'})">
+                <div class="v-step-num">2</div>
+                <div class="v-step-label">Business Details</div>
+              </li>
+              <li class="v-step" id="app-step-3" style="cursor:pointer;" onclick="advanceToReview(event)">
+                <div class="v-step-num">3</div>
+                <div class="v-step-label">Summary &amp; Review</div>
+              </li>
+            </ul>
           </div>
-          <div class="app-sidebar-title">Loan Application</div>
-          <div class="app-time-estimate">
-            <i data-feather="clock" width="14" height="14"></i>
-            Estimated time: 2 mins
+
+          <div style="font-size:12px; color:var(--text-muted); line-height:1.5;">
+            <i data-feather="shield" width="14" height="14" style="vertical-align:middle; margin-right:4px;"></i>
+            256-bit SSL Encrypted &amp; Confidential
+          </div>
+        </div>
+
+        <!-- Right Extended Main Panel -->
+        <div class="app-card-main">
+          <div>
+            <h2 class="h2 mb-4">Complete Your Application</h2>
+            <p class="body-sm mb-28">Upload your documents below to auto-populate your details into the form. All fields remain fully editable.</p>
+
+            <form id="application-form" novalidate onsubmit="advanceToReview(event); return false;">
+
+              <!-- SECTION 1: PERSONAL & IDENTITY DETAILS -->
+              <div id="section-personal">
+                <div class="section-group-header">
+                  <span class="group-title">1. PERSONAL &amp; IDENTITY DETAILS</span>
+                </div>
+
+                <!-- Document Upload for Section 1 -->
+                <div class="mb-28">
+                  <label style="font-weight:700; font-size:14px; display:block; margin-bottom:8px; color:var(--text-primary);">
+                    Upload PAN Card Document
+                  </label>
+                  <div class="upload-zone" id="upload-zone-pan" onclick="triggerSimulatedUpload('pan')" ondragover="handleDragOver(event,'pan')"
+                    ondragleave="handleDragLeave(event,'pan')" ondrop="handleDrop(event,'pan')">
+                    <input type="file" id="file-pan" accept=".pdf,.jpg,.jpeg,.png" style="pointer-events:none;" onchange="handleFileSelect(event,'pan')" />
+                    <div class="upload-zone-icon"><i data-feather="upload-cloud" width="24" height="24"></i></div>
+                    <div style="font-size:14px; font-weight:700; color:var(--text-primary);">Click to upload PAN Card PDF or image</div>
+                    <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Accepted: PDF, JPG, PNG (Max 5MB) &bull; Auto-extracts personal details below</div>
+                  </div>
+                  <div id="upload-file-pan"></div>
+                </div>
+
+                <!-- Text Boxes for Personal Details (Auto-filled & Editable) -->
+                <div class="floating-field" id="field-name">
+                  <label for="inp-name">Full Name</label>
+                  <input type="text" id="inp-name" placeholder="Priya Sharma" autocomplete="name" />
+                  <div class="field-help">As it appears on your PAN card</div>
+                  <div class="field-error">Name must be at least 3 characters</div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="floating-field" id="field-dob">
+                    <label for="inp-dob">Date of Birth</label>
+                    <input type="date" id="inp-dob" />
+                    <div class="field-error">Date of birth is required</div>
+                  </div>
+
+                  <div class="floating-field" id="field-pan">
+                    <label for="inp-pan">PAN Number</label>
+                    <input type="text" id="inp-pan" placeholder="ABCPR1992M" maxlength="10"
+                      style="text-transform:uppercase;" />
+                    <div class="field-error">Format: ABCDE1234F</div>
+                  </div>
+                </div>
+
+                <div class="floating-field" id="field-address">
+                  <label for="inp-address">Residential Address</label>
+                  <input type="text" id="inp-address" placeholder="123 Business Street, Sector 5" />
+                  <div class="field-error">Address is required</div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="floating-field" id="field-city">
+                    <label for="inp-city">City</label>
+                    <select id="inp-city">
+                      <option value="">Select City</option>
+                      <option>Ahmedabad</option>
+                      <option selected>Mumbai</option>
+                      <option>Bangalore</option>
+                      <option>Delhi</option>
+                      <option>Pune</option>
+                      <option>Other</option>
+                    </select>
+                    <div class="field-error">Please select city</div>
+                  </div>
+
+                  <div class="floating-field" id="field-phone">
+                    <label for="inp-phone">Mobile Number</label>
+                    <input type="tel" id="inp-phone" placeholder="9876543210" maxlength="10" />
+                    <div class="field-error">10 digit mobile number required</div>
+                  </div>
+                </div>
+
+                <div class="floating-field" id="field-email">
+                  <label for="inp-email">Email Address</label>
+                  <input type="email" id="inp-email" placeholder="priya.sharma@email.com" />
+                  <div class="field-error">Valid email address required</div>
+                </div>
+              </div>
+
+              <!-- SECTION 2: BUSINESS & FINANCIAL DETAILS -->
+              <div id="section-business" class="mt-36">
+                <div class="section-group-header">
+                  <span class="group-title">2. BUSINESS &amp; FINANCIAL DETAILS</span>
+                </div>
+
+                <!-- Document Upload for Section 2 -->
+                <div class="mb-28">
+                  <label style="font-weight:700; font-size:14px; display:block; margin-bottom:8px; color:var(--text-primary);">
+                    Upload Bank Statement (6 Months)
+                  </label>
+                  <div class="upload-zone" id="upload-zone-bank" onclick="triggerSimulatedUpload('bank')" ondragover="handleDragOver(event,'bank')"
+                    ondragleave="handleDragLeave(event,'bank')" ondrop="handleDrop(event,'bank')">
+                    <input type="file" id="file-bank" accept=".pdf,.jpg,.jpeg,.png" style="pointer-events:none;" onchange="handleFileSelect(event,'bank')" />
+                    <div class="upload-zone-icon"><i data-feather="upload-cloud" width="24" height="24"></i></div>
+                    <div style="font-size:14px; font-weight:700; color:var(--text-primary);">Click to upload 6 Months Bank Statement PDF</div>
+                    <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Accepted: PDF, JPG, PNG (Max 5MB) &bull; Auto-extracts business details below</div>
+                  </div>
+                  <div id="upload-file-bank"></div>
+                </div>
+
+                <!-- Text Boxes for Business Details (Auto-filled & Editable) -->
+                <div class="floating-field" id="field-biz-name">
+                  <label for="inp-biz-name">Business Name</label>
+                  <input type="text" id="inp-biz-name" placeholder="ABC Textiles Private Limited" />
+                  <div class="field-error">Business name is required</div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="floating-field" id="field-biz-type">
+                    <label for="inp-biz-type">Type of Business</label>
+                    <select id="inp-biz-type">
+                      <option value="">Select Category</option>
+                      <option>Retail Store</option>
+                      <option>Wholesale Trading</option>
+                      <option>Manufacturing</option>
+                      <option>Service Provider</option>
+                      <option>E-commerce/Online</option>
+                      <option>Food and Beverage</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+
+                  <div class="floating-field" id="field-industry">
+                    <label for="inp-industry">Industry Sector</label>
+                    <select id="inp-industry">
+                      <option value="">Select Industry</option>
+                      <option>Textiles</option>
+                      <option>Electronics</option>
+                      <option>Food and Beverages</option>
+                      <option>Pharmaceuticals</option>
+                      <option>Apparel</option>
+                      <option>Others</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="floating-field" id="field-biz-age">
+                    <label for="inp-biz-age">Years in Operation</label>
+                    <select id="inp-biz-age">
+                      <option value="">Select Duration</option>
+                      <option>Less than 1 year</option>
+                      <option>1 to 3 years</option>
+                      <option>3 to 5 years</option>
+                      <option>5 or more years</option>
+                    </select>
+                  </div>
+
+                  <div class="floating-field" id="field-revenue">
+                    <label for="inp-revenue">Monthly Revenue</label>
+                    <select id="inp-revenue">
+                      <option value="">Select Monthly Income</option>
+                      <option>INR 25,000 to 50,000</option>
+                      <option>INR 50,000 to 1 lakh</option>
+                      <option>INR 1 lakh to 3 lakh</option>
+                      <option>INR 3 lakh or more</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="floating-field" id="field-gst-status">
+                    <label for="inp-gst-status">GST Registration</label>
+                    <select id="inp-gst-status">
+                      <option value="">Select Status</option>
+                      <option>Yes, registered</option>
+                      <option>No, not registered</option>
+                      <option>Unsure</option>
+                    </select>
+                  </div>
+
+                  <div class="floating-field" id="field-gst">
+                    <label for="inp-gst">GSTIN</label>
+                    <input type="text" id="inp-gst" placeholder="27ABCPR1992M1Z0" maxlength="15"
+                      style="text-transform:uppercase;" />
+                  </div>
+                </div>
+              </div>
+
+            </form>
           </div>
 
-          <ul class="v-stepper">
-            <li class="v-step active" id="app-step-1">
-              <div class="v-step-num">1</div>
-              <div class="v-step-label">Personal Details</div>
-            </li>
-            <li class="v-step" id="app-step-2">
-              <div class="v-step-num">2</div>
-              <div class="v-step-label">Business Details</div>
-            </li>
-            <li class="v-step" id="app-step-3">
-              <div class="v-step-num">3</div>
-              <div class="v-step-label">Document Upload</div>
-            </li>
-            <li class="v-step" id="app-step-4">
-              <div class="v-step-num">4</div>
-              <div class="v-step-label">Summary & Review</div>
-            </li>
-          </ul>
+          <div class="app-card-footer">
+            <button type="button" class="btn btn-ghost" id="btn-form-back">Back</button>
+            <button type="button" class="btn btn-primary btn-pill" id="btn-form-continue" onclick="advanceToReview(event)">
+              Continue to Review
+              <i data-feather="arrow-right" width="18" height="18"></i>
+            </button>
+          </div>
         </div>
 
-        <div style="font-size:12px; color:var(--text-muted); line-height:1.5;">
-          <i data-feather="shield" width="14" height="14" style="vertical-align:middle; margin-right:4px;"></i>
-          256-bit SSL Encrypted & Confidential
-        </div>
-      </div>
-
-      <!-- Right Extended Main Panel -->
-      <div class="app-card-main">
-        <div>
-          <h2 class="h2 mb-4">Complete Your Application</h2>
-          <p class="body-sm mb-36">Fill in your details below. Estimated completion time: 2 minutes.</p>
-
-          <form id="application-form" novalidate>
-            
-            <!-- SECTION 1: PERSONAL DETAILS -->
-            <div id="section-personal">
-              <div class="section-group-header">
-                <span class="group-title">1. YOUR PERSONAL DETAILS</span>
-              </div>
-
-              <div class="floating-field" id="field-name">
-                <label for="inp-name">Full Name</label>
-                <input type="text" id="inp-name" placeholder="Priya Sharma" autocomplete="name" />
-                <div class="field-help">As it appears on your PAN card</div>
-                <div class="field-error">Name must be at least 3 characters</div>
-              </div>
-
-              <div class="form-grid-2">
-                <div class="floating-field" id="field-dob">
-                  <label for="inp-dob">Date of Birth</label>
-                  <input type="date" id="inp-dob" />
-                  <div class="field-error">Date of birth is required</div>
-                </div>
-
-                <div class="floating-field" id="field-pan">
-                  <label for="inp-pan">PAN Number</label>
-                  <input type="text" id="inp-pan" placeholder="ABCPR1992M" maxlength="10" style="text-transform:uppercase;" />
-                  <div class="field-error">Format: ABCDE1234F</div>
-                </div>
-              </div>
-
-              <div class="floating-field" id="field-address">
-                <label for="inp-address">Residential Address</label>
-                <input type="text" id="inp-address" placeholder="123 Business Street, Sector 5" />
-                <div class="field-error">Address is required</div>
-              </div>
-
-              <div class="form-grid-2">
-                <div class="floating-field" id="field-city">
-                  <label for="inp-city">City</label>
-                  <select id="inp-city">
-                    <option value="">Select City</option>
-                    <option>Ahmedabad</option>
-                    <option>Mumbai</option>
-                    <option>Bangalore</option>
-                    <option>Delhi</option>
-                    <option>Pune</option>
-                    <option>Other</option>
-                  </select>
-                  <div class="field-error">Please select city</div>
-                </div>
-
-                <div class="floating-field" id="field-phone">
-                  <label for="inp-phone">Mobile Number</label>
-                  <input type="tel" id="inp-phone" placeholder="9876543210" maxlength="10" />
-                  <div class="field-error">10 digit mobile number required</div>
-                </div>
-              </div>
-
-              <div class="floating-field" id="field-email">
-                <label for="inp-email">Email Address</label>
-                <input type="email" id="inp-email" placeholder="priya.sharma@email.com" />
-                <div class="field-error">Valid email address required</div>
-              </div>
-            </div>
-
-            <!-- SECTION 2: BUSINESS DETAILS -->
-            <div id="section-business" class="mt-32">
-              <div class="section-group-header">
-                <span class="group-title">2. YOUR BUSINESS DETAILS</span>
-              </div>
-
-              <div class="floating-field" id="field-biz-name">
-                <label for="inp-biz-name">Business Name</label>
-                <input type="text" id="inp-biz-name" placeholder="ABC Textiles Private Limited" />
-                <div class="field-error">Business name is required</div>
-              </div>
-
-              <div class="form-grid-2">
-                <div class="floating-field" id="field-biz-type">
-                  <label for="inp-biz-type">Type of Business</label>
-                  <select id="inp-biz-type">
-                    <option value="">Select Category</option>
-                    <option>Retail Store</option>
-                    <option>Wholesale Trading</option>
-                    <option>Manufacturing</option>
-                    <option>Service Provider</option>
-                    <option>E-commerce/Online</option>
-                    <option>Food and Beverage</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-
-                <div class="floating-field" id="field-industry">
-                  <label for="inp-industry">Industry Sector</label>
-                  <select id="inp-industry">
-                    <option value="">Select Industry</option>
-                    <option>Textiles</option>
-                    <option>Electronics</option>
-                    <option>Food and Beverages</option>
-                    <option>Pharmaceuticals</option>
-                    <option>Apparel</option>
-                    <option>Others</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-grid-2">
-                <div class="floating-field" id="field-biz-age">
-                  <label for="inp-biz-age">Years in Operation</label>
-                  <select id="inp-biz-age">
-                    <option value="">Select Duration</option>
-                    <option>Less than 1 year</option>
-                    <option>1 to 3 years</option>
-                    <option>3 to 5 years</option>
-                    <option>5 or more years</option>
-                  </select>
-                </div>
-
-                <div class="floating-field" id="field-revenue">
-                  <label for="inp-revenue">Monthly Revenue</label>
-                  <select id="inp-revenue">
-                    <option value="">Select Monthly Income</option>
-                    <option>INR 25,000 to 50,000</option>
-                    <option>INR 50,000 to 1 lakh</option>
-                    <option>INR 1 lakh to 3 lakh</option>
-                    <option>INR 3 lakh or more</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-grid-2">
-                <div class="floating-field" id="field-gst-status">
-                  <label for="inp-gst-status">GST Registration</label>
-                  <select id="inp-gst-status">
-                    <option value="">Select Status</option>
-                    <option>Yes, registered</option>
-                    <option>No, not registered</option>
-                    <option>Unsure</option>
-                  </select>
-                </div>
-
-                <div class="floating-field" id="field-gst">
-                  <label for="inp-gst">GSTIN</label>
-                  <input type="text" id="inp-gst" placeholder="27ABCPR1992M1Z0" maxlength="15" style="text-transform:uppercase;" />
-                </div>
-              </div>
-            </div>
-
-            <!-- SECTION 3: UPLOAD DOCUMENTS -->
-            <div id="section-upload" class="mt-32">
-              <div class="section-group-header">
-                <span class="group-title">3. UPLOAD DOCUMENTS</span>
-              </div>
-
-              <div class="mb-24">
-                <label style="font-weight:700; font-size:14px; display:block; margin-bottom:8px;">PAN Card</label>
-                <div class="upload-zone" id="upload-zone-pan"
-                  ondragover="handleDragOver(event,'pan')" ondragleave="handleDragLeave(event,'pan')" ondrop="handleDrop(event,'pan')">
-                  <input type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFileSelect(event,'pan')" />
-                  <div class="upload-zone-icon"><i data-feather="upload-cloud" width="24" height="24"></i></div>
-                  <div style="font-size:14px; font-weight:700; color:var(--text-primary);">Click to upload or drag & drop</div>
-                  <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Accepted: PDF, JPG, PNG (Max 5MB)</div>
-                </div>
-                <div id="upload-file-pan"></div>
-              </div>
-
-              <div class="mb-24">
-                <label style="font-weight:700; font-size:14px; display:block; margin-bottom:8px;">Bank Statement (6 Months)</label>
-                <div class="upload-zone" id="upload-zone-bank"
-                  ondragover="handleDragOver(event,'bank')" ondragleave="handleDragLeave(event,'bank')" ondrop="handleDrop(event,'bank')">
-                  <input type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFileSelect(event,'bank')" />
-                  <div class="upload-zone-icon"><i data-feather="upload-cloud" width="24" height="24"></i></div>
-                  <div style="font-size:14px; font-weight:700; color:var(--text-primary);">Click to upload or drag & drop</div>
-                  <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Accepted: PDF, JPG, PNG (Max 5MB)</div>
-                </div>
-                <div id="upload-file-bank"></div>
-              </div>
-            </div>
-
-          </form>
-        </div>
-
-        <div class="app-card-footer">
-          <button class="btn btn-ghost" id="btn-form-back">Back</button>
-          <button class="btn btn-primary btn-pill" id="btn-form-continue">
-            Continue to Review
-            <i data-feather="arrow-right" width="18" height="18"></i>
-          </button>
-        </div>
       </div>
 
     </div>
-
   </div>
-</div>
 
 
-<!-- ═══════════════════════════════════════════════════════════════
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
      SCREEN 5: REVIEW AND FINAL SUBMISSION
 ═══════════════════════════════════════════════════════════════════ -->
-<div id="screen-review" class="screen">
-  <div class="page-wrap">
+  <div id="screen-review" class="screen">
+    <div class="page-wrap">
 
-    <div class="app-card-container">
-      
-      <!-- Left Sidebar: Stepper -->
-      <div class="app-card-sidebar">
-        <div>
-          <div class="app-sidebar-logo">
-            <i data-feather="briefcase" width="20" height="20"></i>
-            <span>LoanMate</span>
+      <div class="app-card-container">
+
+        <!-- Left Sidebar: Stepper -->
+        <div class="app-card-sidebar">
+          <div>
+            <div class="app-sidebar-logo">
+              <i data-feather="briefcase" width="20" height="20"></i>
+              <span>LoanMate</span>
+            </div>
+            <div class="app-sidebar-title">Application Summary</div>
+
+            <ul class="v-stepper">
+              <li class="v-step done">
+                <div class="v-step-num"><i data-feather="check" width="16" height="16"></i></div>
+                <div class="v-step-label">Personal Details</div>
+              </li>
+              <li class="v-step done">
+                <div class="v-step-num"><i data-feather="check" width="16" height="16"></i></div>
+                <div class="v-step-label">Business Details</div>
+              </li>
+              <li class="v-step done">
+                <div class="v-step-num"><i data-feather="check" width="16" height="16"></i></div>
+                <div class="v-step-label">Document Upload</div>
+              </li>
+              <li class="v-step active">
+                <div class="v-step-num">4</div>
+                <div class="v-step-label">Summary & Review</div>
+              </li>
+            </ul>
           </div>
-          <div class="app-sidebar-title">Application Summary</div>
 
-          <ul class="v-stepper">
-            <li class="v-step done">
-              <div class="v-step-num"><i data-feather="check" width="16" height="16"></i></div>
-              <div class="v-step-label">Personal Details</div>
-            </li>
-            <li class="v-step done">
-              <div class="v-step-num"><i data-feather="check" width="16" height="16"></i></div>
-              <div class="v-step-label">Business Details</div>
-            </li>
-            <li class="v-step done">
-              <div class="v-step-num"><i data-feather="check" width="16" height="16"></i></div>
-              <div class="v-step-label">Document Upload</div>
-            </li>
-            <li class="v-step active">
-              <div class="v-step-num">4</div>
-              <div class="v-step-label">Summary & Review</div>
-            </li>
-          </ul>
+          <div style="font-size:12px; color:var(--text-muted);">
+            Step 4 of 4
+          </div>
         </div>
 
-        <div style="font-size:12px; color:var(--text-muted);">
-          Step 4 of 4
-        </div>
-      </div>
+        <!-- Right Content Area -->
+        <div class="app-card-main">
+          <div>
+            <h2 class="h2 mb-4">Summary & Review</h2>
+            <p class="body-sm mb-28">Verify your application details before submitting.</p>
 
-      <!-- Right Content Area -->
-      <div class="app-card-main">
-        <div>
-          <h2 class="h2 mb-4">Summary & Review</h2>
-          <p class="body-sm mb-28">Verify your application details before submitting.</p>
+            <div class="section-group-header">
+              <span class="group-title">PERSONAL DETAILS</span>
+            </div>
+            <div class="review-row"><span class="review-row-label">Full Name</span><span class="review-row-value"
+                id="rv-name">Priya Sharma</span></div>
+            <div class="review-row"><span class="review-row-label">PAN Number</span><span class="review-row-value"
+                id="rv-pan">ABCPR1992M</span></div>
+            <div class="review-row"><span class="review-row-label">Contact Phone</span><span class="review-row-value"
+                id="rv-phone">+91 98765 43210</span></div>
 
-          <div class="section-group-header">
-            <span class="group-title">PERSONAL DETAILS</span>
+            <div class="section-group-header mt-24">
+              <span class="group-title">BUSINESS DETAILS</span>
+            </div>
+            <div class="review-row"><span class="review-row-label">Business Name</span><span class="review-row-value"
+                id="rv-biz-name">ABC Textiles Private Limited</span></div>
+            <div class="review-row"><span class="review-row-label">Business Type</span><span class="review-row-value"
+                id="rv-biz-type">Retail Store</span></div>
+            <div class="review-row"><span class="review-row-label">Monthly Revenue</span><span class="review-row-value"
+                id="rv-revenue">INR 1 lakh to 3 lakh</span></div>
+
+            <div class="section-group-header mt-24">
+              <span class="group-title">TERMS & CONSENT</span>
+            </div>
+            <label
+              style="display:flex; align-items:flex-start; gap:12px; cursor:pointer; font-size:14px; font-weight:600; color:var(--text-primary); margin-top:16px;">
+              <input type="checkbox" id="terms-checkbox" checked
+                style="width:18px; height:18px; accent-color:var(--accent); margin-top:2px;" />
+              <span>I have read and agree to all terms, credit check consent, and privacy policy.</span>
+            </label>
           </div>
-          <div class="review-row"><span class="review-row-label">Full Name</span><span class="review-row-value" id="rv-name">Priya Sharma</span></div>
-          <div class="review-row"><span class="review-row-label">PAN Number</span><span class="review-row-value" id="rv-pan">ABCPR1992M</span></div>
-          <div class="review-row"><span class="review-row-label">Contact Phone</span><span class="review-row-value" id="rv-phone">+91 98765 43210</span></div>
 
-          <div class="section-group-header mt-24">
-            <span class="group-title">BUSINESS DETAILS</span>
+          <div class="app-card-footer">
+            <button class="btn btn-ghost" id="btn-review-back">Back</button>
+            <button class="btn btn-primary btn-pill" id="btn-submit">
+              Submit Application
+              <i data-feather="send" width="18" height="18"></i>
+            </button>
           </div>
-          <div class="review-row"><span class="review-row-label">Business Name</span><span class="review-row-value" id="rv-biz-name">ABC Textiles Private Limited</span></div>
-          <div class="review-row"><span class="review-row-label">Business Type</span><span class="review-row-value" id="rv-biz-type">Retail Store</span></div>
-          <div class="review-row"><span class="review-row-label">Monthly Revenue</span><span class="review-row-value" id="rv-revenue">INR 1 lakh to 3 lakh</span></div>
-
-          <div class="section-group-header mt-24">
-            <span class="group-title">TERMS & CONSENT</span>
-          </div>
-          <label style="display:flex; align-items:flex-start; gap:12px; cursor:pointer; font-size:14px; font-weight:600; color:var(--text-primary); margin-top:16px;">
-            <input type="checkbox" id="terms-checkbox" checked style="width:18px; height:18px; accent-color:var(--accent); margin-top:2px;" />
-            <span>I have read and agree to all terms, credit check consent, and privacy policy.</span>
-          </label>
         </div>
 
-        <div class="app-card-footer">
-          <button class="btn btn-ghost" id="btn-review-back">Back</button>
-          <button class="btn btn-primary btn-pill" id="btn-submit">
-            Submit Application
-            <i data-feather="send" width="18" height="18"></i>
-          </button>
-        </div>
       </div>
 
     </div>
-
   </div>
-</div>
 
 
-<!-- ═══════════════════════════════════════════════════════════════
+  <!-- ═══════════════════════════════════════════════════════════════
      SCREEN 6: CONFIRMATION
 ═══════════════════════════════════════════════════════════════════ -->
-<div id="screen-confirm" class="screen">
-  <div class="page-wrap" style="padding-top: 40px; padding-bottom: 80px;">
+  <div id="screen-confirm" class="screen">
+    <div class="page-wrap" style="padding-top: 40px; padding-bottom: 80px;">
 
-    <div style="max-width: 800px; margin: 0 auto;">
-      <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
-        <div style="width:56px; height:56px; background:var(--success-bg); border:1px solid #bbf7d0; color:var(--success); border-radius:50%; display:flex; align-items:center; justify-content:center;">
-          <i data-feather="check-circle" width="32" height="32"></i>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+          <div
+            style="width:56px; height:56px; background:var(--success-bg); border:1px solid #bbf7d0; color:var(--success); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+            <i data-feather="check-circle" width="32" height="32"></i>
+          </div>
+          <div>
+            <h1 class="h1" style="font-size:28px;">Application Submitted Successfully</h1>
+            <p class="body-lg">Your loan application has been received and is being processed.</p>
+          </div>
         </div>
-        <div>
-          <h1 class="h1" style="font-size:28px;">Application Submitted Successfully</h1>
-          <p class="body-lg">Your loan application has been received and is being processed.</p>
+
+        <div
+          style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color:#fff; padding:36px; border-radius:28px; margin-bottom:28px;">
+          <div style="font-size:11px; font-weight:800; text-transform:uppercase; color:#94a3b8; margin-bottom:4px;">Your
+            Application ID</div>
+          <div style="font-size:36px; font-weight:800; letter-spacing:1px; color:#38bdf8;" id="confirm-app-id">LN-284729
+          </div>
+          <p style="font-size:14px; color:#cbd5e1; margin-top:6px;">Use this ID to track your application status
+            anytime.</p>
+        </div>
+
+        <div
+          style="background:var(--surface); border:1px solid var(--border); border-radius:28px; padding:36px; margin-bottom:28px;">
+          <h3 class="h3 mb-16">Contact & Support</h3>
+          <p class="body-sm mb-24" style="font-size:15px;">
+            Phone: <strong>1800-123-4567</strong> (Mon-Fri, 9 AM - 6 PM IST)<br>
+            Email: <strong>support@loanmate.com</strong>
+          </p>
+
+          <div style="display:flex; gap:14px;">
+            <button class="btn btn-primary btn-pill" onclick="alert('Tracking link sent to your mobile and email!')">
+              Track Application Status
+            </button>
+            <button class="btn btn-secondary btn-pill" onclick="showScreen('screen-entry')">
+              Go to Dashboard
+            </button>
+          </div>
         </div>
       </div>
 
-      <div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color:#fff; padding:36px; border-radius:28px; margin-bottom:28px;">
-        <div style="font-size:11px; font-weight:800; text-transform:uppercase; color:#94a3b8; margin-bottom:4px;">Your Application ID</div>
-        <div style="font-size:36px; font-weight:800; letter-spacing:1px; color:#38bdf8;" id="confirm-app-id">LN-284729</div>
-        <p style="font-size:14px; color:#cbd5e1; margin-top:6px;">Use this ID to track your application status anytime.</p>
-      </div>
-
-      <div style="background:var(--surface); border:1px solid var(--border); border-radius:28px; padding:36px; margin-bottom:28px;">
-        <h3 class="h3 mb-16">Contact & Support</h3>
-        <p class="body-sm mb-24" style="font-size:15px;">
-          Phone: <strong>1800-123-4567</strong> (Mon-Fri, 9 AM - 6 PM IST)<br>
-          Email: <strong>support@loanmate.com</strong>
-        </p>
-
-        <div style="display:flex; gap:14px;">
-          <button class="btn btn-primary btn-pill" onclick="alert('Tracking link sent to your mobile and email!')">
-            Track Application Status
-          </button>
-          <button class="btn btn-secondary btn-pill" onclick="showScreen('screen-entry')">
-            Go to Dashboard
-          </button>
-        </div>
-      </div>
     </div>
-
   </div>
-</div>
 
-</div><!-- /screens-root -->
+  </div><!-- /screens-root -->
 
-<script>
-  // ─── Application State ─────────────────────────────────────────────
-  const state = {
-    answers: [null, null, null, null, null],
-    formData: {},
-    uploads: { pan: null, bank: null },
-    appId: 'LN-' + Math.floor(100000 + Math.random() * 900000)
-  };
-
-  const qLabels = ['Requested Amount', 'Purpose', 'Business Age', 'Monthly Income', 'GST Status'];
-
-  // ─── Screen Controller ─────────────────────────────────────────────
-  function showScreen(id) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    const target = document.getElementById(id);
-    if (target) target.classList.add('active');
-
-    const globalNav = document.querySelector('.global-nav');
-    if (globalNav) {
-      globalNav.style.display = (id === 'screen-entry') ? 'none' : 'block';
-    }
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    feather.replace();
-  }
-
-  // Hide global nav on initial load if screen-entry is active
-  showScreen('screen-entry');
-
-  // ─── Live Range Calculation ────────────────────────────────────────
-  function computeRange() {
-    const revMap = {
-      'INR 25,000 to 50,000': { lo: 0.5, hi: 1.5 },
-      'INR 50,000 to 1 lakh':  { lo: 1.5, hi: 3 },
-      'INR 1 lakh to 3 lakh':  { lo: 3,   hi: 6 },
-      'INR 3 lakh or more':    { lo: 6,   hi: 10 }
+  <script>
+    // ─── Application State ─────────────────────────────────────────────
+    const state = {
+      answers: [null, null, null, null, null],
+      formData: {},
+      uploads: { pan: null, bank: null },
+      appId: 'LN-' + Math.floor(100000 + Math.random() * 900000)
     };
-    const ageBon = { 'Less than 1 year': 0, '1 to 3 years': 0.5, '3 to 5 years': 1, '5+ years': 1.5 };
-    const gstBon = { 'Yes, GST registered': 1, 'No, not GST registered': 0, 'Unsure': 0.25 };
+    window.state = state;
 
-    const rev = revMap[state.answers[3]] || { lo: 1.5, hi: 5 };
-    const age = ageBon[state.answers[2]] || 0;
-    const gst = gstBon[state.answers[4]] || 0;
+    const qLabels = ['Requested Amount', 'Purpose', 'Business Age', 'Monthly Income', 'GST Status'];
 
-    let lo = Math.max(1, Math.round((rev.lo + age * 0.3) * 10) / 10);
-    let hi = Math.min(10, Math.round((rev.hi + age * 0.5 + gst * 0.5) * 10) / 10);
+    // ─── Screen Controller ─────────────────────────────────────────────
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      const target = document.getElementById(id);
+      if (target) target.classList.add('active');
 
-    return `INR ${lo} lakh to ${hi} lakh`;
-  }
-
-  // ─── Sidebar Progress Update ───────────────────────────────────────
-  function updateSidebar() {
-    document.querySelectorAll('.v-step').forEach((el, i) => {
-      el.classList.remove('active', 'done');
-      if (state.answers[i]) {
-        el.classList.add('done');
-        const numEl = el.querySelector('.v-step-num');
-        if (numEl) numEl.innerHTML = '<i data-feather="check" width="16" height="16"></i>';
-      } else {
-        const numEl = el.querySelector('.v-step-num');
-        if (numEl) numEl.textContent = (i + 1);
+      const globalNav = document.querySelector('.global-nav');
+      if (globalNav) {
+        globalNav.style.display = (id === 'screen-entry') ? 'none' : 'block';
       }
-    });
 
-    const firstUnanswered = state.answers.findIndex(a => !a);
-    if (firstUnanswered !== -1) {
-      const activeStep = document.getElementById(`vstep-${firstUnanswered}`);
-      if (activeStep) {
-        activeStep.classList.add('active');
-        activeStep.classList.remove('done');
-        const numEl = activeStep.querySelector('.v-step-num');
-        if (numEl) numEl.textContent = (firstUnanswered + 1);
+      if (id === 'screen-check') {
+        const q0 = document.getElementById('q-row-0');
+        if (q0) q0.style.display = 'block';
+        const sidebarTotal = document.getElementById('sidebar-total');
+        if (sidebarTotal) sidebarTotal.style.display = 'none';
+        if (typeof updateSidebar === 'function') updateSidebar();
       }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      feather.replace();
     }
 
-    const sidebarTotal = document.getElementById('sidebar-total');
-    const answeredCount = state.answers.filter(Boolean).length;
-    if (sidebarTotal) {
-      if (answeredCount >= 2) {
-        sidebarTotal.style.display = 'block';
-        document.getElementById('sidebar-range').textContent = computeRange();
-      } else {
-        sidebarTotal.style.display = 'none';
-      }
+    // Hide global nav on initial load if screen-entry is active
+    showScreen('screen-entry');
+
+    // ─── Live Range Calculation ────────────────────────────────────────
+    function computeRange() {
+      const revMap = {
+        'INR 25,000 to 50,000': { lo: 0.5, hi: 1.5 },
+        'INR 50,000 to 1 lakh': { lo: 1.5, hi: 3 },
+        'INR 1 lakh to 3 lakh': { lo: 3, hi: 6 },
+        'INR 3 lakh or more': { lo: 6, hi: 10 }
+      };
+      const ageBon = { 'Less than 1 year': 0, '1 to 3 years': 0.5, '3 to 5 years': 1, '5+ years': 1.5 };
+      const gstBon = { 'Yes, GST registered': 1, 'No, not GST registered': 0, 'Unsure': 0.25 };
+
+      const rev = revMap[state.answers[3]] || { lo: 1.5, hi: 5 };
+      const age = ageBon[state.answers[2]] || 0;
+      const gst = gstBon[state.answers[4]] || 0;
+
+      let lo = Math.max(1, Math.round((rev.lo + age * 0.3) * 10) / 10);
+      let hi = Math.min(10, Math.round((rev.hi + age * 0.5 + gst * 0.5) * 10) / 10);
+
+      return `INR ${lo} lakh to ${hi} lakh`;
     }
-    feather.replace();
-  }
 
-  // ─── Progressive Question Click ────────────────────────────────────
-  document.querySelectorAll('.option-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const q = parseInt(btn.dataset.q);
-      state.answers[q] = btn.dataset.val;
+    // ─── Progressive Unfolding Form Controller ─────────────────────────
+    function selectOption(el, qInput, val) {
+      if (!el || qInput === undefined || !val) return;
+      const q = parseInt(qInput, 10);
+      if (isNaN(q)) return;
 
-      document.querySelectorAll(`[data-q="${q}"]`).forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
+      state.answers[q] = val;
 
-      setTimeout(() => {
-        const row = document.getElementById(`q-row-${q}`);
-        row.classList.add('answered');
-        document.getElementById(`badge-val-${q}`).textContent = state.answers[q];
+      // Highlight selected option button
+      const container = el.closest('.option-grid') || document;
+      container.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      el.classList.add('selected');
 
+      // Update sidebar stepper states
+      updateSidebar();
+
+      // Reveal next question row if available
+      if (q < 4) {
         const nextRow = document.getElementById(`q-row-${q + 1}`);
         if (nextRow) {
-          nextRow.classList.add('unlocked');
-          setTimeout(() => {
-            const navOffset = 90;
-            const elementPosition = nextRow.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
-          }, 120);
+          const isAlreadyVisible = (nextRow.style.display === 'block');
+          nextRow.style.setProperty('display', 'block', 'important');
+          if (!isAlreadyVisible) {
+            nextRow.classList.add('q-row-unveiled');
+            setTimeout(() => {
+              nextRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 60);
+          }
         }
+      }
 
-        if (state.answers.every(Boolean)) {
-          const cta = document.getElementById('check-cta');
-          cta.style.display = 'flex';
-          setTimeout(() => {
-            const navOffset = 90;
-            const elementPosition = cta.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
-          }, 180);
-        }
-
-        updateSidebar();
-      }, 160);
-    });
-  });
-
-  function editAnswer(q) {
-    const row = document.getElementById(`q-row-${q}`);
-    row.classList.remove('answered');
-    state.answers[q] = null;
-    for (let i = q + 1; i < 5; i++) {
-      const nextRow = document.getElementById(`q-row-${i}`);
-      if (nextRow) {
-        nextRow.classList.remove('unlocked', 'answered');
-        state.answers[i] = null;
-        document.querySelectorAll(`[data-q="${i}"]`).forEach(b => b.classList.remove('selected'));
+      // Check if all questions are answered -> show submit CTA button
+      const allAnswered = state.answers.every(Boolean);
+      const submitCta = document.getElementById('check-submit-cta');
+      if (allAnswered && submitCta) {
+        submitCta.style.setProperty('display', 'block', 'important');
+        setTimeout(() => {
+          submitCta.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
       }
     }
-    document.querySelectorAll(`[data-q="${q}"]`).forEach(b => b.classList.remove('selected'));
-    document.getElementById('check-cta').style.display = 'none';
-    updateSidebar();
-    const navOffset = 90;
-    const elementPosition = row.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-  }
+    window.selectOption = selectOption;
 
-  // ─── Entry Nav Actions ─────────────────────────────────────────────
-  const btnStart = document.getElementById('btn-start'); if (btnStart) btnStart.addEventListener('click', () => showScreen('screen-check'));
-  const navCtaBtn = document.getElementById('nav-cta-btn'); if (navCtaBtn) navCtaBtn.addEventListener('click', (e) => { e.preventDefault(); showScreen('screen-check'); });
-  const btnCheckBack = document.getElementById('btn-check-back'); if (btnCheckBack) btnCheckBack.addEventListener('click', () => showScreen('screen-entry'));
-
-  // ─── Result Screen Actions ────────────────────────────────────────
-  document.getElementById('btn-see-estimate').addEventListener('click', () => {
-    document.getElementById('result-amount-display').textContent = computeRange();
-    const chips = document.getElementById('result-chips');
-    chips.innerHTML = '';
-    state.answers.forEach((ans, i) => {
-      if (!ans) return;
-      const c = document.createElement('div');
-      c.style.cssText = 'display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:var(--chip-bg); color:var(--chip-text); border-radius:100px; font-size:13px; font-weight:600;';
-      c.innerHTML = `<strong style="opacity:0.7;">${qLabels[i]}:</strong> ${ans}`;
-      chips.appendChild(c);
-    });
-    showScreen('screen-result');
-  });
-
-  document.getElementById('btn-result-back').addEventListener('click', () => showScreen('screen-check'));
-  document.getElementById('btn-result-change').addEventListener('click', () => showScreen('screen-check'));
-  document.getElementById('btn-to-application').addEventListener('click', () => showScreen('screen-form'));
-
-  // ─── Form Submission & Scroll Anchors ──────────────────────────────
-  document.getElementById('btn-form-back').addEventListener('click', () => showScreen('screen-result'));
-  document.getElementById('btn-form-continue').addEventListener('click', () => {
-    const name = document.getElementById('inp-name').value.trim();
-    const pan  = document.getElementById('inp-pan').value.trim();
-    let valid = true;
-
-    if (name.length < 3) {
-      document.getElementById('field-name').classList.add('has-error');
-      valid = false;
-    } else {
-      document.getElementById('field-name').classList.remove('has-error');
-    }
-
-    if (!/^[A-Z]{5}[0-9]{4}[A-Z]$/i.test(pan)) {
-      document.getElementById('field-pan').classList.add('has-error');
-      valid = false;
-    } else {
-      document.getElementById('field-pan').classList.remove('has-error');
-    }
-
-    if (!valid) return;
-
-    document.getElementById('rv-name').textContent     = document.getElementById('inp-name').value || 'Priya Sharma';
-    document.getElementById('rv-pan').textContent      = (document.getElementById('inp-pan').value || 'ABCPR1992M').toUpperCase();
-    document.getElementById('rv-phone').textContent    = '+91 ' + (document.getElementById('inp-phone').value || '9876543210');
-    document.getElementById('rv-biz-name').textContent = document.getElementById('inp-biz-name').value || 'ABC Textiles Private Limited';
-    document.getElementById('rv-biz-type').textContent = document.getElementById('inp-biz-type').value || 'Retail Store';
-    document.getElementById('rv-revenue').textContent  = document.getElementById('inp-revenue').value || 'INR 1 lakh to 3 lakh';
-
-    showScreen('screen-review');
-  });
-
-  function handleDragOver(e, key) { e.preventDefault(); document.getElementById(`upload-zone-${key}`).classList.add('dragging'); }
-  function handleDragLeave(e, key) { document.getElementById(`upload-zone-${key}`).classList.remove('dragging'); }
-  function handleDrop(e, key) { e.preventDefault(); document.getElementById(`upload-zone-${key}`).classList.remove('dragging'); const f = e.dataTransfer.files[0]; if (f) processFile(f, key); }
-  function handleFileSelect(e, key) { const f = e.target.files[0]; if (f) processFile(f, key); }
-  function processFile(file, key) {
-    if (file.size > 5 * 1024 * 1024) { alert('File size exceeds 5 MB limit.'); return; }
-    state.uploads[key] = file;
-    const fileContainer = document.getElementById(`upload-file-${key}`);
-    fileContainer.innerHTML = `
-      <div class="upload-file-item">
-        <div style="display:flex; align-items:center; gap:8px;">
-          <i data-feather="check-circle" width="16" height="16" style="color:var(--success);"></i>
-          <span style="font-size:13px; font-weight:600;">${file.name}</span>
-        </div>
-        <span style="font-size:12px; color:var(--text-muted);">${(file.size/1024/1024).toFixed(2)} MB &middot; Uploaded</span>
-      </div>`;
-    feather.replace();
-  }
-
-  // ─── Review & Submit ───────────────────────────────────────────────
-  document.getElementById('btn-review-back').addEventListener('click', () => showScreen('screen-form'));
-  document.getElementById('btn-submit').addEventListener('click', () => {
-    if (!document.getElementById('terms-checkbox').checked) {
-      alert('Please agree to terms and conditions before submitting.');
-      return;
-    }
-    document.getElementById('confirm-app-id').textContent = state.appId;
-    showScreen('screen-confirm');
-  });
-
-  // ─── Auto-Rotating Testimonial Carousel ─────────────────────────────
-  const testimonialSlides = [
-    {
-      name: "Rajesh Patel",
-      meta: "Owner, Patel Textiles • Surat",
-      quote: "“LoanMate transferred ₹5 Lakh directly to my vendor within 18 hours. No collateral, no stress, and zero paperwork upfront!”",
-      disbursed: "₹5,00,000 Disbursed",
-      photo: "story_rajesh.png"
-    },
-    {
-      name: "Meena Sharma",
-      meta: "Founder, Meena Apparel • Jaipur",
-      quote: "“Working capital for my boutique was approved in under 10 minutes. I bought inventory right before the festive season and doubled sales.”",
-      disbursed: "₹3,50,000 Disbursed",
-      photo: "story_meena.png"
-    },
-    {
-      name: "Gerard D'Souza",
-      meta: "Director, Apex Logistics • Goa",
-      quote: "“Expanded our transport fleet from 3 to 6 commercial trucks with fast NBFC funding. Transparent interest rates with zero hidden charges.”",
-      disbursed: "₹7,50,000 Disbursed",
-      photo: "story_gerard.png"
-    },
-    {
-      name: "Ananya Gupta",
-      meta: "Proprietor, Studio Krafts • Bengaluru",
-      quote: "“Got INR 4.2 Lakh disbursed without visiting any bank branch or filling complex paper forms. Super smooth digital experience!”",
-      disbursed: "₹4,20,000 Disbursed",
-      photo: "hero_business_owner.png"
-    }
-  ];
-
-  let currentSlideIndex = 0;
-  let slideInterval = null;
-
-  function setHeroSlide(index) {
-    currentSlideIndex = index;
-    const slide = testimonialSlides[index];
-    
-    const trackEl = document.getElementById('hero-slider-track');
-    const quoteEl = document.getElementById('htc-quote');
-    const avatarEl = document.getElementById('htc-avatar');
-    const nameEl = document.getElementById('htc-name');
-    const metaEl = document.getElementById('htc-meta');
-    const disbursedEl = document.getElementById('htc-disbursed');
-    const cardEl = document.getElementById('hero-testimonial-card');
-    
-    if (trackEl) {
-      trackEl.style.transform = `translateX(-${index * 25}%)`;
-    }
-
-    if (cardEl && quoteEl) {
-      cardEl.classList.add('slide-fade');
-      setTimeout(() => {
-        if (avatarEl) avatarEl.src = slide.photo;
-        if (quoteEl) quoteEl.textContent = slide.quote;
-        if (nameEl) nameEl.textContent = slide.name;
-        if (metaEl) metaEl.textContent = slide.meta;
-        if (disbursedEl && disbursedEl.querySelector('span')) {
-          disbursedEl.querySelector('span').textContent = slide.disbursed;
+    function submitEligibilityCheck() {
+      // Verify all 5 questions are answered
+      const firstUnanswered = state.answers.findIndex(a => !a);
+      if (firstUnanswered !== -1) {
+        const row = document.getElementById(`q-row-${firstUnanswered}`);
+        if (row) {
+          row.style.display = 'block';
+          const rect = row.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          window.scrollTo({ top: rect.top + scrollTop - 90, behavior: 'smooth' });
         }
-        cardEl.classList.remove('slide-fade');
-        feather.replace();
-      }, 200);
+        return;
+      }
+
+      // Reveal live estimate in sidebar only after user submits
+      const sidebarTotal = document.getElementById('sidebar-total');
+      if (sidebarTotal) {
+        sidebarTotal.style.display = 'block';
+        document.getElementById('sidebar-range').textContent = computeRange();
+      }
+
+      // Proceed to result screen
+      showScreen('screen-result');
     }
-  }
 
-  function startAutoRotation() {
-    if (slideInterval) clearInterval(slideInterval);
-    slideInterval = setInterval(() => {
-      const nextIdx = (currentSlideIndex + 1) % testimonialSlides.length;
-      setHeroSlide(nextIdx);
-    }, 3600);
-  }
+    function updateSidebar() {
+      const firstUnanswered = state.answers.findIndex(a => !a);
 
-  // Start auto rotation on page load
-  startAutoRotation();
+      for (let i = 0; i <= 4; i++) {
+        const stepEl = document.getElementById(`vstep-${i}`);
+        const numEl = stepEl ? stepEl.querySelector('.v-step-num') : null;
+        const subEl = document.getElementById(`vstep-sub-${i}`);
 
-  // ─── Init ──────────────────────────────────────────────────────────
-  feather.replace();
-</script>
+        if (!stepEl) continue;
+
+        stepEl.classList.remove('active', 'done');
+
+        if (state.answers[i]) {
+          stepEl.classList.add('done');
+          if (numEl) {
+            numEl.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+          }
+          if (subEl) {
+            subEl.textContent = state.answers[i];
+            subEl.style.color = '#78716c';
+          }
+        } else if (i === firstUnanswered || (firstUnanswered === -1 && i === 4)) {
+          stepEl.classList.add('active');
+          if (numEl) numEl.textContent = (i + 1);
+          if (subEl) {
+            subEl.textContent = 'In progress';
+            subEl.style.color = 'var(--accent)';
+          }
+        } else {
+          if (numEl) numEl.textContent = (i + 1);
+          if (subEl) subEl.textContent = '';
+        }
+      }
+    }
+
+    // ─── Helper for Safe Listener Attachment ────────────────────────────
+    function safeAddListener(id, event, handler) {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener(event, handler);
+    }
+
+    // ─── Auto-Rotating Testimonial Carousel ─────────────────────────────
+    const testimonialSlides = [
+      {
+        name: "Rajesh Patel",
+        meta: "Owner, Patel Textiles • Surat",
+        quote: "“LoanMate transferred ₹5 Lakh directly to my vendor within 18 hours. No collateral, no stress, and zero paperwork upfront!”",
+        disbursed: "₹5,00,000 Disbursed",
+        photo: "story_rajesh.png"
+      },
+      {
+        name: "Meena Sharma",
+        meta: "Founder, Meena Apparel • Jaipur",
+        quote: "“Working capital for my boutique was approved in under 10 minutes. I bought inventory right before the festive season and doubled sales.”",
+        disbursed: "₹3,50,000 Disbursed",
+        photo: "story_meena.png"
+      },
+      {
+        name: "Gerard D'Souza",
+        meta: "Director, Apex Logistics • Goa",
+        quote: "“Expanded our transport fleet from 3 to 6 commercial trucks with fast NBFC funding. Transparent interest rates with zero hidden charges.”",
+        disbursed: "₹7,50,000 Disbursed",
+        photo: "story_gerard.png"
+      },
+      {
+        name: "Ananya Gupta",
+        meta: "Proprietor, Studio Krafts • Bengaluru",
+        quote: "“Got INR 4.2 Lakh disbursed without visiting any bank branch or filling complex paper forms. Super smooth digital experience!”",
+        disbursed: "₹4,20,000 Disbursed",
+        photo: "hero_business_owner.png"
+      }
+    ];
+
+    let currentSlideIndex = 0;
+    let slideInterval = null;
+
+    function setHeroSlide(index) {
+      currentSlideIndex = index;
+      const slide = testimonialSlides[index];
+
+      const trackEl = document.getElementById('hero-slider-track');
+      const quoteEl = document.getElementById('htc-quote');
+      const avatarEl = document.getElementById('htc-avatar');
+      const nameEl = document.getElementById('htc-name');
+      const metaEl = document.getElementById('htc-meta');
+      const disbursedEl = document.getElementById('htc-disbursed');
+      const cardEl = document.getElementById('hero-testimonial-card');
+
+      if (trackEl) {
+        trackEl.style.transform = `translateX(-${index * 25}%)`;
+      }
+
+      if (cardEl && quoteEl) {
+        cardEl.classList.add('slide-fade');
+        setTimeout(() => {
+          if (avatarEl) avatarEl.src = slide.photo;
+          if (quoteEl) quoteEl.textContent = slide.quote;
+          if (nameEl) nameEl.textContent = slide.name;
+          if (metaEl) metaEl.textContent = slide.meta;
+          if (disbursedEl && disbursedEl.querySelector('span')) {
+            disbursedEl.querySelector('span').textContent = slide.disbursed;
+          }
+          cardEl.classList.remove('slide-fade');
+          feather.replace();
+        }, 200);
+      }
+    }
+
+    function startAutoRotation() {
+      if (slideInterval) clearInterval(slideInterval);
+      slideInterval = setInterval(() => {
+        const nextIdx = (currentSlideIndex + 1) % testimonialSlides.length;
+        setHeroSlide(nextIdx);
+      }, 3200);
+    }
+
+    // Start auto rotation immediately
+    startAutoRotation();
+
+    function advanceToReview(e) {
+      if (e && typeof e.preventDefault === 'function') e.preventDefault();
+
+      const nameInput = document.getElementById('inp-name');
+      const panInput = document.getElementById('inp-pan');
+      const phoneInput = document.getElementById('inp-phone');
+      const bizInput = document.getElementById('inp-biz-name');
+      const bizTypeInput = document.getElementById('inp-biz-type');
+      const revInput = document.getElementById('inp-revenue');
+
+      let name = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Priya Sharma';
+      let pan = panInput && panInput.value.trim() ? panInput.value.trim() : 'ABCPR1992M';
+
+      if (nameInput && !nameInput.value) nameInput.value = name;
+      if (panInput && !panInput.value) panInput.value = pan;
+
+      const rvName = document.getElementById('rv-name'); if (rvName) rvName.textContent = name;
+      const rvPan = document.getElementById('rv-pan'); if (rvPan) rvPan.textContent = pan.toUpperCase();
+      const rvPhone = document.getElementById('rv-phone'); if (rvPhone) rvPhone.textContent = '+91 ' + (phoneInput && phoneInput.value ? phoneInput.value : '9876543210');
+      const rvBizName = document.getElementById('rv-biz-name'); if (rvBizName) rvBizName.textContent = (bizInput && bizInput.value) ? bizInput.value : 'ABC Textiles Private Limited';
+      const rvBizType = document.getElementById('rv-biz-type'); if (rvBizType) rvBizType.textContent = (bizTypeInput && bizTypeInput.value) ? bizTypeInput.value : 'Retail Store';
+      const rvRevenue = document.getElementById('rv-revenue'); if (rvRevenue) rvRevenue.textContent = (revInput && revInput.value) ? revInput.value : 'INR 1 lakh to 3 lakh';
+
+      showScreen('screen-review');
+    }
+    window.advanceToReview = advanceToReview;
+
+    // ─── Entry Nav Actions ─────────────────────────────────────────────
+    safeAddListener('btn-start', 'click', () => showScreen('screen-check'));
+    safeAddListener('nav-cta-btn', 'click', (e) => {
+      if (e) e.preventDefault();
+      const activeScreen = document.querySelector('.screen.active');
+      const activeId = activeScreen ? activeScreen.id : '';
+      if (activeId === 'screen-form') {
+        advanceToReview(e);
+      } else if (activeId === 'screen-review') {
+        const btnSubmit = document.getElementById('btn-submit');
+        if (btnSubmit) btnSubmit.click();
+      } else {
+        showScreen('screen-check');
+      }
+    });
+    safeAddListener('btn-check-back', 'click', () => showScreen('screen-entry'));
+
+    // ─── Result Screen Actions ────────────────────────────────────────
+    safeAddListener('btn-see-estimate', 'click', () => {
+      const amtEl = document.getElementById('result-amount-display');
+      if (amtEl) amtEl.textContent = computeRange();
+      const chips = document.getElementById('result-chips');
+      if (chips) {
+        chips.innerHTML = '';
+        state.answers.forEach((ans, i) => {
+          if (!ans) return;
+          const c = document.createElement('div');
+          c.style.cssText = 'display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:var(--chip-bg); color:var(--chip-text); border-radius:100px; font-size:13px; font-weight:600;';
+          c.innerHTML = `<strong style="opacity:0.7;">${qLabels[i]}:</strong> ${ans}`;
+          chips.appendChild(c);
+        });
+      }
+      showScreen('screen-result');
+    });
+
+    safeAddListener('btn-result-back', 'click', () => showScreen('screen-check'));
+    safeAddListener('btn-result-change', 'click', () => showScreen('screen-check'));
+    safeAddListener('btn-to-application', 'click', () => showScreen('screen-form'));
+
+    // ─── Form Submission & Scroll Anchors ──────────────────────────────
+    safeAddListener('btn-form-back', 'click', () => showScreen('screen-result'));
+    safeAddListener('btn-form-continue', 'click', (e) => advanceToReview(e));
+
+    function handleDragOver(e, key) { e.preventDefault(); const u = document.getElementById(`upload-zone-${key}`); if (u) u.classList.add('dragging'); }
+    function handleDragLeave(e, key) { const u = document.getElementById(`upload-zone-${key}`); if (u) u.classList.remove('dragging'); }
+    function handleDrop(e, key) { e.preventDefault(); const u = document.getElementById(`upload-zone-${key}`); if (u) u.classList.remove('dragging'); const f = e.dataTransfer.files[0]; if (f) processFile(f, key); }
+    function handleFileSelect(e, key) { const f = e.target.files[0]; if (f) processFile(f, key); }
+
+    function triggerSimulatedUpload(key) {
+      const defaultName = key === 'pan' ? 'PAN_Card_Priya_Sharma.pdf' : 'Bank_Statement_6_Months.pdf';
+      processFile({ name: defaultName, size: (key === 'pan' ? 1.2 : 2.4) * 1024 * 1024 }, key);
+    }
+
+    async function processFile(file, key) {
+      if (file.size > 5 * 1024 * 1024) { alert('File size exceeds 5 MB limit.'); return; }
+      state.uploads[key] = file;
+
+      const fileContainer = document.getElementById(`upload-file-${key}`);
+      if (!fileContainer) return;
+
+      // 1. Show interactive progress & extraction status inside upload zone
+      fileContainer.innerHTML = `
+        <div class="upload-zone-processing" style="margin-top:12px; padding:16px; background:#fff7ed; border:1px dashed #fed7aa; border-radius:12px; display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div class="upload-spinner"></div>
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#c2410c;" id="upload-status-text-${key}">Scanning document &amp; extracting details...</div>
+              <div style="font-size:11.5px; color:#9a3412;">Auto-filling text fields below</div>
+            </div>
+          </div>
+          <div style="width:100%; background:#ffedd5; height:6px; border-radius:100px; overflow:hidden;">
+            <div id="upload-progress-bar-${key}" style="width:25%; height:100%; background:#ea580c; transition:width 0.3s ease; border-radius:100px;"></div>
+          </div>
+        </div>
+      `;
+
+      const progressBar = document.getElementById(`upload-progress-bar-${key}`);
+      const statusText = document.getElementById(`upload-status-text-${key}`);
+
+      // Initial scanning delay
+      await new Promise(r => setTimeout(r, 500));
+      if (progressBar) progressBar.style.width = '45%';
+      if (statusText) statusText.textContent = 'Populating fields one by one...';
+
+      // Define fields to populate sequentially
+      const fields = key === 'pan' ? [
+        { id: 'inp-name', parentId: 'field-name', val: 'Priya Sharma' },
+        { id: 'inp-dob', parentId: 'field-dob', val: '1992-05-14' },
+        { id: 'inp-pan', parentId: 'field-pan', val: 'ABCPR1992M' },
+        { id: 'inp-address', parentId: 'field-address', val: '123 Business Street, Sector 5' },
+        { id: 'inp-city', parentId: 'field-city', val: 'Mumbai' },
+        { id: 'inp-phone', parentId: 'field-phone', val: '9876543210' },
+        { id: 'inp-email', parentId: 'field-email', val: 'priya.sharma@email.com' }
+      ] : [
+        { id: 'inp-biz-name', parentId: 'field-biz-name', val: 'ABC Textiles Private Limited' },
+        { id: 'inp-biz-type', parentId: 'field-biz-type', val: 'Retail Store' },
+        { id: 'inp-industry', parentId: 'field-industry', val: 'Textiles' },
+        { id: 'inp-biz-age', parentId: 'field-biz-age', val: '3 to 5 years' },
+        { id: 'inp-revenue', parentId: 'field-revenue', val: 'INR 1 lakh to 3 lakh' },
+        { id: 'inp-gst-status', parentId: 'field-gst-status', val: 'Yes, registered' },
+        { id: 'inp-gst', parentId: 'field-gst', val: '27ABCPR1992M1Z0' }
+      ];
+
+      // Staggered fill with smooth scroll and glow highlight
+      for (let i = 0; i < fields.length; i++) {
+        const item = fields[i];
+        const el = document.getElementById(item.id);
+        const parentEl = document.getElementById(item.parentId) || el;
+
+        if (el) {
+          // Smooth scroll to active field
+          if (parentEl) {
+            parentEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+
+          // Populate value
+          el.value = item.val;
+
+          // Trigger visual highlight pulse
+          if (parentEl) {
+            parentEl.classList.add('field-highlight-autofill');
+            setTimeout(() => parentEl.classList.remove('field-highlight-autofill'), 1200);
+          }
+        }
+
+        // Update progress bar
+        const percent = 45 + Math.round(((i + 1) / fields.length) * 55);
+        if (progressBar) progressBar.style.width = `${percent}%`;
+
+        // Wait 350ms per field so the user visually sees every field populating smoothly
+        await new Promise(r => setTimeout(r, 350));
+      }
+
+      // Final Step: Complete state display
+      fileContainer.innerHTML = `
+        <div class="upload-file-item" style="display:flex; align-items:center; justify-content:space-between; padding:12px 16px; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; margin-top:10px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <i data-feather="check-circle" width="18" height="18" style="color:var(--success);"></i>
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#15803d;">${file.name}</div>
+              <div style="font-size:11.5px; color:#166534;">Document processed &bull; Details auto-populated below</div>
+            </div>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#15803d; background:#dcfce7; padding:4px 10px; border-radius:100px;">Uploaded &amp; Verified</span>
+        </div>
+      `;
+      feather.replace();
+    }
+
+    // ─── Review & Submit ───────────────────────────────────────────────
+    safeAddListener('btn-review-back', 'click', () => showScreen('screen-form'));
+    safeAddListener('btn-submit', 'click', () => {
+      const terms = document.getElementById('terms-checkbox');
+      if (terms && !terms.checked) {
+        alert('Please agree to terms and conditions before submitting.');
+        return;
+      }
+      const appEl = document.getElementById('confirm-app-id');
+      if (appEl) appEl.textContent = state.appId;
+      showScreen('screen-confirm');
+    });
+
+    // ─── Init ──────────────────────────────────────────────────────────
+    feather.replace();
+  </script>
 </body>
+
 </html>
