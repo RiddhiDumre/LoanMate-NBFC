@@ -1133,22 +1133,6 @@
           </div>
         </div>
 
-        <!-- Slider Arrow Navigation -->
-        <button class="slider-arrow arrow-left" onclick="prevSlide()" aria-label="Previous Slide">
-          <i data-feather="chevron-left" width="20" height="20"></i>
-        </button>
-        <button class="slider-arrow arrow-right" onclick="nextSlide()" aria-label="Next Slide">
-          <i data-feather="chevron-right" width="20" height="20"></i>
-        </button>
-
-        <!-- Carousel Dots Nav -->
-        <div class="carousel-dots" id="carousel-dots">
-          <button class="c-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
-          <button class="c-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
-          <button class="c-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
-          <button class="c-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
-        </div>
-
         <!-- Light Theme Floating Testimonial Card Overlay -->
         <div class="hero-testimonial-card-light" id="hero-testimonial-card" onclick="showScreen('screen-check')" style="cursor: pointer;">
           <div class="htc-header">
@@ -2230,7 +2214,6 @@
     const cardEl = document.getElementById('hero-testimonial-card');
     
     if (trackEl) {
-      // Shifting by 25% per frame because width is 400%
       trackEl.style.transform = `translateX(-${index * 25}%)`;
     }
 
@@ -2248,21 +2231,6 @@
         feather.replace();
       }, 200);
     }
-
-    const dots = document.querySelectorAll('.c-dot');
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-  }
-
-  function nextSlide() {
-    const nextIdx = (currentSlideIndex + 1) % testimonialSlides.length;
-    goToSlide(nextIdx);
-  }
-
-  function prevSlide() {
-    const prevIdx = (currentSlideIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
-    goToSlide(prevIdx);
   }
 
   function startAutoRotation() {
@@ -2273,12 +2241,7 @@
     }, 3600);
   }
 
-  function goToSlide(idx) {
-    setHeroSlide(idx);
-    startAutoRotation();
-  }
-
-  // Start rotation on page load
+  // Start auto rotation on page load
   startAutoRotation();
 
   // ─── Init ──────────────────────────────────────────────────────────
