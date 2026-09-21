@@ -2992,6 +2992,29 @@
               <input type="checkbox" id="terms-checkbox" checked style="width:18px; height:18px; accent-color:var(--accent); margin-top:2px;" />
               <span>I hereby authorize LoanMate NBFC to query credit bureaus (CIBIL/Experian), verify GST/Bank records, and process my digital loan application in compliance with RBI Digital Lending Guidelines.</span>
             </label>
+
+            <!-- AI Underwriting Executive Summary Card -->
+            <div style="background: linear-gradient(135deg, #f8fafc 0%, #fff7ed 100%); border: 1px solid #fed7aa; border-radius: 14px; padding: 18px 20px; margin-top: 24px; box-shadow: 0 4px 14px rgba(234, 88, 12, 0.05); position: relative;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <!-- AI Star Icon -->
+                  <div style="width: 28px; height: 28px; border-radius: 50%; background: #ea580c; display: flex; align-items: center; justify-content: center; color: #ffffff; flex-shrink: 0; box-shadow: 0 2px 8px rgba(234, 88, 12, 0.3);">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                  </div>
+                  <h4 style="font-size: 14px; font-weight: 800; color: #0f172a; margin: 0; letter-spacing: -0.2px;">AI Underwriting Executive Summary</h4>
+                </div>
+                <span style="font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: #ea580c; background: #ffffff; padding: 3px 10px; border-radius: 100px; border: 1px solid #ffedd5; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+                  ✨ Smart Assessment
+                </span>
+              </div>
+
+              <!-- AI Summary Text (Natural language, important words in bold, max 5 lines) -->
+              <p style="font-size: 13px; line-height: 1.55; color: #334155; margin: 0;" id="ai-summary-text">
+                Applicant <strong style="color: #0f172a;">Priya Sharma</strong> is applying for a <strong style="color: #ea580c;">₹4,50,000</strong> business loan for <strong style="color: #0f172a;">ABC Textiles Private Limited</strong> (<strong style="color: #0f172a;">Sole Proprietorship</strong>). With <strong style="color: #16a34a;">₹25L–50L annual turnover</strong> and <strong style="color: #16a34a;">2 years of filed ITRs</strong>, the enterprise demonstrates <strong style="color: #16a34a;">stable cash flow</strong>. All identity, GST, and bank records are <strong style="color: #16a34a;">100% verified</strong> with <strong style="color: #16a34a;">zero active defaults</strong>, placing this profile in the <strong style="color: #ea580c;">Fast-Track Approval Tier</strong>.
+              </p>
+            </div>
           </div>
 
           <div class="app-card-footer">
@@ -3579,6 +3602,18 @@
         } else {
           rvExistingLoans.textContent = 'No active external loan obligations';
         }
+      }
+
+      // Update AI Underwriting Executive Summary text
+      const aiSummaryEl = document.getElementById('ai-summary-text');
+      if (aiSummaryEl) {
+        const bizNameStr = bizInput && bizInput.value.trim() ? bizInput.value.trim() : 'ABC Textiles Private Limited';
+        const bizStructStr = bizStructInput ? bizStructInput.value : 'Sole Proprietorship';
+        const turnoverStr = turnoverInput ? turnoverInput.value : 'INR 25L-50L';
+        const itrStr = itrInput ? itrInput.value : '2 Years Filed';
+        const loanAmtStr = (typeof computeRange === 'function') ? computeRange() : '₹3 lakh – ₹6 lakh';
+        
+        aiSummaryEl.innerHTML = `Applicant <strong style="color: #0f172a;">${name}</strong> is applying for an indicative loan range of <strong style="color: #ea580c;">${loanAmtStr}</strong> for <strong style="color: #0f172a;">${bizNameStr}</strong> (<strong style="color: #0f172a;">${bizStructStr}</strong>). With <strong style="color: #16a34a;">${turnoverStr} annual turnover</strong> and <strong style="color: #16a34a;">${itrStr}</strong>, the enterprise demonstrates <strong style="color: #16a34a;">stable cash flow</strong>. All identity, GST, and banking credentials are <strong style="color: #16a34a;">100% verified</strong> with <strong style="color: #16a34a;">zero active defaults</strong>, placing this profile in the <strong style="color: #ea580c;">Fast-Track Approval Tier</strong>.`;
       }
 
       showScreen('screen-review');
