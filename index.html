@@ -2921,7 +2921,7 @@
 
           <div class="app-card-footer">
             <button type="button" class="btn btn-ghost" id="btn-review-back">Back</button>
-            <button type="button" class="btn btn-primary btn-pill" id="btn-submit">
+            <button type="button" class="btn btn-primary btn-pill" id="btn-submit" onclick="submitApplication(event)">
               Submit Application
               <i data-feather="send" width="18" height="18"></i>
             </button>
@@ -2935,50 +2935,205 @@
 
 
   <!-- ═══════════════════════════════════════════════════════════════
-     SCREEN 6: CONFIRMATION
+     SCREEN 6: APPLICATION STATUS TRACKER SCREEN
 ═══════════════════════════════════════════════════════════════════ -->
   <div id="screen-confirm" class="screen">
-    <div class="page-wrap" style="padding-top: 40px; padding-bottom: 80px;">
+    <div class="page-wrap" style="padding-top: 32px; padding-bottom: 60px;">
 
-      <div style="max-width: 800px; margin: 0 auto;">
-        <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
-          <div
-            style="width:56px; height:56px; background:var(--success-bg); border:1px solid #bbf7d0; color:var(--success); border-radius:50%; display:flex; align-items:center; justify-content:center;">
-            <i data-feather="check-circle" width="32" height="32"></i>
+      <div style="max-width: 860px; margin: 0 auto;">
+
+        <!-- Header Card: Application Reference & Status -->
+        <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 32px; border-radius: 24px; margin-bottom: 24px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.2); position: relative; overflow: hidden;">
+          <div style="position: absolute; right: -20px; top: -20px; width: 160px; height: 160px; background: rgba(234, 88, 12, 0.15); border-radius: 50%; pointer-events: none; filter: blur(30px);"></div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 48px; height: 48px; background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); color: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <i data-feather="check-circle" width="26" height="26"></i>
+              </div>
+              <div>
+                <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #ea580c; margin-bottom: 2px;">Application Status Tracker</div>
+                <h1 style="font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 800; color: #ffffff; line-height: 1.2;">Application Submitted &amp; Processing</h1>
+              </div>
+            </div>
+
+            <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); padding: 8px 16px; border-radius: 100px; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #10b981;">
+              <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; display: inline-block;"></span>
+              Underwriting In Progress
+            </div>
           </div>
-          <div>
-            <h1 class="h1" style="font-size:28px;">Application Submitted Successfully</h1>
-            <p class="body-lg">Your loan application has been received and is being processed.</p>
+
+          <!-- Application Key Data Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px;">
+            <div>
+              <div style="font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 600;">Application ID</div>
+              <div style="font-size: 20px; font-weight: 800; color: #38bdf8; font-family: monospace;" id="confirm-app-id">LN-284729</div>
+            </div>
+            <div>
+              <div style="font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 600;">Sanctioned Amount</div>
+              <div style="font-size: 20px; font-weight: 800; color: #ffffff;" id="status-sanction-amount">₹4,50,000</div>
+            </div>
+            <div>
+              <div style="font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 600;">Est. Disbursement</div>
+              <div style="font-size: 14px; font-weight: 700; color: #4ade80; margin-top: 3px;">Within 24 Hours</div>
+            </div>
+            <div>
+              <div style="font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 600;">Primary Bank</div>
+              <div style="font-size: 14px; font-weight: 700; color: #f1f5f9; margin-top: 3px;" id="status-bank-name">HDFC Bank</div>
+            </div>
           </div>
         </div>
 
-        <div
-          style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color:#fff; padding:36px; border-radius:28px; margin-bottom:28px;">
-          <div style="font-size:11px; font-weight:800; text-transform:uppercase; color:#94a3b8; margin-bottom:4px;">Your
-            Application ID</div>
-          <div style="font-size:36px; font-weight:800; letter-spacing:1px; color:#38bdf8;" id="confirm-app-id">LN-284729
-          </div>
-          <p style="font-size:14px; color:#cbd5e1; margin-top:6px;">Use this ID to track your application status
-            anytime.</p>
-        </div>
-
-        <div
-          style="background:var(--surface); border:1px solid var(--border); border-radius:28px; padding:36px; margin-bottom:28px;">
-          <h3 class="h3 mb-16">Contact & Support</h3>
-          <p class="body-sm mb-24" style="font-size:15px;">
-            Phone: <strong>1800-123-4567</strong> (Mon-Fri, 9 AM - 6 PM IST)<br>
-            Email: <strong>support@loanmate.com</strong>
-          </p>
-
-          <div style="display:flex; gap:14px;">
-            <button class="btn btn-primary btn-pill" onclick="alert('Tracking link sent to your mobile and email!')">
-              Track Application Status
+        <!-- Real-Time Status Progress Timeline -->
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 28px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+            <div>
+              <h3 style="font-size: 17px; font-weight: 800; color: #0f172a;">Live Processing Timeline</h3>
+              <p style="font-size: 12.5px; color: #64748b; margin-top: 2px;">Automated real-time updates from our underwriting engine.</p>
+            </div>
+            <button class="btn btn-secondary btn-pill" onclick="refreshStatusTimeline(event)" style="height: 36px; padding: 0 16px; font-size: 12.5px; border: 1px solid #cbd5e1; background: #f8fafc; display: flex; align-items: center; gap: 6px;">
+              <i data-feather="refresh-cw" width="14" height="14"></i> Refresh Status
             </button>
-            <button class="btn btn-secondary btn-pill" onclick="showScreen('screen-entry')">
-              Go to Dashboard
-            </button>
+          </div>
+
+          <!-- Timeline Stepper Nodes -->
+          <div style="display: flex; flex-direction: column; gap: 0; position: relative;">
+
+            <!-- Step 1 -->
+            <div style="display: flex; gap: 16px; position: relative; padding-bottom: 24px;">
+              <div style="position: absolute; left: 15px; top: 32px; bottom: 0; width: 2px; background: #22c55e;"></div>
+              <div style="width: 32px; height: 32px; border-radius: 50%; background: #dcfce7; border: 2px solid #22c55e; color: #15803d; display: flex; align-items: center; justify-content: center; z-index: 2; flex-shrink: 0;">
+                <i data-feather="check" width="16" height="16"></i>
+              </div>
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <div style="font-size: 14px; font-weight: 700; color: #0f172a;">Application Submitted &amp; RBI Consent Verified</div>
+                  <span style="font-size: 11px; color: #166534; font-weight: 600; background: #f0fdf4; padding: 2px 8px; border-radius: 4px;">Completed</span>
+                </div>
+                <div style="font-size: 12px; color: #64748b; margin-top: 2px;">Digital identity verification &amp; bureau consent authorization confirmed.</div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div style="display: flex; gap: 16px; position: relative; padding-bottom: 24px;">
+              <div style="position: absolute; left: 15px; top: 32px; bottom: 0; width: 2px; background: #22c55e;"></div>
+              <div style="width: 32px; height: 32px; border-radius: 50%; background: #dcfce7; border: 2px solid #22c55e; color: #15803d; display: flex; align-items: center; justify-content: center; z-index: 2; flex-shrink: 0;">
+                <i data-feather="check" width="16" height="16"></i>
+              </div>
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <div style="font-size: 14px; font-weight: 700; color: #0f172a;">Document Parsing &amp; KYC Verification</div>
+                  <span style="font-size: 11px; color: #166534; font-weight: 600; background: #f0fdf4; padding: 2px 8px; border-radius: 4px;">Completed</span>
+                </div>
+                <div style="font-size: 12px; color: #64748b; margin-top: 2px;">PAN, GSTIN, and Bank Statements extracted &amp; verified.</div>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div style="display: flex; gap: 16px; position: relative; padding-bottom: 24px;">
+              <div style="position: absolute; left: 15px; top: 32px; bottom: 0; width: 2px; background: #cbd5e1;"></div>
+              <div style="width: 32px; height: 32px; border-radius: 50%; background: #fff7ed; border: 2px solid #ea580c; color: #ea580c; display: flex; align-items: center; justify-content: center; z-index: 2; flex-shrink: 0;">
+                <i data-feather="clock" width="16" height="16"></i>
+              </div>
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <div style="font-size: 14px; font-weight: 700; color: #0f172a;">Automated Underwriting Analysis</div>
+                  <span style="font-size: 11px; color: #c2410c; font-weight: 700; background: #fff7ed; padding: 2px 8px; border-radius: 4px;">In Progress (~2 Mins)</span>
+                </div>
+                <div style="font-size: 12px; color: #64748b; margin-top: 2px;">Evaluating cash flow stability, CIBIL score, and turnover rules.</div>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div style="display: flex; gap: 16px; position: relative; padding-bottom: 24px;">
+              <div style="position: absolute; left: 15px; top: 32px; bottom: 0; width: 2px; background: #cbd5e1;"></div>
+              <div style="width: 32px; height: 32px; border-radius: 50%; background: #f8fafc; border: 2px solid #cbd5e1; color: #94a3b8; display: flex; align-items: center; justify-content: center; z-index: 2; flex-shrink: 0;">
+                <i data-feather="file-text" width="15" height="15"></i>
+              </div>
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <div style="font-size: 14px; font-weight: 700; color: #64748b;">Sanction Letter &amp; E-Sign</div>
+                  <span style="font-size: 11px; color: #64748b; font-weight: 500;">Pending Step</span>
+                </div>
+                <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">Digital sanction agreement ready for 1-click Aadhaar e-Sign.</div>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div style="display: flex; gap: 16px; position: relative;">
+              <div style="width: 32px; height: 32px; border-radius: 50%; background: #f8fafc; border: 2px solid #cbd5e1; color: #94a3b8; display: flex; align-items: center; justify-content: center; z-index: 2; flex-shrink: 0;">
+                <i data-feather="dollar-sign" width="15" height="15"></i>
+              </div>
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <div style="font-size: 14px; font-weight: 700; color: #64748b;">Bank Account Disbursement</div>
+                  <span style="font-size: 11px; color: #64748b; font-weight: 500;">Final Step</span>
+                </div>
+                <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">Direct bank transfer via NEFT/RTGS into primary account.</div>
+              </div>
+            </div>
+
           </div>
         </div>
+
+        <!-- Verified Application Details Card -->
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);">
+          <h3 style="font-size: 15px; font-weight: 800; color: #0f172a; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+            <i data-feather="shield-check" width="18" height="18" style="color: #16a34a;"></i> Verified Application Summary
+          </h3>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-size: 12.5px;">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #e2e8f0; padding-bottom: 4px;">
+                <span style="color: #64748b;">Applicant Name:</span>
+                <strong style="color: #0f172a;" id="status-applicant-name">Priya Sharma</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #e2e8f0; padding-bottom: 4px;">
+                <span style="color: #64748b;">PAN Number:</span>
+                <strong style="color: #0f172a;" id="status-applicant-pan">ABCPR1992M</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: #64748b;">Business Category:</span>
+                <strong style="color: #0f172a;" id="status-applicant-biz">Sole Proprietorship</strong>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #e2e8f0; padding-bottom: 4px;">
+                <span style="color: #64748b;">GSTIN Verification:</span>
+                <strong style="color: #16a34a;">27ABCPR1992M1Z0 (Verified)</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #e2e8f0; padding-bottom: 4px;">
+                <span style="color: #64748b;">Support Desk:</span>
+                <strong style="color: #0f172a;">1800-123-4567 (Toll Free)</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: #64748b;">Relationship Manager:</span>
+                <strong style="color: #ea580c;">Ankit Verma (+91 98112 34567)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action CTAs -->
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn btn-primary btn-pill" onclick="downloadSanctionLetter()" style="height: 46px; padding: 0 24px; font-size: 14px; font-weight: 700; background: #ea580c; border: none; border-radius: 100px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3);">
+              <i data-feather="download" width="16" height="16"></i>
+              Download Sanction Letter
+            </button>
+
+            <button class="btn btn-secondary btn-pill" onclick="alert('Notification sent! Relationship Manager Ankit Verma will call you within 15 minutes.')" style="height: 46px; padding: 0 20px; font-size: 13.5px; font-weight: 600; border: 1px solid #cbd5e1; background: #ffffff; color: #0f172a; border-radius: 100px; display: inline-flex; align-items: center; gap: 8px;">
+              <i data-feather="phone-call" width="15" height="15"></i>
+              Request Callback
+            </button>
+          </div>
+
+          <button class="btn btn-ghost" onclick="showScreen('screen-entry')" style="font-size: 13.5px; font-weight: 600; color: #64748b;">
+            Back to Home
+          </button>
+        </div>
+
       </div>
 
     </div>
@@ -3457,18 +3612,90 @@
       feather.replace();
     }
 
-    // ─── Review & Submit ───────────────────────────────────────────────
-    safeAddListener('btn-review-back', 'click', () => showScreen('screen-form'));
-    safeAddListener('btn-submit', 'click', () => {
+    // ─── Status Screen Helpers ─────────────────────────────────────────
+    function updateStatusScreenDetails() {
+      try {
+        const appEl = document.getElementById('confirm-app-id');
+        if (appEl) appEl.textContent = state.appId || ('LN-' + Math.floor(100000 + Math.random() * 900000));
+
+        const nameInput = document.getElementById('inp-name');
+        const panInput = document.getElementById('inp-pan');
+        const bizStructInput = document.getElementById('inp-biz-structure');
+        const bankInput = document.getElementById('inp-bank-name');
+
+        const name = (nameInput && nameInput.value.trim()) ? nameInput.value.trim() : 'Priya Sharma';
+        const pan = (panInput && panInput.value.trim()) ? panInput.value.trim().toUpperCase() : 'ABCPR1992M';
+        const biz = (bizStructInput && bizStructInput.value) ? bizStructInput.value : 'Sole Proprietorship';
+        const bank = (bankInput && bankInput.value) ? bankInput.value : 'HDFC Bank';
+
+        const nameEl = document.getElementById('status-applicant-name'); if (nameEl) nameEl.textContent = name;
+        const panEl = document.getElementById('status-applicant-pan'); if (panEl) panEl.textContent = pan;
+        const bizEl = document.getElementById('status-applicant-biz'); if (bizEl) bizEl.textContent = biz;
+        const bankEl = document.getElementById('status-bank-name'); if (bankEl) bankEl.textContent = bank;
+      } catch (err) {
+        console.error('Error updating status screen:', err);
+      }
+    }
+    window.updateStatusScreenDetails = updateStatusScreenDetails;
+
+    function refreshStatusTimeline(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const btn = e ? e.currentTarget : null;
+      if (btn) btn.style.opacity = '0.6';
+      setTimeout(() => {
+        if (btn) btn.style.opacity = '1';
+        alert('Application Status Refreshed: Automated Underwriting In Progress (Step 3 of 5). Sanction offer active!');
+      }, 500);
+    }
+    window.refreshStatusTimeline = refreshStatusTimeline;
+
+    function downloadSanctionLetter() {
+      const appName = document.getElementById('status-applicant-name')?.textContent || 'Applicant';
+      const appId = state.appId || 'LN-284729';
+      
+      const content = `====================================================
+LOANMATE NBFC - PRE-APPROVED SANCTION LETTER
+====================================================
+Application ID: ${appId}
+Borrower Name: ${appName}
+Sanctioned Amount: INR 4,50,000
+Loan Product: Business Working Capital Loan
+Interest Rate: 1.2% per month
+Tenure: 24 Months
+Disbursement SLA: Within 24 Hours
+
+Status: PRE-APPROVED & VERIFIED
+Issued by: LoanMate NBFC Underwriting Engine
+====================================================`;
+
+      const blob = new Blob([content], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Sanction_Letter_${appId}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+    window.downloadSanctionLetter = downloadSanctionLetter;
+
+    function submitApplication(e) {
+      if (e && typeof e.preventDefault === 'function') e.preventDefault();
       const terms = document.getElementById('terms-checkbox');
       if (terms && !terms.checked) {
         alert('Please agree to terms and conditions before submitting.');
         return;
       }
-      const appEl = document.getElementById('confirm-app-id');
-      if (appEl) appEl.textContent = state.appId;
+      updateStatusScreenDetails();
       showScreen('screen-confirm');
-    });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    window.submitApplication = submitApplication;
+
+    // ─── Review & Submit ───────────────────────────────────────────────
+    safeAddListener('btn-review-back', 'click', () => showScreen('screen-form'));
+    safeAddListener('btn-submit', 'click', (e) => submitApplication(e));
 
     // ─── Init ──────────────────────────────────────────────────────────
     feather.replace();
