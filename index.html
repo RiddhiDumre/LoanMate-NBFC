@@ -3313,7 +3313,7 @@
 
       const globalNav = document.querySelector('.global-nav');
       if (globalNav) {
-        globalNav.style.display = (id === 'screen-entry') ? 'none' : 'block';
+        globalNav.style.display = (id === 'screen-entry' || id === 'screen-confirm') ? 'none' : 'block';
       }
 
       if (id === 'screen-check') {
