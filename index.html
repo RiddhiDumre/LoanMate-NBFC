@@ -2994,34 +2994,35 @@
             </label>
 
             <!-- AI Underwriting Executive Summary Card -->
-            <div style="background: linear-gradient(135deg, #f8fafc 0%, #fff7ed 100%); border: 1px solid #fed7aa; border-radius: 14px; padding: 18px 20px; margin-top: 24px; box-shadow: 0 4px 14px rgba(234, 88, 12, 0.05); position: relative;">
-              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-                <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="background: #fafaf9; border: 1px solid #e7e5e4; border-radius: 14px; padding: 20px 22px; margin-top: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); position: relative;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
                   <!-- AI Star Icon -->
-                  <div style="width: 28px; height: 28px; border-radius: 50%; background: #ea580c; display: flex; align-items: center; justify-content: center; color: #ffffff; flex-shrink: 0; box-shadow: 0 2px 8px rgba(234, 88, 12, 0.3);">
+                  <div style="width: 28px; height: 28px; border-radius: 50%; background: #ea580c; display: flex; align-items: center; justify-content: center; color: #ffffff; flex-shrink: 0; box-shadow: 0 2px 6px rgba(234, 88, 12, 0.25);">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                     </svg>
                   </div>
                   <h4 style="font-size: 14px; font-weight: 800; color: #0f172a; margin: 0; letter-spacing: -0.2px;">AI Underwriting Executive Summary</h4>
                 </div>
-                <span style="font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: #ea580c; background: #ffffff; padding: 3px 10px; border-radius: 100px; border: 1px solid #ffedd5; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+                <span style="font-size: 11px; font-weight: 700; color: #475569; background: #ffffff; padding: 3px 10px; border-radius: 100px; border: 1px solid #e2e8f0;">
                   ✨ Smart Assessment
                 </span>
               </div>
 
-              <!-- AI Summary Text (Natural language, important words in bold, max 5 lines) -->
-              <p style="font-size: 13px; line-height: 1.55; color: #334155; margin: 0;" id="ai-summary-text">
-                Applicant <strong style="color: #0f172a;">Priya Sharma</strong> is applying for a <strong style="color: #ea580c;">₹4,50,000</strong> business loan for <strong style="color: #0f172a;">ABC Textiles Private Limited</strong> (<strong style="color: #0f172a;">Sole Proprietorship</strong>). With <strong style="color: #16a34a;">₹25L–50L annual turnover</strong> and <strong style="color: #16a34a;">2 years of filed ITRs</strong>, the enterprise demonstrates <strong style="color: #16a34a;">stable cash flow</strong>. All identity, GST, and bank records are <strong style="color: #16a34a;">100% verified</strong> with <strong style="color: #16a34a;">zero active defaults</strong>, placing this profile in the <strong style="color: #ea580c;">Fast-Track Approval Tier</strong>.
+              <!-- AI Summary Text (Unified dark neutral text color, bold words in #0f172a, max 5 lines) -->
+              <p style="font-size: 13.5px; line-height: 1.6; color: #334155; margin: 0;" id="ai-summary-text">
+                Applicant <strong style="color: #0f172a; font-weight: 700;">Priya Sharma</strong> is applying for an indicative loan range of <strong style="color: #0f172a; font-weight: 700;">₹3 lakh – ₹6 lakh</strong> for <strong style="color: #0f172a; font-weight: 700;">ABC Textiles Private Limited</strong> (<strong style="color: #0f172a; font-weight: 700;">Sole Proprietorship</strong>). With <strong style="color: #0f172a; font-weight: 700;">INR 25L-50L annual turnover</strong> and <strong style="color: #0f172a; font-weight: 700;">2 years of filed ITRs</strong>, the enterprise demonstrates stable cash flow. All identity, GST, and banking credentials are <strong style="color: #0f172a; font-weight: 700;">100% verified</strong> with zero active defaults, placing this profile in the <strong style="color: #0f172a; font-weight: 700;">Fast-Track Approval Tier</strong>.
               </p>
             </div>
           </div>
 
-          <div class="app-card-footer">
-            <button type="button" class="btn btn-ghost" id="btn-review-back">Back</button>
-            <button type="button" class="btn btn-primary btn-pill" id="btn-submit" onclick="submitApplication(event)">
+          <!-- Bottom Action Buttons Container (Generous top margin & padding gap) -->
+          <div class="app-card-footer" style="margin-top: 36px; padding-top: 24px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+            <button type="button" class="btn btn-ghost" id="btn-review-back" style="height: 48px; padding: 0 24px; font-weight: 600; font-size: 14px; color: #475569; border-radius: 100px;">Back</button>
+            <button type="button" class="btn btn-primary btn-pill" id="btn-submit" onclick="submitApplication(event)" style="height: 48px; padding: 0 32px; font-size: 15px; font-weight: 700; background: #ea580c; border: none; border-radius: 100px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3); cursor: pointer;">
               Submit Application
-              <i data-feather="send" width="18" height="18"></i>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
             </button>
           </div>
         </div>
@@ -3613,7 +3614,7 @@
         const itrStr = itrInput ? itrInput.value : '2 Years Filed';
         const loanAmtStr = (typeof computeRange === 'function') ? computeRange() : '₹3 lakh – ₹6 lakh';
         
-        aiSummaryEl.innerHTML = `Applicant <strong style="color: #0f172a;">${name}</strong> is applying for an indicative loan range of <strong style="color: #ea580c;">${loanAmtStr}</strong> for <strong style="color: #0f172a;">${bizNameStr}</strong> (<strong style="color: #0f172a;">${bizStructStr}</strong>). With <strong style="color: #16a34a;">${turnoverStr} annual turnover</strong> and <strong style="color: #16a34a;">${itrStr}</strong>, the enterprise demonstrates <strong style="color: #16a34a;">stable cash flow</strong>. All identity, GST, and banking credentials are <strong style="color: #16a34a;">100% verified</strong> with <strong style="color: #16a34a;">zero active defaults</strong>, placing this profile in the <strong style="color: #ea580c;">Fast-Track Approval Tier</strong>.`;
+        aiSummaryEl.innerHTML = `Applicant <strong style="color: #0f172a; font-weight: 700;">${name}</strong> is applying for an indicative loan range of <strong style="color: #0f172a; font-weight: 700;">${loanAmtStr}</strong> for <strong style="color: #0f172a; font-weight: 700;">${bizNameStr}</strong> (<strong style="color: #0f172a; font-weight: 700;">${bizStructStr}</strong>). With <strong style="color: #0f172a; font-weight: 700;">${turnoverStr} annual turnover</strong> and <strong style="color: #0f172a; font-weight: 700;">${itrStr}</strong>, the enterprise demonstrates stable cash flow. All identity, GST, and banking credentials are <strong style="color: #0f172a; font-weight: 700;">100% verified</strong> with zero active defaults, placing this profile in the <strong style="color: #0f172a; font-weight: 700;">Fast-Track Approval Tier</strong>.`;
       }
 
       showScreen('screen-review');
